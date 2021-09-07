@@ -1,0 +1,5 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement {counter:req-id}* {set:cellbgcolor:#CACCCE}|/req/req-class-core/bifh
+| A {set:cellbgcolor:#EEEEEE} |  An _big image file header_ SHALL follow the structure presented in <<bigtiff-file-header>> {set:cellbgcolor:#FFFFFF}
+|===

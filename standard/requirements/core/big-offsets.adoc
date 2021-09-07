@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement {counter:req-id}* {set:cellbgcolor:#CACCCE}|/req/req-class-core/big-offsets
+| A {set:cellbgcolor:#EEEEEE} | A BigTIFF SHALL begin with a 16 byte _big image file header_ (that replaces the TIFF v6 8 byte _image file header_) {set:cellbgcolor:#FFFFFF}
+| B {set:cellbgcolor:#EEEEEE} | An _big image file header_ SHALL point to the first _big image file directory_ (BIFD). A _big image file directory_ contains information about the image, as
+well as pointers to the actual image data in a similar way as a _image file directory_ does in TIFF version 6 {set:cellbgcolor:#FFFFFF}
+|===

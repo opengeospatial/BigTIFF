@@ -1,0 +1,32 @@
+== Terms and Definitions
+This document used the terms defined in https://portal.ogc.org/public_ogc/directives/directives.php[OGC Policy Directive 49], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.
+
+This document also uses terms defined in the OGC Standard for Modular specifications (https://portal.opengeospatial.org/files/?artifact_id=34762[OGC 08-131r3]), also known as the 'ModSpec'. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.
+
+For the purposes of this document, the following additional terms and definitions apply.
+
+big image file directory::
+A modified data structure containing the TIFF fields (identified by a tag) of a BigTIFF file.
+
+big image file header::
+A modified data structure at the beginning of a BigTIFF file.
+
+classic TIFF::
+A TIFF file that follows the TIFF specification version 6.0.
+
+field::
+Each entry on a image file directory or a big image file directory. A field is characterized by a tag numerical value and contains or points to the data.
+
+image file directory::
+A data structure containing a list of TIFF fields (identified by a tag) of a TIFF file.
+
+image file header::
+A data structure at the beginning of a TIFF file.
+
+tag::
+The identifying number of a field type in the image file directory or the big image file directory.
+
+NOTE: In previous versions of the TIFF specification, the term “tag” referred both to the identifying number of a TIFF field and to the entire field.
+
+TIFF::
+A tag-based file format for storing and interchanging raster images (source: TIFF specification version 6.0)

@@ -1,0 +1,45 @@
+[appendix]
+[[annex-classic-tiff-basic-struct-informative]]
+:appendix-caption: Annex
+== Classic TIFF v6 basic data structures (Informative)
+
+=== Image File Header
+
+[#classic-tiff-file-header,reftext='{table-caption} {counter:table-num}']
+.Classic TIFF file header (informative)
+[width = "100%",options="header"]
+|===
+| Offset | Datatype | Value
+| 0 | uint16 | Byte order indication
+| 2 | uint16 | Version number (always 42)
+| 4	| uint32 | Offset to first IFD
+|===
+
+
+=== Image File Directory
+[#classic-ifd,reftext='{table-caption} {counter:table-num}']
+.Classic IFD (infoormative)
+[width = "100%",options="header"]
+|===
+| Offset | Datatype | Value
+| 0 | uint16 | Number of tags in IFD (B)
+| 2+0*12 | Tag structure | First tag data
+| 2+1*12 | Tag structure | Second tag data
+...
+| 2+(B-1)*12 | Tag structure | Last tag data
+| 2+B*12 | uint32 | Offset to next IFD, if there is a next IFD or 0 otherwise
+|===
+
+Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:
+[#classic-tag-structure,reftext='{table-caption} {counter:table-num}']
+.Classic Tag structure (infoormative)
+[width = "100%",options="header"]
+|===
+| Offset | Datatype | Value
+| 0 | uint16 | Tag identifying code
+| 2 | uint16 | Datatype of tag data
+| 4 | uint32 | Number of values
+| 8 | x * Tag data datatype or uint32 offset | Tag data or offset to tag data
+|===
+
+In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it's written elsewhere, and pointed to.

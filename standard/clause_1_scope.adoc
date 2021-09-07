@@ -1,0 +1,2 @@
+== Scope
+This document describes as an OGC community standard the internal structure TIFF file that required more than 4Gigabytes. It also adds 3 new data types LONG8 (uint64) SLONG8 (int64) or IFD8 (uint64). The structure is similar to the TIFF specification version 6 but two essential data structures called Image File Header and Image File Directory are replaced to support the necessary longer integer numbers that acts as internal offsets of the file.

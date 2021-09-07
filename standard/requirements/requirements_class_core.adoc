@@ -1,0 +1,7 @@
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class Core* {set:cellbgcolor:#CACCCE}
+2+|http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core {set:cellbgcolor:#FFFFFF}
+|Target type |BigTIFF Encoder
+|Dependency |https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf
+|===

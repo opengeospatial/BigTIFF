@@ -1,0 +1,99 @@
+[[BigTIFFRequirements]]
+== BigTIFF requirements
+The original TIFF version 6 specification was not designed to support files bigger that 4Gigabytes. The BigTIFF standard provides a solution for a TIFF file that requires a file size bigger than 4 Gigabytes. In principle the BigTIFF standard will also support smaller files. However, files that do not require file size bigger than 4 Gigabytes or not using the new data types, should use TIFF version 6 specification instead, in order to ensure backwards compatibility with old implementations not supporting BigTIFF.
+
+A BigTIFF file (and a TIFF) is defined to be a sequence of 8-bit bytes, where the bytes are numbered from 0 to N. In a BigTIFF file, the largest possible TIFF file is 2^64^ bytes in length.
+
+=== Requirement Class Core
+include::requirements/requirements_class_core.adoc[]
+
+==== Basic format
+
+include::recommendations/core/PER_big-offsets.adoc[]
+
+include::requirements/core/big-offsets.adoc[]
+
+include::requirements/core/bifh.adoc[]
+
+The proposed BigTIFF structures
+
+[#bigtiff-file-header,reftext='{table-caption} {counter:table-num}']
+.BigTIFF file header (normative)
+[width = "100%",options="header",cols="10h,01h,~"]
+|===
+| Offset {set:cellbgcolor:#EEEEEE} | Datatype | Value
+| 0 {set:cellbgcolor:#FFFFFF} | uint16 | Byte order indication (use the values stated in the TIFF version 6 Image File Header Bytes 0-1)
+| 2 | uint16 | Version number (always 43)
+| 4 | uint16 | Size of offset in bytes Always 8 in BigTIFF (it could be 16 in a future version for superbig TIFFs)
+| 6 | uint16 | Reserved. Populate with 0
+| 8 | uint64 | Offset (in bytes) to first IFD
+|===
+
+(The <<annex-classic-tiff-basic-struct-informative>> contains the TIFF version 6 classic structures for comparison purposes)
+
+While the classic TIFF _image file header_ points to the first _Image File Directory_ (IFD), the BigTIFF _big image file header_ points to the first _Big Image File Directory_ (BIFD). In that sense IFD and BIFD are equivalent. Both IFD and BIFD can be located anywhere in the file. Every 'page' in a multi-page TIFF, classic TIFF or BigTIFF, is represented by exactly one IFD and one BIFD respectively.
+
+include::requirements/core/bifd.adoc[]
+
+An _Big Image File Directory_ (BIFD) consists of a 8-byte count of the number of directory entries (i.e., the number of fields), followed by a sequence of 20-byte field
+entries, followed by a 8-byte offset of the next BIFD (or 0 if no other BIFD is required).
+
+Every _Big Directory Entry_ takes up exactly 20 bytes in BigTIFF, and the complete BIFD looks like this:
+
+[#bigtiff-ifd-structure,reftext='{table-caption} {counter:table-num}']
+.BigTIFF Image File Directory (BIFD)
+[width = "100%",options="header",cols="20h,~,~"]
+|===
+| Offset {set:cellbgcolor:#EEEEEE} | Datatype | Value
+| 0 {set:cellbgcolor:#FFFFFF} | uint64 | Number of big directory entries in BIFD (B)
+| 8+0*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | First tag data
+| 8+1*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | Second tag data
+3+| ...
+| 8+(B-1)*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | Last tag data
+| 8+B*20 | uint64 | Offset to next BIFD, if there is a next BIFD or 0 otherwise
+|===
+
+A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This logical concept is implements as a _Directory Entry_ in the TIFF version 6 and it is implemented in here as a _Big Directory Entry_, plus the actual value if it doesn’t fit into the value/offset part, the last 8 bytes of the BIFD Entry.
+
+[#bigtiff-de-structure,reftext='{table-caption} {counter:table-num}']
+.BigTIFF Tag structure
+[width = "100%",options="header",cols="10h,~,~""]
+|===
+| Offset {set:cellbgcolor:#EEEEEE} | Datatype | Value
+| 0 {set:cellbgcolor:#FFFFFF} | uint16 | Tag identifying code. See a list of codes in the TIFF version 6 specification. The GeoTIFF standard add some extra Teg identifiers.
+| 2 | uint16 | Datatype of tag data. See <<datatype-values>>
+| 4 | uint64 | Number of values (it is not the total number of bytes but the number of values)
+| 12 | x * Tag data or uint64 offset | Tag data or offset to tag data
+|===
+
+Each TIFF field has an associated Count. This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.
+
+The same rule for value 'inlining' the tag data applies to both classic  TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by ans offset and written elsewere.
+
+The following table sumarizes the Tag datatypes. The "Types" description in the TIFF version 6 specification applies also for BigTIFF. In BigTIFF, some new types have been defined (see the last part of <<datatype-values>>)
+
+[#datatype-values,reftext='{table-caption} {counter:table-num}']
+.BigTIFF Datatype Tag values
+[width = "100%",options="header", cols="10,15,~,~"]
+|===
+| Value {set:cellbgcolor:#EEEEEE} | Name | Description | Source
+| 1 {set:cellbgcolor:#FFFFFF} | BYTE (uint8) | 8-bit unsigned integer | TIFF speciciation
+| 2 | ASCII | 8-bit byte that contains a 7-bit ASCII code; the last byte SHALL be a NUL character (binary zero) | TIFF specification
+| 3 | SHORT (uint16) |  16-bit (2-byte) unsigned integer | TIFF specification
+| 4 | LONG (uint32) | 32-bit (4-byte) unsigned integer | TIFF specification
+| 5 | RATIONAL | Two LONGs: the first represents the numerator of a fraction; the second, the denominator | TIFF specification
+| 6 | SBYTE | An 8-bit signed (twos-complement) integer | TIFF version 6
+| 7 | UNDEFINED | An 8-bit byte that may contain anything, depending on the definition of the field ^1^ | TIFF version 6
+| 8 | SSHORT (int16) | A 16-bit (2-byte) signed (twos-complement) integer | TIFF version 6
+| 9 | SLONG (int32) | A 32-bit (4-byte) signed (twos-complement) integer. | TIFF version 6
+| 10 | SRATIONAL | Two SLONGs:  the first represents the numerator of a fraction, the second the denominator | TIFF version 6
+| 11 | FLOAT | Single precision (4-byte) IEEE format | TIFF version 6
+| 12 | DOUBLE | Double precision (8-byte) IEEE format | TIFF version 6
+| 13 | IFD | A uint32 IFD offset | TIFF PageMaker version 6
+| 16 | LONG8 (uint64) | 64-bit (8-byte) unsigned integer | BigTIFF
+| 17 | SLONG8 (int64) | 64-bit (8-byte) signed integer | BigTIFF
+| 18 | IFD8 | A uint64 IFD offset | BigTIFF
+4+| ^a^ It can be used to store a complicated data structure in a single private field, The Count will be the number of bytes required to hold the data structure.
+|===
+
+include::recommendations/core/PER_long8.adoc[]

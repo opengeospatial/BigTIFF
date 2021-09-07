@@ -1,0 +1,13 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement {counter:req-id}* {set:cellbgcolor:#CACCCE}|/req/req-class-core/bifd
+| A {set:cellbgcolor:#EEEEEE} | There SHALL be at least ONE  _big image file directory_ in a TIFF file and each BIFD must have at least one entry.
+ {set:cellbgcolor:#FFFFFF}
+| B {set:cellbgcolor:#EEEEEE} | A _big image file directory_ SHALL follow the structure of _Big Directory Entries_ presented in <<bigtiff-ifd-structure>> {set:cellbgcolor:#FFFFFF}
+| C {set:cellbgcolor:#EEEEEE}  | The _big directory entries_ in a BIFD SHALL be sorted by code (in the same way than classic TIFF does) {set:cellbgcolor:#FFFFFF}
+| D {set:cellbgcolor:#EEEEEE} | Each _big directory entry_ SHALL follow the structure presented in <<bigtiff-de-structure>> {set:cellbgcolor:#FFFFFF}
+| E {set:cellbgcolor:#EEEEEE} | The tag _value_ SHALL be written inside the tag structure, in the _big directory entry_, if its size is smaller than or equal to 8 bytes. Otherwise, it's written elsewhere, and pointed to by the offset written as the value {set:cellbgcolor:#FFFFFF}
+| F {set:cellbgcolor:#EEEEEE} | In case of multibyte values (e.g a SHORT, LONG, etc), the byte order (II or MM) in the TIFF header SHALL govern the order of the bytes {set:cellbgcolor:#FFFFFF}
+| G {set:cellbgcolor:#EEEEEE} | The reader SHALL check the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. For example, ImageWidth
+and ImageLength are usually specified as having type SHORT, but images with more than 64K rows or columns should use the LONG field type. TIFF readers SHALL accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field. This allows a single procedure to retrieve any integer value, and makes reading more robust, and saves disk space in some situations {set:cellbgcolor:#FFFFFF}
+|===
