@@ -43,3 +43,28 @@ Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:
 |===
 
 In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it's written elsewhere, and pointed to.
+
+=== Datatype Tag values
+
+The following table summarizes the Tag datatypes. The "Types" description in the TIFF version 6 specification applies also for BigTIFF. In BigTIFF, some extra types have been defined
+
+[#datatype-values,reftext='{table-caption} {counter:table-num}']
+.BigTIFF Datatype Tag values
+[width = "100%",options="header", cols="10,15,~,~"]
+|===
+| Value {set:cellbgcolor:#EEEEEE} | Name | Description | Source
+| 1 {set:cellbgcolor:#FFFFFF} | BYTE (uint8) | 8-bit unsigned integer | TIFF specification
+| 2 | ASCII | 8-bit byte that contains a 7-bit ASCII code; the last byte SHALL be a NUL character (binary zero) | TIFF specification
+| 3 | SHORT (uint16) |  16-bit (2-byte) unsigned integer | TIFF specification
+| 4 | LONG (uint32) | 32-bit (4-byte) unsigned integer | TIFF specification
+| 5 | RATIONAL | Two LONGs: the first represents the numerator of a fraction; the second, the denominator | TIFF specification
+| 6 | SBYTE | An 8-bit signed (twos-complement) integer | TIFF version 6
+| 7 | UNDEFINED | An 8-bit byte that may contain anything, depending on the definition of the field ^a^ | TIFF version 6
+| 8 | SSHORT (int16) | A 16-bit (2-byte) signed (twos-complement) integer | TIFF version 6
+| 9 | SLONG (int32) | A 32-bit (4-byte) signed (twos-complement) integer. | TIFF version 6
+| 10 | SRATIONAL | Two SLONGs:  the first represents the numerator of a fraction, the second the denominator | TIFF version 6
+| 11 | FLOAT | Single precision (4-byte) IEEE format | TIFF version 6
+| 12 | DOUBLE | Double precision (8-byte) IEEE format | TIFF version 6
+| 13 | IFD | A uint32 IFD offset | TIFF PageMaker version 6
+4+| ^a^ It can be used to store a complicated data structure in a single private field, The Count will be the number of bytes required to hold the data structure.
+|===

@@ -53,7 +53,7 @@ Every _Big Directory Entry_ takes up exactly 20 bytes in BigTIFF, and the comple
 | 8+B*20 | uint64 | Offset to next BIFD, if there is a next BIFD or 0 otherwise
 |===
 
-A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This logical concept is implements as a _Directory Entry_ in the TIFF version 6 and it is implemented in here as a _Big Directory Entry_, plus the actual value if it doesn’t fit into the value/offset part, the last 8 bytes of the BIFD Entry.
+A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This logical concept is implements as a _Directory Entry_ in the TIFF version 6 and it is implemented in here as a _Big Directory Entry_, plus the actual value if it doesn't fit into the value/offset part, the last 8 bytes of the BIFD Entry.
 
 [#bigtiff-de-structure,reftext='{table-caption} {counter:table-num}']
 .BigTIFF Tag structure
@@ -68,32 +68,18 @@ A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This lo
 
 Each TIFF field has an associated Count. This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.
 
-The same rule for value 'inlining' the tag data applies to both classic  TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by ans offset and written elsewere.
+The same rule for value 'in-lining' the tag data applies to both classic  TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by an offset and written elsewhere.
 
-The following table sumarizes the Tag datatypes. The "Types" description in the TIFF version 6 specification applies also for BigTIFF. In BigTIFF, some new types have been defined (see the last part of <<datatype-values>>)
+The following table contains the Tag datatypes that are defined in BigTIFF, in addition to the ones defined in the TIFF specifications  (see the last part of <<datatype-values>>)
 
 [#datatype-values,reftext='{table-caption} {counter:table-num}']
 .BigTIFF Datatype Tag values
 [width = "100%",options="header", cols="10,15,~,~"]
 |===
 | Value {set:cellbgcolor:#EEEEEE} | Name | Description | Source
-| 1 {set:cellbgcolor:#FFFFFF} | BYTE (uint8) | 8-bit unsigned integer | TIFF speciciation
-| 2 | ASCII | 8-bit byte that contains a 7-bit ASCII code; the last byte SHALL be a NUL character (binary zero) | TIFF specification
-| 3 | SHORT (uint16) |  16-bit (2-byte) unsigned integer | TIFF specification
-| 4 | LONG (uint32) | 32-bit (4-byte) unsigned integer | TIFF specification
-| 5 | RATIONAL | Two LONGs: the first represents the numerator of a fraction; the second, the denominator | TIFF specification
-| 6 | SBYTE | An 8-bit signed (twos-complement) integer | TIFF version 6
-| 7 | UNDEFINED | An 8-bit byte that may contain anything, depending on the definition of the field ^1^ | TIFF version 6
-| 8 | SSHORT (int16) | A 16-bit (2-byte) signed (twos-complement) integer | TIFF version 6
-| 9 | SLONG (int32) | A 32-bit (4-byte) signed (twos-complement) integer. | TIFF version 6
-| 10 | SRATIONAL | Two SLONGs:  the first represents the numerator of a fraction, the second the denominator | TIFF version 6
-| 11 | FLOAT | Single precision (4-byte) IEEE format | TIFF version 6
-| 12 | DOUBLE | Double precision (8-byte) IEEE format | TIFF version 6
-| 13 | IFD | A uint32 IFD offset | TIFF PageMaker version 6
 | 16 | LONG8 (uint64) | 64-bit (8-byte) unsigned integer | BigTIFF
 | 17 | SLONG8 (int64) | 64-bit (8-byte) signed integer | BigTIFF
 | 18 | IFD8 | A uint64 IFD offset | BigTIFF
-4+| ^a^ It can be used to store a complicated data structure in a single private field, The Count will be the number of bytes required to hold the data structure.
 |===
 
 include::recommendations/core/PER_long8.adoc[]

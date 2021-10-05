@@ -1,4 +1,7 @@
 == References
 The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.
 
-Adobe Developers Association, TIFF Revision 6.0 Final, June 3, 1992, Adobe Systems Incorporated, https://www.adobe.io/open/standards/TIFF.html
+ISO 12234-2 Photography — Electronic still picture imaging — Removable memory —
+Part 2: Image data format — TIFF/EP
+
+NOTE: ISO 12234-2 is based on Adobe Developers Association, TIFF Revision 6.0 Final, June 3, 1992, Adobe Systems Incorporated, https://www.adobe.io/open/standards/TIFF.html

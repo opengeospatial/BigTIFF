@@ -6,27 +6,27 @@ This document also uses terms defined in the OGC Standard for Modular specificat
 For the purposes of this document, the following additional terms and definitions apply.
 
 big image file directory::
-A modified data structure containing the TIFF fields (identified by a tag) of a BigTIFF file.
+a modified data structure containing the TIFF fields (identified by a tag) of a BigTIFF file.
 
 big image file header::
-A modified data structure at the beginning of a BigTIFF file.
+a modified data structure at the beginning of a BigTIFF file.
 
 classic TIFF::
-A TIFF file that follows the TIFF specification version 6.0.
+a TIFF file that follows the ISO 12234-2
 
 field::
-Each entry on a image file directory or a big image file directory. A field is characterized by a tag numerical value and contains or points to the data.
+each entry on a image file directory or a big image file directory. A field is characterized by a tag numerical value and contains or points to the data (source: TIFF specification version 6.0)
 
 image file directory::
-A data structure containing a list of TIFF fields (identified by a tag) of a TIFF file.
+a data structure containing a list of TIFF fields (identified by a tag) of a TIFF file. (source: TIFF specification version 6.0)
 
 image file header::
-A data structure at the beginning of a TIFF file.
+a data structure at the beginning of a TIFF file. (source: TIFF specification version 6.0)
 
 tag::
-The identifying number of a field type in the image file directory or the big image file directory.
+the identifying number of a field type in the image file directory or the big image file directory. [TIFF v.6]
 
 NOTE: In previous versions of the TIFF specification, the term “tag” referred both to the identifying number of a TIFF field and to the entire field.
 
 TIFF::
-A tag-based file format for storing and interchanging raster images (source: TIFF specification version 6.0)
+a tag-based file format for storing and interchanging raster images (source: TIFF specification version 6.0)
