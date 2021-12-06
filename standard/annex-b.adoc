@@ -18,7 +18,7 @@
 
 === Image File Directory
 [#classic-ifd,reftext='{table-caption} {counter:table-num}']
-.Classic IFD (infoormative)
+.Classic IFD (informative)
 [width = "100%",options="header"]
 |===
 | Offset | Datatype | Value
@@ -32,7 +32,7 @@
 
 Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:
 [#classic-tag-structure,reftext='{table-caption} {counter:table-num}']
-.Classic Tag structure (infoormative)
+.Classic Tag structure (informative)
 [width = "100%",options="header"]
 |===
 | Offset | Datatype | Value
