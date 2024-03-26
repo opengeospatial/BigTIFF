@@ -1,0 +1,12 @@
+{
+        "1": {
+                "OGC_doc_number": "21-061",
+                "urn":"http://www.opengis.net/doc/CS/BigTIFF",
+                "title":"OGC BigTIFF community standard",
+                "path":"standard/standard_document.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri"
+                ]
+        }
+}
