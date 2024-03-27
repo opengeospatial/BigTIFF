@@ -19,7 +19,7 @@ The proposed BigTIFF structures
 
 [#bigtiff-file-header,reftext='{table-caption} {counter:table-num}']
 .BigTIFF file header (normative)
-[width = "100%",options="header",cols="10h,01h,~"]
+[width = "100%",options="header",cols="1h,1h,4h"]
 |===
 | Offset {set:cellbgcolor:#EEEEEE} | Datatype | Value
 | 0 {set:cellbgcolor:#FFFFFF} | uint16 | Byte order indication (use the values stated in the TIFF version 6 Image File Header Bytes 0-1)
