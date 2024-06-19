@@ -33,6 +33,8 @@ No security considerations have been made for this Standard.
 The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
 
 * UAB-CREAF
+* Geomatys
+* IGN-France
 
 [big]*vi.     Submitters*
 
@@ -41,4 +43,7 @@ All questions regarding this submission should be directed to the editor or the 
 |===
 |*Name* |*Affiliation*
 | Joan Maso | UAB-CREAF
+| Martin Desruisseaux | Geomatys
+| Gilles Cebelieu | IGN-F
+| Michel Leedahl | Michel Leedahl
 |===
