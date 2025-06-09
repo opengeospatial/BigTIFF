@@ -1,0 +1,19 @@
+[cols=">20h,<80d",width="100%"]
+|===
+|Test id: |/conf/conf-class-core/bifd
+|Requirement: |/req/req-class-core/bifd
+|Test purpose: | Verify that the section _big image file directory_ exists and is correctly encoded.
+|Test method: | Inspect that there is at least ONE  _big image file directory_ in a TIFF file and that each BIFD have at least one entry.
+
+Inspect that a _big image file directory_ follows the structure of _Big Directory Entries_ presented in <<bigtiff-ifd-structure>> 
+
+Inspect that _big directory entries_ in a BIFD are sorted by code (in the same way than classic TIFF does) 
+
+Inspect that each _big directory entry_ follows the structure presented in <<bigtiff-de-structure>> 
+
+Inspect that the tag _value_ is written inside the tag structure, in the _big directory entry_, if its size is smaller than or equal to 8 bytes. Otherwise, inspect that it's written elsewhere, and pointed to by the offset written as the value
+
+In case of multibyte values (e.g a SHORT, LONG, etc), Inspect that the byte order (II or MM) in the TIFF header governs the order of the bytes 
+
+In case of a client/reader implementation, inspect it checks the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. Inspect that the reader accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field.
+|===

@@ -1,8 +1,8 @@
 [[BigTIFFRequirements]]
 == BigTIFF requirements
-The BigTIFF standard provides a solution for a TIFF file that requires a file size larger than 4 Gigabytes. In principle the BigTIFF standard will also support smaller files. However, files that do not require file size bigger than 4 Gigabytes or not using the new data types, should use TIFF version 6 specification instead. This is in order to ensure backwards compatibility with old implementations not supporting BigTIFF.
+The BigTIFF standard provides a solution for a TIFF file that requires a file size larger than 4 Gigabytes. In principle, the BigTIFF standard will also support smaller files. However, files that do not require file size bigger than 4 Gigabytes or not using the new data types, should use TIFF version 6 specification instead. This is in order to ensure backwards compatibility with old TIFF implementations not supporting BigTIFF.
 
-A BigTIFF file (and a TIFF) is defined to be a sequence of 8-bit bytes, where the bytes are numbered from 0 to N. In a BigTIFF file, the largest possible TIFF file is 2^64^ bytes in length.
+A BigTIFF file (and a TIFF) is defined as a sequence of 8-bit bytes, where the bytes are numbered from 0 to N. In a BigTIFF file, the largest possible TIFF file is 2^64^ bytes in length.
 
 === Requirement Class Core
 include::requirements/requirements_class_core.adoc[]
@@ -11,11 +11,11 @@ include::requirements/requirements_class_core.adoc[]
 
 include::recommendations/core/PER_big-offsets.adoc[]
 
+NOTE: Commonly "permissions" are statements that emphasizes the usefulness of some possibilities that may be not obvious but do not contractic requirements. In this case we are forced to use a permission to overwrite requirements in the original TIFF specification and allow for 64 bit offsets.
+
 include::requirements/core/big-offsets.adoc[]
 
 include::requirements/core/bifh.adoc[]
-
-The proposed BigTIFF structures
 
 [#bigtiff-file-header,reftext='{table-caption} {counter:table-num}']
 .BigTIFF file header (normative)
@@ -26,12 +26,12 @@ The proposed BigTIFF structures
 | 2 | uint16 | Version number (always 43)
 | 4 | uint16 | Size of offset in bytes Always 8 in BigTIFF (it could be 16 in a future version for superbig TIFFs)
 | 6 | uint16 | Reserved. Populate with 0
-| 8 | uint64 | Offset (in bytes) to first IFD
+| 8 | uint64 | Offset (in bytes) to first BIFD
 |===
 
 (The <<annex-classic-tiff-basic-struct-informative>> contains the TIFF version 6 classic structures for comparison purposes).
 
-While the classic TIFF _image file header_ points to the first _Image File Directory_ (IFD), the BigTIFF _big image file header_ points to the first _Big Image File Directory_ (BIFD). In that sense IFD and BIFD are equivalent. Both IFD and BIFD can be located anywhere in the file. Every 'page' in a multi-page TIFF, classic TIFF or BigTIFF, is represented by exactly one IFD and one BIFD respectively.
+While the classic TIFF _image file header_ points to the first _Image File Directory_ (IFD), the BigTIFF _big image file header_ points to the first _Big Image File Directory_ (BIFD). In that sense IFD and BIFD are equivalent. Both IFD and BIFD can be located anywhere in the file. Every 'page' in a multi-page TIFF, either classic TIFF or BigTIFF, is represented by exactly one IFD and one BIFD respectively. Please note that BIFD and IFD can not be used together in the same file.
 
 include::requirements/core/bifd.adoc[]
 
@@ -53,7 +53,7 @@ Every _Big Directory Entry_ takes up exactly 20 bytes in BigTIFF, and the comple
 | 8+B*20 | uint64 | Offset to next BIFD, if there is a next BIFD or 0 otherwise
 |===
 
-A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This logical concept is implements as a _Directory Entry_ in the TIFF version 6 and it is implemented in here as a _Big Directory Entry_, plus the actual value if it does not fit into the value/offset part, the last 8 bytes of the BIFD Entry.
+A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This logical concept is implemented as a _Directory Entry_ in the TIFF version 6 and it is implemented in here as a _Big Directory Entry_, plus the actual value if it does not fit into the value/offset part, the last 8 bytes of the BIFD Entry.
 
 [#bigtiff-de-structure,reftext='{table-caption} {counter:table-num}']
 .BigTIFF Tag structure

@@ -2,5 +2,5 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Permission {counter:per-id}* |*/per/core/big-offsets*
-| A | A BigTIFF is allowed to ignore the introduction and the first 2 subsections in Section 2 of the TIFF version 6 specification describing the _Image File Header_ and the _Image File directory_ and use a _Big Image File Header_ and a _Big Image File directory_ instead. When some part of the the _Image File directory_ subsection is still relevant for this standards it is explicitly referenced {set:cellbgcolor:#FFFFFF}
+| A | A BigTIFF is allowed to ignore the introduction and the first 2 subsections in Section 2 of the TIFF version 6 specification describing the _Image File Header_ and the _Image File directory_ and use a _Big Image File Header_ and a _Big Image File directory_ instead. When some part of the the _Image File directory_ subsection are still relevant for this standard, they are explicitly referenced {set:cellbgcolor:#FFFFFF}
 |===

@@ -3,5 +3,5 @@
 2+|*Requirements Class Core* {set:cellbgcolor:#CACCCE}
 2+|http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core {set:cellbgcolor:#FFFFFF}
 |Target type |BigTIFF Encoder
-|Dependency |https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf
+|Dependency |https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf (except for the Section 2 that is replaced by the requirements of this Standard)
 |===

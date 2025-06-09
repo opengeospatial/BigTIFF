@@ -95,21 +95,10 @@ include::clause_7_normative_text.adoc[]
 
 include::clause_8_media_types.adoc[]
 
-<<<
-////
-add or remove annexes after "A" as necessary
-////
 include::annex-a.adoc[]
 
-<<<
-include::annex-n.adoc[]
+include::annex-b.adoc[]
 
-<<<
-////
-Revision History should be the last annex before the Bibliography
-Bibliography should be the last annex
-////
 include::annex-history.adoc[]
 
-<<<
 include::annex-bibliography.adoc[]

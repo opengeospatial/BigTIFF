@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|Test id: |/conf/conf-class-core/bifh
+|Requirement: |/req/req-class-core/bifh
+|Test purpose: | Verify that the section _big image file header_ exists and is correctly encoded.
+|Test method: | Inspect that a _big image file header_ follows the structure presented in <<bigtiff-file-header>>
+|===

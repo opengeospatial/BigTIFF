@@ -1,0 +1,9 @@
+[width="90%",cols="2,6"]
+|===
+|Test id: |/conf/conf-class-core/bif-offsets
+|Requirement: |/req/req-class-core/bifd-offsets
+|Test purpose: | Verify that the section _big image file header_ uses 8 bit offsets.
+|Test method: | Inspect that aBigTIFF begins with a 16 byte _big image file header_ (that replaces the TIFF v6 8 byte _image file header_) 
+
+Inspect that the _big image file header_ points to the first _big image file directory_ (BIFD)
+|===

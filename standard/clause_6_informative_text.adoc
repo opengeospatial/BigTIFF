@@ -1,19 +1,21 @@
 == Overview
 
 === What is BigTIFF
-The TIFF file format uses 32bit offsets and, as such, is limited to a four GByte file size. This has been quite sufficient for many years. Today however, there is a need for a good multi-purpose open image file format that can handle huge images, or very large collections of images, that exceed the four GByte boundary.
+The TIFF file format was defined in mid-1980s as an extensible format. At that time 32bit offsets seemed sufficient, giving a limit to a four GByte file size. This has been quite sufficient for many years. Today however, there is a need for a good multi-purpose open image file format that can handle huge images, or very large collections of images, that together exceed the four GByte boundary.
 
-BigTIFF is backward compatible with the original TIFF and extends TIFF. The benefits of BigTIFF closely resembling TIFF are huge. For instance, existing TIFF libraries can quite easily extend their support for TIFF to also include this new variant. This results in a very short list of requirements. All the much-appreciated properties of the TIFF format that have been around and have been extended for more than a decade are inherited. All properly known tags are being reused, all supported bit depths and datatypes remain valid. The arbitrary number of ‘extra channels’, the tiling and striping schemes, the multitude of compression schemes, and the private tag scheme, that made TIFF very useful in pre-press as well as for storing scientific data, and many other applications, all remain intact. Yet, by changing the offset bit depth, BigTIFF files are no longer restrained by the 4 GByte limitation from which classic TIFF suffers. Since the BigTIFF format is based on the TIFF format, the reader is encouraged to familiarize with the current version of the TIFF specification.
+BigTIFF is very similar to the original TIFF and only changes some internal headers to support 64 bits offsets and data types. The benefits of BigTIFF closely resembling TIFF are huge. For instance, existing TIFF libraries can quite easily extend their support for TIFF to also include this variant. This results in a very short list of requirements. All the much-appreciated properties of the TIFF format that have been around and have been extended for decades are inherited. All properly known tags are being reused, all supported bit depths and datatypes remain valid. The arbitrary number of 'extra channels', the tiling and striping schemes, the multitude of compression schemes, and the private tag scheme, that made TIFF very useful in pre-press as well as for storing scientific data, and many other applications, all remain intact. Yet, by changing the offset bit depth, BigTIFF files are no longer restrained by the 4 GByte limitation from which classic TIFF suffers. 
+
+Since the BigTIFF format is based on the TIFF format, the reader is encouraged to familiarize with the current version of the TIFF specification before reading this.
 
 === Origin and compatibility
 
-This Standard collects the attempt to launch a new variant of TIFF, called BigTIFF, that closely resembles TIFF, but uses 64bit offsets instead. The results of the BigTIFF discussion resulted in an original specification exposed in the Aware Systems website: https://www.awaresystems.be/imaging/tiff/bigtiff.html. Aware Systems is managed by Joris Van Damme. This Standard starts with Joris Van Damme initial work and translates it into an OGC standard. Another source of information on the BigTIFF format is the BigTIFF design page at the LibTiff site http://bigtiff.org/.
+This Standard collects the attempt to launch a new variant of TIFF, called BigTIFF, that closely resembles TIFF, but uses 64bit offsets instead. The results of the BigTIFF discussion resulted in an original specification exposed in the Aware Systems website: https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html. Aware Systems was managed by Joris Van Damme but was discontinued after July 6th, 2025 and can only be accessible in backup copies done by the WebAchive iniciative. In order to preserve and consolidate the BigTIFF iniciative, the process of creating this Standard started with Joris Van Damme initial work and was translated it into an OGC standard. Another source of information on the BigTIFF format is the BigTIFF design page at the LibTiff site http://bigtiff.org/.
 
 There are at least two independent implementations of the original BigTIFF specification. (AWare Systems AsTiff, and LibTiff since version 4.0). This OGC Standard does not contradicts the original BigTIFF specification so the implementations of BigTIFF are immediatelly compatible with this Standard.
 
 === Changes to the original version
 
-In the elaboration of this Standard a new naming for the data types have been adopted.
+In the elaboration of this Standard a new naming for the data types have been adopted for clarity.
 
 [#classic-tiff-file-header,reftext='{table-caption} {counter:table-num}']
 .Changes in data types.
