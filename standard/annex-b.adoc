@@ -1,9 +1,10 @@
 [appendix]
 [[annex-classic-tiff-basic-struct-informative]]
 :appendix-caption: Annex
-== Classic TIFF v6 basic data structures (Informative)
+== Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)
 
 === Image File Header
+For comparison purposes, we reproduce the original TIFF version 6 TIFF header here.
 
 [#classic-tiff-file-header,reftext='{table-caption} {counter:table-num}']
 .Classic TIFF file header (informative)
@@ -17,6 +18,8 @@
 
 
 === Image File Directory
+For comparison purposes, we reproduce the original TIFF version 6 Image File Directory here.
+
 [#classic-ifd,reftext='{table-caption} {counter:table-num}']
 .Classic IFD (informative)
 [width = "100%",options="header"]
@@ -44,9 +47,14 @@ Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:
 
 In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it's written elsewhere, and pointed to.
 
+[#img_TIFFandBigTIFFstructure,reftext='{figure-caption} {counter:figure-num}']
+.TIFF and BigTIFF data structures side by side.
+image::figures/TIFFandBigTIFFstructure.png[width=800,align="center"]
+
+
 === Datatype Tag values
 
-The following table summarizes the Tag datatypes. The "Types" description in the TIFF version 6 specification applies also for BigTIFF. In BigTIFF, some extra types have been defined
+The following table summarizes the Tag datatypes aplicable for BigTIFF. This list includes "Types" described in the TIFF version 6 specification, as well as some extra types that have been defined by the BigTIFF (this Standard).
 
 [#datatype-values,reftext='{table-caption} {counter:table-num}']
 .BigTIFF Datatype Tag values
@@ -66,5 +74,10 @@ The following table summarizes the Tag datatypes. The "Types" description in the
 | 11 | FLOAT | Single precision (4-byte) IEEE format | TIFF version 6
 | 12 | DOUBLE | Double precision (8-byte) IEEE format | TIFF version 6
 | 13 | IFD | A uint32 IFD offset | TIFF PageMaker version 6
+| 16^b^ | LONG8 (uint64) | 64-bit (8-byte) unsigned integer | BigTIFF
+| 17 | SLONG8 (int64) | 64-bit (8-byte) signed integer | BigTIFF
+| 18 | IFD8 | A uint64 IFD offset | BigTIFF
 4+| ^a^ It can be used to store a complicated data structure in a single private field, The Count will be the number of bytes required to hold the data structure.
+
+^b^ numbers 14 and 15 have   no meaning.
 |===
