@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>OGC BigTIFF community standard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="book">
+<div id="header">
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+<table class="tableblock frame-none grid-none stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Open Geospatial Consortium</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Submission Date: &lt;yyyy-mm-dd&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;yyyy-mm-dd&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}" class="bare">http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    21-061</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: n.n</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC&#174; &lt;Implementation Standard / Abstract Specification / Best Practice&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Editor:   Joan Maso</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC BigTIFF community standard</strong></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-none stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Copyright notice</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Copyright &#169; &lt;year&gt; Open Geospatial Consortium</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">To obtain additional rights of use, visit <a href="http://www.ogc.org/legal/" class="bare">http://www.ogc.org/legal/</a></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Warning</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.</p>
+</div>
+<div class="paragraph">
+<p>Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.</p>
+</div>
+<table class="tableblock frame-all grid-none" style="width: 50%;">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document type:   	OGC® &lt;Standard/Abstract Specification/Best Practice&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document subtype:   	if applicable</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document stage:   	Draft</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document language: 	English</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>License Agreement</p>
+</div>
+<div class="paragraph">
+<p><span class="small">Permission is hereby granted by the Open Geospatial Consortium, ("Licensor"), free of charge and subject to the terms set forth below, to any person obtaining a copy of this Intellectual Property and any associated documentation, to deal in the Intellectual Property without restriction (except as set forth below), including without limitation the rights to implement, use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Intellectual Property, and to permit persons to whom the Intellectual Property is furnished to do so, provided that all copyright notices on the intellectual property are retained intact and that each person to whom the Intellectual Property is furnished agrees to the terms of this Agreement.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">If you modify the Intellectual Property, all copies of the modified Intellectual Property must include, in addition to the above copyright notice, a notice that the Intellectual Property includes modifications that have not been approved or adopted by LICENSOR.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">THIS LICENSE IS A COPYRIGHT LICENSE ONLY, AND DOES NOT CONVEY ANY RIGHTS UNDER ANY PATENTS THAT MAY BE IN FORCE ANYWHERE IN THE WORLD.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">THE INTELLECTUAL PROPERTY IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE DO NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE INTELLECTUAL PROPERTY WILL MEET YOUR REQUIREMENTS OR THAT THE OPERATION OF THE INTELLECTUAL PROPERTY WILL BE UNINTERRUPTED OR ERROR FREE. ANY USE OF THE INTELLECTUAL PROPERTY SHALL BE MADE ENTIRELY AT THE USER’S OWN RISK. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR ANY CONTRIBUTOR OF INTELLECTUAL PROPERTY RIGHTS TO THE INTELLECTUAL PROPERTY BE LIABLE FOR ANY CLAIM, OR ANY DIRECT, SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM ANY ALLEGED INFRINGEMENT OR ANY LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR UNDER ANY OTHER LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH THE IMPLEMENTATION, USE, COMMERCIALIZATION OR PERFORMANCE OF THIS INTELLECTUAL PROPERTY.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">This license is effective until terminated. You may terminate it at any time by destroying the Intellectual Property together with all copies in any form. The license will also terminate if you fail to comply with any term or condition of this Agreement. Except as provided in the following sentence, no such termination of this license shall require the termination of any third party end-user sublicense to the Intellectual Property which is in force as of the date of notice of such termination. In addition, should the Intellectual Property, or the operation of the Intellectual Property, infringe, or in LICENSOR&#8217;s sole opinion be likely to infringe, any patent, copyright, trademark or other right of a third party, you agree that LICENSOR, in its sole discretion, may terminate this license without any compensation or liability to you, your licensees or any other party. You agree upon termination of any kind to destroy or cause to be destroyed the Intellectual Property together with all copies in any form, whether held by you or by any third party.</span></p>
+</div>
+<div class="paragraph">
+<p><span class="small">Except as contained in this notice, the name of LICENSOR or of any other holder of a copyright in all or part of the Intellectual Property shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Intellectual Property without prior written authorization of LICENSOR or such copyright holder. LICENSOR is and shall at all times be the sole entity that may authorize you or any third party to use certification marks, trademarks or other special designations to indicate compliance with any LICENSOR standards or specifications. This Agreement is governed by the laws of the Commonwealth of Massachusetts. The application to this Agreement of the United Nations Convention on Contracts for the International Sale of Goods is hereby expressly excluded. In the event any provision of this Agreement shall be deemed unenforceable, void or invalid, such provision shall be modified so as to make it valid and enforceable, and as so modified the entire Agreement shall remain in full force and effect. No decision, action or inaction by LICENSOR shall be construed to be a waiver of any rights or remedies available to it.</span></p>
+</div>
+<div style="page-break-after: always;"></div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_scope">1. Scope</a></li>
+<li><a href="#_conformance">2. Conformance</a></li>
+<li><a href="#_references">3. References</a></li>
+<li><a href="#_terms_and_definitions">4. Terms and Definitions</a></li>
+<li><a href="#_conventions">5. Conventions</a>
+<ul class="sectlevel2">
+<li><a href="#_abbreviations">5.1. Abbreviations</a></li>
+<li><a href="#_identifiers">5.2. Identifiers</a></li>
+</ul>
+</li>
+<li><a href="#_overview">6. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_what_is_bigtiff">6.1. What is BigTIFF</a></li>
+<li><a href="#_origin_and_compatibility">6.2. Origin and compatibility</a></li>
+<li><a href="#_changes_to_the_original_version">6.3. Changes to the original version</a></li>
+</ul>
+</li>
+<li><a href="#BigTIFFRequirements">7. BigTIFF requirements</a>
+<ul class="sectlevel2">
+<li><a href="#_requirement_class_core">7.1. Requirement Class Core</a>
+<ul class="sectlevel3">
+<li><a href="#_basic_format">7.1.1. Basic format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_media_types_for_any_data_encodings">8. Media Types for any data encoding(s)</a></li>
+<li><a href="#_conformance_class_abstract_test_suite_normative">Annex A: Conformance Class Abstract Test Suite (Normative)</a>
+<ul class="sectlevel2">
+<li><a href="#_conformance_class_core">A.1. Conformance Class Core</a>
+<ul class="sectlevel3">
+<li><a href="#_requirement_1">A.1.1. Requirement 1</a></li>
+<li><a href="#_requirement_2">A.1.2. Requirement 2</a></li>
+<li><a href="#_requirement_3">A.1.3. Requirement 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#annex-classic-tiff-basic-struct-informative">Annex B: Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)</a>
+<ul class="sectlevel2">
+<li><a href="#_image_file_header">B.1. Image File Header</a></li>
+<li><a href="#_image_file_directory">B.2. Image File Directory</a></li>
+<li><a href="#_datatype_tag_values">B.3. Datatype Tag values</a></li>
+</ul>
+</li>
+<li><a href="#_revision_history">Annex C: Revision History</a></li>
+<li><a href="#Bibliography">Annex D: Bibliography</a></li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p><strong class="big">i.     Abstract</strong></p>
+</div>
+<div class="paragraph">
+<p>This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big">ii.    Keywords</strong></p>
+</div>
+<div class="paragraph">
+<p>The following are keywords to be used by search engines and document catalogues.</p>
+</div>
+<div class="paragraph">
+<p>ogcdoc, OGC document, TIFF, image format</p>
+</div>
+<div class="paragraph">
+<p><strong class="big">iii.   Preface</strong></p>
+</div>
+<div class="paragraph">
+<p>When the TIFF format was defined back in 1986 the storage capacity of the computers made difficult to image that a single file could ever be bigger than 4GBytes long. But today capacities makes it possible and if the file can be random accessed in small pieces, could be even useful to have a big remote sensing product in a single file.</p>
+</div>
+<div class="paragraph">
+<p>The basic BigTIFF design was first proposed in 2004 and refined in (<a href="https://www.asmail.be/msg0055453930.html)">this discussion</a> on the (<a href="https://www.awaresystems.be/)">Aware Systems</a> mailing list.  Contributors to the design discussion included Joris Van Damme, Lynn Quam, Frank Warmerdam, Chris Cox, Rob Tillaart, Dan Smith, Bob Freisenhahn, Andrey Kiselev, Phillip Crews, and Gerben Vos.
+The BigTIFF format was proposed in <a href="https://www.awaresystems.be/imaging/tiff/bigtiff.html" class="bare">https://www.awaresystems.be/imaging/tiff/bigtiff.html</a> maintained by Joris Van Damme and has been stable in recent years.</p>
+</div>
+<div class="paragraph">
+<p>GeoTIFF 1.1 was brought to the OGC as a community standard but, in the process, was made dependent form the classical TIFF specification. This document brings BigTIFF to the OGC as another community standard. It is expected that Next version of GeoTIFF supports both Classical TIFF and  BigTIFF.</p>
+</div>
+<div class="paragraph">
+<p>This document is an adaptation of the <a href="https://www.awaresystems.be/imaging/tiff/bigtiff.html" class="bare">https://www.awaresystems.be/imaging/tiff/bigtiff.html</a> content to an OGC language to bring it to the OGC standards process as a community standard. It was done with the intention of creating a transcription with no practical modifications, so old BigTIFF implementations would be compatible with this document.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong class="big">iv.    Security Considerations</strong></p>
+</div>
+<div class="paragraph">
+<p>No security considerations have been made for this Standard.</p>
+</div>
+<div class="paragraph">
+<p><strong class="big">v.    Submitting organizations</strong></p>
+</div>
+<div class="paragraph">
+<p>The following organizations submitted this Document to the Open Geospatial Consortium (OGC):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>UAB-CREAF</p>
+</li>
+<li>
+<p>Geomatys</p>
+</li>
+<li>
+<p>IGN-France</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong class="big">vi.     Submitters</strong></p>
+</div>
+<div class="paragraph">
+<p>All questions regarding this submission should be directed to the editor or the submitters:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Affiliation</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Joan Maso</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">UAB-CREAF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Martin Desruisseaux</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Geomatys</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Gilles Cebelieu</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IGN-F</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Michel Leedahl</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Michel Leedahl</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scope"><a class="anchor" href="#_scope"></a>1. Scope</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but two essential data structures called Image File Header and Image File Directory are replaced by Big File Header and Big Image File Directory to support the necessary longer integer numbers that act as internal offsets of the file. It also adds 3 new extra data types: LONG8 (uint64) SLONG8 (int64) or IFD8 (uint64).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conformance"><a class="anchor" href="#_conformance"></a>2. Conformance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This Standard defines a single conformance class</p>
+</div>
+<div class="paragraph">
+<p><strong><a href="#BigTIFFRequirements">BigTIFF requirements</a></strong> (<a href="http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core" class="bare">http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core</a>)</p>
+</div>
+<div class="paragraph">
+<p>This class defines the requirements of the BigTIFF format.</p>
+</div>
+<div class="paragraph">
+<p>Conformance with this Standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
+</div>
+<div class="paragraph">
+<p>In order to conform to this OGC Standard, a software implementation shall choose to implement:
+* Any one of the conformance levels specified in Annex A (normative).</p>
+</div>
+<div class="paragraph">
+<p>All requirements-classes and conformance-classes described in this document are owned by the Standard(s) identified.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>3. References</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.</p>
+</div>
+<div class="paragraph">
+<p>Adobe Developers Association, TIFF Revision 6.0 Final, June 3, 1992, Adobe Systems Incorporated, <a href="https://www.adobe.io/open/standards/TIFF.html" class="bare">https://www.adobe.io/open/standards/TIFF.html</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This Standard includes requirements that overwrite some basic data structures specified in Section 2 of the TIFF Revision 6.0. The rest of the TIFF Revision 6.0 still applies to this Standard.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terms_and_definitions"><a class="anchor" href="#_terms_and_definitions"></a>4. Terms and Definitions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document used the terms defined in <a href="https://portal.ogc.org/public_ogc/directives/directives.php">OGC Policy Directive 49</a>, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.</p>
+</div>
+<div class="paragraph">
+<p>This document also uses terms defined in the OGC Standard for Modular specifications (<a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131r3</a>), also known as the 'ModSpec'. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.</p>
+</div>
+<div class="paragraph">
+<p>For the purposes of this document, the following additional terms and definitions apply.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">big image file directory</dt>
+<dd>
+<p>a modified data structure containing the TIFF fields (identified by a tag) of a BigTIFF file.</p>
+</dd>
+<dt class="hdlist1">big image file header</dt>
+<dd>
+<p>a modified data structure at the beginning of a BigTIFF file.</p>
+</dd>
+<dt class="hdlist1">classic TIFF</dt>
+<dd>
+<p>a TIFF file that follows the TIFF specification version 6.0.</p>
+</dd>
+<dt class="hdlist1">field</dt>
+<dd>
+<p>each entry on a image file directory or a big image file directory. A field is characterized by a tag numerical value and contains or points to the data (source: TIFF specification version 6.0)</p>
+</dd>
+<dt class="hdlist1">image file directory</dt>
+<dd>
+<p>a data structure containing a list of TIFF fields (identified by a tag) of a TIFF file. (source: TIFF specification version 6.0)</p>
+</dd>
+<dt class="hdlist1">image file header</dt>
+<dd>
+<p>a data structure at the beginning of a TIFF file. (source: TIFF specification version 6.0)</p>
+</dd>
+<dt class="hdlist1">tag</dt>
+<dd>
+<p>the identifying number of a field type in the image file directory or the big image file directory. (source: TIFF specification version 6.0)</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+In previous versions of the TIFF specification, the term “tag” referred both to the identifying number of a TIFF field and to the entire field.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">TIFF</dt>
+<dd>
+<p>a tag-based file format for storing and interchanging raster images (source: TIFF specification version 6.0)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conventions"><a class="anchor" href="#_conventions"></a>5. Conventions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.</p>
+</div>
+<div class="sect2">
+<h3 id="_abbreviations"><a class="anchor" href="#_abbreviations"></a>5.1. Abbreviations</h3>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+BIFD
+</td>
+<td class="hdlist2">
+<p>BigTIFF Image File Directory</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+IFD
+</td>
+<td class="hdlist2">
+<p>Image File Directory</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+TIFF
+</td>
+<td class="hdlist2">
+<p>Tag Image File Format</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identifiers"><a class="anchor" href="#_identifiers"></a>5.2. Identifiers</h3>
+<div class="paragraph">
+<p>The normative provisions in this Standard are denoted by the URI</p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.opengis.net/spec/bigtiff/1.0" class="bare">http://www.opengis.net/spec/bigtiff/1.0</a></p>
+</div>
+<div class="paragraph">
+<p>All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>6. Overview</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_is_bigtiff"><a class="anchor" href="#_what_is_bigtiff"></a>6.1. What is BigTIFF</h3>
+<div class="paragraph">
+<p>The TIFF file format was defined in mid-1980s as an extensible format. At that time 32bit offsets seemed sufficient, giving a limit to a four GByte file size. This has been quite sufficient for many years. Today however, there is a need for a good multi-purpose open image file format that can handle huge images, or very large collections of images, that together exceed the four GByte boundary.</p>
+</div>
+<div class="paragraph">
+<p>BigTIFF is very similar to the original TIFF and only changes some internal headers to support 64 bits offsets and data types. The benefits of BigTIFF closely resembling TIFF are huge. For instance, existing TIFF libraries can quite easily extend their support for TIFF to also include this variant. This results in a very short list of requirements. All the much-appreciated properties of the TIFF format that have been around and have been extended for decades are inherited. All properly known tags are being reused, all supported bit depths and datatypes remain valid. The arbitrary number of 'extra channels', the tiling and striping schemes, the multitude of compression schemes, and the private tag scheme, that made TIFF very useful in pre-press as well as for storing scientific data, and many other applications, all remain intact. Yet, by changing the offset bit depth, BigTIFF files are no longer restrained by the 4 GByte limitation from which classic TIFF suffers.</p>
+</div>
+<div class="paragraph">
+<p>Since the BigTIFF format is based on the TIFF format, the reader is encouraged to familiarize with the current version of the TIFF specification before reading this.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_origin_and_compatibility"><a class="anchor" href="#_origin_and_compatibility"></a>6.2. Origin and compatibility</h3>
+<div class="paragraph">
+<p>This Standard collects the attempt to launch a new variant of TIFF, called BigTIFF, that closely resembles TIFF, but uses 64bit offsets instead. The results of the BigTIFF discussion resulted in an original specification exposed in the Aware Systems website: <a href="https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html" class="bare">https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html</a>. Aware Systems was managed by Joris Van Damme but was discontinued after July 6th, 2025 and can only be accessible in backup copies done by the WebAchive iniciative. In order to preserve and consolidate the BigTIFF iniciative, the process of creating this Standard started with Joris Van Damme initial work and was translated it into an OGC standard. Another source of information on the BigTIFF format is the BigTIFF design page at the LibTiff site <a href="http://bigtiff.org/" class="bare">http://bigtiff.org/</a>.</p>
+</div>
+<div class="paragraph">
+<p>There are at least two independent implementations of the original BigTIFF specification. (AWare Systems AsTiff, and LibTiff since version 4.0). This OGC Standard does not contradicts the original BigTIFF specification so the implementations of BigTIFF are immediatelly compatible with this Standard.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changes_to_the_original_version"><a class="anchor" href="#_changes_to_the_original_version"></a>6.3. Changes to the original version</h3>
+<div class="paragraph">
+<p>In the elaboration of this Standard a new naming for the data types have been adopted for clarity.</p>
+</div>
+<table id="classic-tiff-file-header" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Changes in data types.</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Original</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Adopted</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Word</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">unsigned short integer (2 bytes)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Unsigned long</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">unsigned long integer (4 bytes)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Signed 8Byte</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">int64</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">signed long long integer (8 bytes)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Unsigned 8Byte</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint64</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">unsigned long long integer (8 bytes)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="BigTIFFRequirements"><a class="anchor" href="#BigTIFFRequirements"></a>7. BigTIFF requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The BigTIFF standard provides a solution for a TIFF file that requires a file size larger than 4 Gigabytes. In principle, the BigTIFF standard will also support smaller files. However, files that do not require file size bigger than 4 Gigabytes or not using the new data types, should use TIFF version 6 specification instead. This is in order to ensure backwards compatibility with old TIFF implementations not supporting BigTIFF.</p>
+</div>
+<div class="paragraph">
+<p>A BigTIFF file (and a TIFF) is defined as a sequence of 8-bit bytes, where the bytes are numbered from 0 to N. In a BigTIFF file, the largest possible TIFF file is 2<sup>64</sup> bytes in length.</p>
+</div>
+<div class="sect2">
+<h3 id="_requirement_class_core"><a class="anchor" href="#_requirement_class_core"></a>7.1. Requirement Class Core</h3>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirements Class Core</strong> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core" class="bare">http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core</a> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">BigTIFF Encoder</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf" class="bare">https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf</a> (except for the Section 2 that is replaced by the requirements of this Standard)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_basic_format"><a class="anchor" href="#_basic_format"></a>7.1.1. Basic format</h4>
+<table id="per_big-offsets" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 1</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/per/core/big-offsets</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A BigTIFF is allowed to ignore the introduction and the first 2 subsections in Section 2 of the TIFF version 6 specification describing the <em>Image File Header</em> and the <em>Image File directory</em> and use a <em>Big Image File Header</em> and a <em>Big Image File directory</em> instead. When some part of the the <em>Image File directory</em> subsection are still relevant for this standard, they are explicitly referenced </p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Commonly "permissions" are statements that emphasizes the usefulness of some possibilities that may be not obvious but do not contractic requirements. In this case we are forced to use a permission to overwrite requirements in the original TIFF specification and allow for 64 bit offsets.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 1</strong> </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock">/req/req-class-core/big-offsets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">A </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A BigTIFF SHALL begin with a 16 byte <em>big image file header</em> (that replaces the TIFF v6 8 byte <em>image file header</em>) </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">B </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A <em>big image file header</em> SHALL point to the first <em>big image file directory</em> (BIFD). A <em>big image file directory</em> contains information about the image, as
+well as pointers to the actual image data in a similar way as a <em>image file directory</em> does in TIFF version 6 </p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 2</strong> </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock">/req/req-class-core/bifh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">A </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A <em>big image file header</em> SHALL follow the structure presented in <a href="#bigtiff-file-header">Table 2</a> </p></td>
+</tr>
+</tbody>
+</table>
+<table id="bigtiff-file-header" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. BigTIFF file header (normative)</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 66.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Offset </th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Datatype</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0 </p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint16</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Byte order indication (use the values stated in the TIFF version 6 Image File Header Bytes 0-1)</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint16</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version number (always 43)</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint16</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Size of offset in bytes Always 8 in BigTIFF (it could be 16 in a future version for superbig TIFFs)</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint16</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Reserved. Populate with 0</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint64</p></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Offset (in bytes) to first BIFD</p></th>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>(The <a href="#annex-classic-tiff-basic-struct-informative">Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)</a> contains the TIFF version 6 classic structures for comparison purposes).</p>
+</div>
+<div class="paragraph">
+<p>While the classic TIFF <em>image file header</em> points to the first <em>Image File Directory</em> (IFD), the BigTIFF <em>big image file header</em> points to the first <em>Big Image File Directory</em> (BIFD). In that sense IFD and BIFD are equivalent. Both IFD and BIFD can be located anywhere in the file. Every 'page' in a multi-page TIFF, either classic TIFF or BigTIFF, is represented by exactly one IFD and one BIFD respectively. Please note that BIFD and IFD can not be used together in the same file.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 3</strong> </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock">/req/req-class-core/bifd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">A </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">There SHALL be at least ONE  <em>big image file directory</em> in a TIFF file and each BIFD must have at least one entry.
+ </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">B </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A <em>big image file directory</em> SHALL follow the structure of <em>Big Directory Entries</em> presented in <a href="#bigtiff-ifd-structure">Table 3</a> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">C </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <em>big directory entries</em> in a BIFD SHALL be sorted by code (in the same way than classic TIFF does) </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">D </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Each <em>big directory entry</em> SHALL follow the structure presented in <a href="#bigtiff-de-structure">Table 4</a> </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">E </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The tag <em>value</em> SHALL be written inside the tag structure, in the <em>big directory entry</em>, if its size is smaller than or equal to 8 bytes. Otherwise, it&#8217;s written elsewhere, and pointed to by the offset written as the value </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">F </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">In case of multibyte values (e.g a SHORT, LONG, etc), the byte order (II or MM) in the TIFF header SHALL govern the order of the bytes </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">G </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The reader SHALL check the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. For example, ImageWidth
+and ImageLength are usually specified as having type SHORT, but images with more than 64K rows or columns should use the LONG field type. TIFF readers SHALL accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field. This allows a single procedure to retrieve any integer value, and makes reading more robust, and saves disk space in some situations </p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A <em>Big Image File Directory</em> (BIFD) consists of an 8-byte count of the number of directory entries (i.e., the number of fields), followed by a sequence of 20-byte field
+entries, followed by an 8-byte offset of the next BIFD (or 0 if no other BIFD is required).</p>
+</div>
+<div class="paragraph">
+<p>Every <em>Big Directory Entry</em> takes up exactly 20 bytes in BigTIFF, and the complete BIFD looks like this:</p>
+</div>
+<table id="bigtiff-ifd-structure" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. BigTIFF Image File Directory (BIFD)</caption>
+<colgroup>
+<col style="width: 20%;">
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Offset </th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Datatype</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0 </p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint64</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Number of big directory entries in BIFD (B)</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8+0*20</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Big directory entry structure (see <a href="#bigtiff-de-structure">Table 4</a>)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">First tag data</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8+1*20</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Big directory entry structure (see <a href="#bigtiff-de-structure">Table 4</a>)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Second tag data</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="3" style="background-color: #FFFFFF;"><p class="tableblock">&#8230;&#8203;</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8+(B-1)*20</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Big directory entry structure (see <a href="#bigtiff-de-structure">Table 4</a>)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Last tag data</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8+B*20</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint64</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Offset to next BIFD, if there is a next BIFD or 0 otherwise</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A <em>TIFF field</em> is a logical entity consisting of TIFF tag and its value. This logical concept is implemented as a <em>Directory Entry</em> in the TIFF version 6 and it is implemented in here as a <em>Big Directory Entry</em>, plus the actual value if it does not fit into the value/offset part, the last 8 bytes of the BIFD Entry.</p>
+</div>
+<table id="bigtiff-de-structure" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. BigTIFF Tag structure</caption>
+<colgroup>
+<col style="width: 10%;">
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Offset </th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Datatype</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0 </p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Tag identifying code <sup>1</sup></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Datatype of tag data. See <a href="#datatype-values">Table 5</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">uint64</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Number of values (it is not the total number of bytes but the number of values)</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">x * Tag data or uint64 offset</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Tag data or offset to tag data</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="3" style="background-color: #FFFFFF;"><p class="tableblock"><sup>1</sup> See a list of codes in the TIFF version 6 specification. The GeoTIFF standard adds some extra TIFF tag identifiers.</p></th>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Each TIFF field has an associated Count. This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.</p>
+</div>
+<div class="paragraph">
+<p>The same rule for value 'inlining' the tag data applies to both classic TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by an offset and written elsewhere.</p>
+</div>
+<div class="paragraph">
+<p>The following table contains the Tag datatypes that are defined in BigTIFF, in addition to the ones defined in the TIFF specifications  (see the last part of <a href="#datatype-values">Table 5</a>)</p>
+</div>
+<table id="datatype-values" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. BigTIFF Datatype Tag values</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 15%;">
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value </th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Description</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">LONG8 (uint64)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">64-bit (8-byte) unsigned integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">BigTIFF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">17</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">SLONG8 (int64)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">64-bit (8-byte) signed integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">BigTIFF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">IFD8</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">A uint64 IFD offset</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">BigTIFF</p></td>
+</tr>
+</tbody>
+</table>
+<table id="per_long8" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #EEEEEE;"><p class="tableblock"><strong>Permission 2</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><div class="content"><div class="paragraph">
+<p><strong>/per/core/long8</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #EEEEEE;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><div class="content"><div class="paragraph">
+<p>StripOffsets, StripByteCounts, TileOffsets, and TileByteCounts tags are allowed to have the datatype LONG8 in BigTIFF when necessary. LONG, and SHORT are still valid</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #EEEEEE;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><div class="content"><div class="paragraph">
+<p>Tags that point to other IFDs, such as the SubIFDs tag (see TIFF PageMaker version 6), are allowed to have the datatype IFD8. The datatypes IFD (and the not recommendable LONG) are still valid</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_media_types_for_any_data_encodings"><a class="anchor" href="#_media_types_for_any_data_encodings"></a>8. Media Types for any data encoding(s)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>IANA defines the image/tif media type for TIFF (<a href="https://www.iana.org/assignments/media-types/image/tiff" class="bare">https://www.iana.org/assignments/media-types/image/tiff</a>). Since the software is able to programaticaly differenciate between a TIFF and a BigTIFF, we suggest the use of the same media time for the BigTIFF.</p>
+</div>
+<div class="paragraph">
+<p>We also suggest the use of the same file extension ('tif' or 'tiff') despite other suggestions such as 'tf8' and 'btf' (see discussion in the LibTiff mailing list).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conformance_class_abstract_test_suite_normative"><a class="anchor" href="#_conformance_class_abstract_test_suite_normative"></a>Annex A: Conformance Class Abstract Test Suite (Normative)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the Abstract test of this BigTIFF Standard. However to implement a complete test on a BigTIFF file the dependency on TIFF version 6 should be taken into account. Unfortunately the TIFF version 6 file does not contain an abstract test to guide this developement</p>
+</div>
+<div class="sect2">
+<h3 id="_conformance_class_core"><a class="anchor" href="#_conformance_class_core"></a>A.1. Conformance Class Core</h3>
+<div class="sect3">
+<h4 id="_requirement_1"><a class="anchor" href="#_requirement_1"></a>A.1.1. Requirement 1</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test id:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">/conf/conf-class-core/bif-offsets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Requirement:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">/req/req-class-core/bifd-offsets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test purpose:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Verify that the section <em>big image file header</em> uses 8 bit offsets.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test method:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Inspect that aBigTIFF begins with a 16 byte <em>big image file header</em> (that replaces the TIFF v6 8 byte <em>image file header</em>)</p>
+<p class="tableblock">Inspect that the <em>big image file header</em> points to the first <em>big image file directory</em> (BIFD)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_requirement_2"><a class="anchor" href="#_requirement_2"></a>A.1.2. Requirement 2</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test id:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">/conf/conf-class-core/bifh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Requirement:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">/req/req-class-core/bifh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test purpose:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Verify that the section <em>big image file header</em> exists and is correctly encoded.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test method:</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Inspect that a <em>big image file header</em> follows the structure presented in <a href="#bigtiff-file-header">Table 2</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_requirement_3"><a class="anchor" href="#_requirement_3"></a>A.1.3. Requirement 3</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-right valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test id:</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">/conf/conf-class-core/bifd</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Requirement:</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">/req/req-class-core/bifd</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test purpose:</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Verify that the section <em>big image file directory</em> exists and is correctly encoded.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-right valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Test method:</p></th>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Inspect that there is at least ONE  <em>big image file directory</em> in a TIFF file and that each BIFD have at least one entry.</p>
+<p class="tableblock">Inspect that a <em>big image file directory</em> follows the structure of <em>Big Directory Entries</em> presented in <a href="#bigtiff-ifd-structure">Table 3</a></p>
+<p class="tableblock">Inspect that <em>big directory entries</em> in a BIFD are sorted by code (in the same way than classic TIFF does)</p>
+<p class="tableblock">Inspect that each <em>big directory entry</em> follows the structure presented in <a href="#bigtiff-de-structure">Table 4</a></p>
+<p class="tableblock">Inspect that the tag <em>value</em> is written inside the tag structure, in the <em>big directory entry</em>, if its size is smaller than or equal to 8 bytes. Otherwise, inspect that it&#8217;s written elsewhere, and pointed to by the offset written as the value</p>
+<p class="tableblock">In case of multibyte values (e.g a SHORT, LONG, etc), Inspect that the byte order (II or MM) in the TIFF header governs the order of the bytes</p>
+<p class="tableblock">In case of a client/reader implementation, inspect it checks the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. Inspect that the reader accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="annex-classic-tiff-basic-struct-informative"><a class="anchor" href="#annex-classic-tiff-basic-struct-informative"></a>Annex B: Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_image_file_header"><a class="anchor" href="#_image_file_header"></a>B.1. Image File Header</h3>
+<div class="paragraph">
+<p>For comparison purposes, we reproduce the original TIFF version 6 TIFF header here.</p>
+</div>
+<table id="classic-tiff-file-header-annex" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. Classic TIFF file header (informative)</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Offset</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Datatype</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Byte order indication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Version number (always 42)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Offset to first IFD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_image_file_directory"><a class="anchor" href="#_image_file_directory"></a>B.2. Image File Directory</h3>
+<div class="paragraph">
+<p>For comparison purposes, we reproduce the original TIFF version 6 Image File Directory here.</p>
+</div>
+<table id="classic-ifd" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. Classic IFD (informative)</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Offset</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Datatype</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Number of tags in IFD (B)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">2+0*12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Tag structure</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">First tag data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">2+1*12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Tag structure</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Second tag data
+&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">2+(B-1)*12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Tag structure</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Last tag data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">2+B*12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Offset to next IFD, if there is a next IFD or 0 otherwise</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:</p>
+</div>
+<table id="classic-tag-structure" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. Classic Tag structure (informative)</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Offset</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Datatype</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Tag identifying code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Datatype of tag data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">uint32</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Number of values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">x * Tag data datatype or uint32 offset</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #EEEEEE;"><p class="tableblock">Tag data or offset to tag data</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it&#8217;s written elsewhere, and pointed to.</p>
+</div>
+<div id="img_TIFFandBigTIFFstructure" class="imageblock text-center">
+<div class="content">
+<img src="figures/TIFFandBigTIFFstructure.png" alt="TIFFandBigTIFFstructure" width="800">
+</div>
+<div class="title">Figure 1. TIFF and BigTIFF data structures side by side.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datatype_tag_values"><a class="anchor" href="#_datatype_tag_values"></a>B.3. Datatype Tag values</h3>
+<div class="paragraph">
+<p>The following table summarizes the Tag datatypes aplicable for BigTIFF. This list includes "Types" described in the TIFF version 6 specification, as well as some extra types that have been defined by the BigTIFF (this Standard).</p>
+</div>
+<table id="datatype-values-annex" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. BigTIFF Datatype Tag values</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 15%;">
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Value </th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Description</th>
+<th class="tableblock halign-left valign-top" style="background-color: #EEEEEE;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1 </p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">BYTE (uint8)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8-bit unsigned integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF specification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">ASCII</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8-bit byte that contains a 7-bit ASCII code; the last byte SHALL be a NUL character (binary zero)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF specification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SHORT (uint16)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">16-bit (2-byte) unsigned integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF specification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">LONG (uint32)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">32-bit (4-byte) unsigned integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF specification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">RATIONAL</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Two LONGs: the first represents the numerator of a fraction; the second, the denominator</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF specification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SBYTE</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An 8-bit signed (twos-complement) integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">UNDEFINED</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An 8-bit byte that may contain anything, depending on the definition of the field <sup>a</sup></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SSHORT (int16)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A 16-bit (2-byte) signed (twos-complement) integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SLONG (int32)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A 32-bit (4-byte) signed (twos-complement) integer.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SRATIONAL</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Two SLONGs:  the first represents the numerator of a fraction, the second the denominator</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">FLOAT</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Single precision (4-byte) IEEE format</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DOUBLE</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Double precision (8-byte) IEEE format</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IFD</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A uint32 IFD offset</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TIFF PageMaker version 6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">16<sup>b</sup></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">LONG8 (uint64)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">64-bit (8-byte) unsigned integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">BigTIFF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">17</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SLONG8 (int64)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">64-bit (8-byte) signed integer</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">BigTIFF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IFD8</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A uint64 IFD offset</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">BigTIFF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4" style="background-color: #FFFFFF;"><p class="tableblock"><sup>a</sup> It can be used to store a complicated data structure in a single private field, The Count will be the number of bytes required to hold the data structure.</p>
+<p class="tableblock"><sup>b</sup> numbers 14 and 15 have   no meaning.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Annex C: Revision History</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Date</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Release</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Editor</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Primary clauses modified</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2016-04-28</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.1</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">G. Editor</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">initial version</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex D: Bibliography</h2>
+<div class="sectionbody">
+<div id="BigTIFF-Format" class="paragraph">
+<p>[1] Joris Van Damme. The BigTIFF File Format. In Internet: <a href="https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html" class="bare">https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html</a></p>
+</div>
+<div class="paragraph">
+<p>[2] Welcome to the BigTIFF version of the libtiff library. In Internet: <a href="http://bigtiff.org/" class="bare">http://bigtiff.org/</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2025-06-09 09:44:41 UTC
+</div>
+</div>
+</body>
+</html>
