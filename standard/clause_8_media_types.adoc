@@ -1,4 +1,4 @@
 == Media Types for any data encoding(s)
-IANA defines the image/tif media type for TIFF (https://www.iana.org/assignments/media-types/image/tiff). Since the software is able to programaticaly differenciate between a TIFF and a BigTIFF, we suggest the use of the same media time for the BigTIFF.
+IANA defines the image/tiff media type for TIFF (https://www.iana.org/assignments/media-types/image/tiff). Since the software is able to programaticaly differenciate between a TIFF and a BigTIFF, we suggest the use of the same media time for the BigTIFF.
 
-We also suggest the use of the same file extension ('tif' or 'tiff') despite other suggestions such as 'tf8' and 'btf' (see discussion in the LibTiff mailing list).
+We also suggest the use of the same file extension ('tif' or 'tiff') despite other suggestions such as 'tf8' and 'btf' (as some time ago discussed in the LibTiff mailing list).
