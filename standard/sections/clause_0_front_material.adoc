@@ -1,14 +1,9 @@
-[big]*i.     Abstract*
+[abstract]
+== Abstract
 
 This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future.
 
-[big]*ii.    Keywords*
-
-The following are keywords to be used by search engines and document catalogues.
-
-ogcdoc, OGC document, TIFF, image format
-
-[big]*iii.   Preface*
+== Preface
 
 When the TIFF format was defined back in 1986 the storage capacity of the computers made difficult (or even impossible) for an single file image to be bigger than 4GBytes long. But today capacities makes it viable and if the file can be random accessed in small pieces, could be even useful to have a big remote sensing product in a single file.
 
@@ -24,19 +19,22 @@ GeoTIFF 1.1 was brought to the OGC as a community standard and This document is 
 Recipients of this Standard are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
 ====
 
-[big]*iv.    Security Considerations*
+== Security considerations
+
+//If no security considerations have been made for this Standard, use the following text.
 
 No security considerations have been made for this Standard.
 
-[big]*v.    Submitting organizations*
+////
+If security considerations have been made for this Standard, follow the examples found in IANA or IETF documents. Please see the following example.
+“VRRP is designed for a range of internetworking environments that may employ different security policies. The protocol includes several authentication methods ranging from no authentication, simple clear text passwords, and strong authentication using IP Authentication with MD5 HMAC. The details on each approach including possible attacks and recommended environments follows.
+Independent of any authentication type VRRP includes a mechanism (setting TTL=255, checking on receipt) that protects against VRRP packets being injected from another remote network. This limits most vulnerabilities to local attacks.
+NOTE: The security measures discussed in the following sections only provide various kinds of authentication. No confidentiality is provided at all. This should be explicitly described as outside the scope....”
+////
 
-The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
 
-* UAB-CREAF
-* Geomatys
-* IGN-France
 
-[big]*vi.     Submitters*
+== Submitters
 
 All questions regarding this submission should be directed to the editor or the submitters:
 
@@ -47,3 +45,13 @@ All questions regarding this submission should be directed to the editor or the 
 | Gilles Cebelieu | IGN-F
 | Michel Leedahl | Michel Leedahl
 |===
+
+
+//== Contributors
+
+//This clause is optional.
+
+//Additional contributors to this Standard include the following:
+
+//Individual name(s), Organization
+

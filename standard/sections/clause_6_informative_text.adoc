@@ -1,3 +1,4 @@
+[obligation=informative]
 == Overview
 
 === What is BigTIFF

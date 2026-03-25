@@ -1,5 +1,8 @@
-[width="90%",cols="2,6"]
-|===
-|*Requirement {counter:req-id}* {set:cellbgcolor:#CACCCE}|/req/req-class-core/bifh
-| A {set:cellbgcolor:#EEEEEE} |  A _big image file header_ SHALL follow the structure presented in <<bigtiff-file-header>> {set:cellbgcolor:#FFFFFF}
-|===
+[[req_class_core_bifh]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/bifh
+part:: A _big image file header_ SHALL follow the structure presented in <<bigtiff-file-header>>
+====

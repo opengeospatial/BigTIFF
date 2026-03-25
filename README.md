@@ -8,10 +8,10 @@ This repository was originated from the work in Testbed 17 and the original docu
 
 The repo is organized as follows:
 
-* index.adoc - nothing in this document
 * standard - the main Standard document content
   - organized in multiple sections and directories
   - this is the only part needed to create a Standard
+  - starts by the standard/document.adoc
 
 This *candidate* standard is available in [HTML](https://docs.ogc.org/DRAFTS/21-061.html) and [PDF](https://docs.ogc.org/DRAFTS/21-061.pdf) formats.
 

@@ -1,12 +1,17 @@
 {
-        "1": {
+        "0":  {
                 "OGC_doc_number": "21-061",
                 "urn":"http://www.opengis.net/doc/CS/BigTIFF",
                 "title":"OGC BigTIFF community standard",
-                "path":"standard/standard_document.adoc",
+                "path":"standard/document.adoc",
                 "options": ["--trace"],
                 "a":[
-                        "data-uri"
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
                 ]
         }
-}
+ }

@@ -1,0 +1,2333 @@
+
+<!DOCTYPE html>
+<html lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><style>
+  <!--
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font-size: 100%;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  vertical-align: baseline;
+}
+
+html, body, div, span, applet, object, iframe,
+p, blockquote,
+a, abbr, acronym, address, big, cite,
+del, dfn, em, img, ins, q, s,
+small, strike, strong, sub, sup, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  font-family: "Overpass",sans-serif;
+}
+
+code, pre, tt, kbd, samp {
+  font-family: "Space Mono",monospace;
+  font-variant-ligatures: none;
+}
+
+code *, pre *, tt *, kbd *, samp * {
+  font-family: "Space Mono",monospace !important;
+  font-variant-ligatures: none;
+}
+
+p code, dt code, li code, label code, legend code, caption code, th code, td code,
+p tt, dt tt, li tt, label tt, legend tt, caption tt, th tt, td tt,
+p kbd, dt kbd, li kbd, label kbd, legend kbd, caption kbd, th kbd, td kbd,
+p samp, dt samp, li samp, label samp, legend samp, caption samp, th samp, td samp {
+  font-size: 0.8em;
+}
+
+sub, sup {
+  font-size: 0.75em;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Overpass",sans-serif;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Overpass",sans-serif;
+}
+
+blockquote, q {
+  quotes: none;
+}
+blockquote::before, blockquote::after, q::before, q::after {
+  content: "";
+  content: none;
+}
+
+.h2Annex {
+  font-family: "Overpass",sans-serif;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+dl dt p, dl dd p {
+  margin-top: 0;
+}
+dl dt {
+  grid-column-start: 1;
+}
+dl dd {
+  grid-column-start: 2;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+div.document-stage-band, div.document-type-band {
+  background-color: #333333;
+}
+
+a.TableFootnoteRef, span.TableFootnoteRef,
+a.FootnoteRef, span.FootnoteRef {
+  vertical-align: super;
+}
+
+.addition {
+  color: blue;
+}
+
+.deletion {
+  color: red;
+  text-decoration: line-through;
+}
+
+ruby {
+  ruby-position: over;
+  -webkit-ruby-position: before;
+}
+
+ruby ruby {
+  ruby-position: under;
+  -webkit-ruby-position: after;
+}
+
+/* code highlighting with line numbers */
+table.rouge-line-table td.rouge-gutter {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  padding-right: 1em;
+}
+
+table.rouge-line-table td.rouge-code {
+  -moz-user-select: all;
+  -ms-user-select: all;
+  -webkit-user-select: all;
+  user-select: all;
+}
+
+table.rouge-line-table,
+table.rouge-line-table th,
+table.rouge-line-table td {
+  width: auto;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+table.rouge-line-table pre {
+  margin: 0;
+  padding: 0;
+  overflow-x: visible;
+  font-size: 100%;
+}
+
+/* header § links */
+a.header {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.header:hover {
+  color: #a53221 !important;
+  background: inherit;
+  box-shadow: none;
+}
+
+a.header:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.anchor {
+  position: absolute;
+  z-index: 1001;
+  width: 1.5ex;
+  margin-left: -1.5ex;
+  display: block;
+  text-decoration: none !important;
+  visibility: hidden;
+  text-align: center;
+  font-weight: 400;
+}
+
+a.anchor::before {
+  content: "§";
+  font-size: 0.85em;
+  display: block;
+  padding-top: 0.1em;
+}
+
+a.anchor:hover {
+  color: #a53221;
+  background: inherit;
+  box-shadow: none;
+}
+
+h1 > a.anchor:hover,
+h2 > a.anchor:hover,
+h3 > a.anchor:hover,
+h4 > a.anchor:hover,
+h5 > a.anchor:hover,
+h6 > a.anchor:hover,
+.inline-header > a.anchor:hover,
+h1:hover > a.anchor,
+h2:hover > a.anchor,
+h3:hover > a.anchor,
+h4:hover > a.anchor,
+h5:hover > a.anchor,
+h6:hover > a.anchor,
+.inline-header:hover > a.anchor {
+  visibility: visible;
+}
+
+/* collapsible snippets: collapsible before hidable */
+.hidable {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 3px 0;
+  margin: 0;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: "▼";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.active:after {
+  content: "▲";
+}
+
+/* collapsible: */
+.collapsible + .hidable {
+  margin-top: 0;
+}
+
+.collapsible:not(.active) + .hidable {
+  overflow: hidden;
+  padding: 0;
+}
+
+.svg-container {
+  width: 100%; /* or any desired width */
+  display: block; /* ← removes unwanted inline spacing */
+}
+
+svg {
+  width: 100%;
+  height: auto; /* ← key to maintaining aspect ratio */
+  display: block; /* ← removes unwanted inline spacing */
+}
+
+#standard-band {
+  background-color: #0AC442;
+}
+
+#standard {
+  border-bottom: solid 3px #0AC442;
+}
+
+#directive-band {
+  background-color: #540D6E;
+}
+
+#directive {
+  border-bottom: solid 3px #540D6E;
+}
+
+#guide-band {
+  background-color: #D183C9;
+}
+
+#guide {
+  border-bottom: solid 3px #D183C9;
+}
+
+#specification-band {
+  background-color: #65AFFF;
+}
+
+#specification {
+  border-bottom: solid 3px #65AFFF;
+}
+
+#report-band {
+  background-color: #3A405A;
+}
+
+#report {
+  border-bottom: solid 3px #3A405A;
+}
+
+#amendment-band {
+  background-color: #F26430;
+}
+
+#amendment {
+  border-bottom: solid 3px #F26430;
+}
+
+#corrigendum-band {
+  background-color: #C84630;
+}
+
+#corrigendum {
+  border-bottom: solid 3px #C84630;
+}
+
+#administrative-band {
+  background-color: #BFAE48;
+}
+
+#administrative {
+  border-bottom: solid 3px #BFAE48;
+}
+
+#advisory-band {
+  background-color: #BD9391;
+}
+
+#advisory {
+  border-bottom: solid 3px #BD9391;
+}
+
+#proposal-band {
+  background-color: #39A0ED;
+}
+
+#proposal {
+  border-bottom: solid 3px #39A0ED;
+}
+
+#working-draft-band {
+  background-color: #2D7393;
+}
+
+#working-draft {
+  border-bottom: solid 3px #2D7393;
+}
+
+#committee-draft-band {
+  background-color: #2A6B7C;
+}
+
+#committee-draft {
+  border-bottom: solid 3px #2A6B7C;
+}
+
+#draft-standard-band {
+  background-color: #1C7F7A;
+}
+
+#draft-standard {
+  border-bottom: solid 3px #1C7F7A;
+}
+
+#final-draft-band {
+  background-color: #53C170;
+}
+
+#final-draft {
+  border-bottom: solid 3px #53C170;
+}
+
+#published-band {
+  background-color: #069E2D;
+}
+
+#published {
+  border-bottom: solid 3px #069E2D;
+}
+
+#withdrawn-band {
+  background-color: #004E64;
+}
+
+#withdrawn {
+  border-bottom: solid 3px #004E64;
+}
+
+#cancelled-band {
+  background-color: #2E382E;
+}
+
+#cancelled {
+  border-bottom: solid 3px #2E382E;
+}
+
+.coverpage-maturity, .coverpage-stage {
+  font-family: "Overpass",sans-serif;
+  font-weight: 400;
+  font-size: 1.3em;
+  margin: 0 0 2em 0;
+  text-transform: uppercase;
+}
+
+.icon-svg {
+  width: 100%;
+  color: #5ecf86;
+}
+
+.wrapper-top {
+  background: rgb(0, 51, 91);
+  background: linear-gradient(130deg, rgb(0, 51, 91) 45%, rgb(241, 248, 255) 100%);
+  color: #ffffff;
+  padding: 5em 0;
+  width: 100%;
+}
+
+.wrapper-top-bottom {
+  width: 0;
+  height: 0;
+  border-top: 100px solid #00335b;
+  border-right: 100px solid transparent;
+  position: absolute;
+}
+
+.document-type-band {
+  top: 260px;
+}
+
+.document-stage-band > :first-child {
+  height: 240px;
+}
+
+.coverpage-metadata {
+  margin-top: 35px;
+  padding-top: 15px;
+  margin-right: 25px;
+  border-top: solid 1px white;
+}
+
+.coverpage-metadata,
+.coverpage-alt-formats {
+  font-size: 12px;
+  font-family: "Overpass",sans-serif;
+  margin-left: 1em;
+  text-align: left;
+}
+.coverpage-metadata span,
+.coverpage-alt-formats span {
+  display: block;
+  text-align: left;
+}
+.coverpage-metadata span a,
+.coverpage-alt-formats span a {
+  color: white;
+}
+.coverpage-metadata span a:hover,
+.coverpage-alt-formats span a:hover {
+  text-decoration: underline;
+  background: none;
+  box-shadow: none !important;
+  font-weight: 400;
+}
+.coverpage-metadata .value,
+.coverpage-alt-formats .value {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+.coverpage-metadata .label,
+.coverpage-alt-formats .label {
+  font-size: 12px;
+  padding: 0;
+}
+
+.coverpage-alt-formats span {
+  display: inline;
+  text-align: left;
+}
+.coverpage-alt-formats span a {
+  padding-right: 5px;
+}
+
+.coverpage-title {
+  padding-bottom: 0.5em;
+  font-family: "Overpass",sans-serif;
+  font-weight: 100;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.coverpage-title span {
+  font-family: "Overpass",sans-serif;
+  font-size: 1.8em;
+  line-height: 1;
+}
+
+.docstage-box table {
+  width: auto;
+}
+.docstage-box th {
+  background-color: #93c0d6;
+}
+.docstage-box td {
+  vertical-align: top;
+  background-color: #daeef3;
+  padding: 0.5em;
+  border: 0;
+}
+.docstage-box th:first-child {
+  border-radius: 1em 0 0 0;
+}
+.docstage-box th:last-child {
+  border-radius: 0 1em 0 0;
+}
+.docstage-box tr:first-child {
+  border-radius: 0 0 0 1em;
+}
+.docstage-box tr:last-child {
+  border-radius: 0 1em 0 0;
+}
+.docstage-box tr:last-child > td:first-child {
+  border-radius: 0 0 0 1em;
+}
+.docstage-box tr:last-child > td:last-child {
+  border-radius: 0 0 1em 0;
+}
+
+.WordSection11 {
+  padding: 0 2em 0 3em;
+}
+
+.info-section {
+  padding: 0 2em 0 5em;
+}
+
+.prefatory-section {
+  padding: 0 3em 0 6em;
+}
+
+.zzSTDTitle1, .MsoCommentText {
+  display: none;
+}
+
+.coverpage {
+  text-align: center;
+  padding-left: 1.5em;
+}
+
+.coverpage-logo span, .coverpage-tc-name span {
+  font-family: "Overpass",sans-serif;
+  text-transform: none;
+  font-weight: 300;
+  margin-left: 1em;
+}
+
+.coverpage-logo img {
+  width: 500px;
+  height: auto;
+}
+
+.coverpage-tc-name {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin: 0.25em 0;
+}
+
+.copyright {
+  padding: 1em;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+/* Document Identity */
+.coverpage-doc-identity {
+  font-size: 2em;
+  line-height: 2em;
+}
+
+.coverpage-title .title-second {
+  display: none;
+}
+
+.coverpage-stage-block {
+  font-family: "Overpass",sans-serif;
+  font-weight: 600;
+  font-size: 1.25em;
+  margin: 2em 0em 2em 0em;
+  text-transform: uppercase;
+}
+
+.authors {
+  margin-top: 2em;
+}
+.authors span {
+  display: block;
+  line-height: 2;
+}
+.authors span.roletag {
+  display: inline-block;
+  font-size: 12px;
+  color: #00335b;
+  background-color: white;
+  padding: 2px 5px;
+  margin-left: 7px;
+  border-radius: 5px;
+}
+
+/* Draft Warning */
+.coverpage-warning {
+  border: #f36f36 solid 2px;
+  color: #f36f36 !important;
+  margin: 1em 2em;
+  color: #2e81c2;
+  padding: 2em 1em 1em 1em;
+  border-radius: 25px;
+}
+.coverpage-warning h1 {
+  font-family: "Overpass",sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+@media print {
+  .document-info, .copyright {
+    page-break-before: always;
+  }
+  .coverpage {
+    height: 23cm;
+  }
+  .info-section {
+    display: none;
+  }
+  .wrapper-top {
+    top: 0;
+    padding-top: 4cm;
+    padding-bottom: 4cm;
+  }
+  .wrapper-top-bottom {
+    margin-top: -5px;
+    display: none;
+  }
+}
+/* For Requirement Test anchors */
+p.RecommendationTitle:hover > a.anchor,
+p.RecommendationTitle > a.anchor:hover,
+p.RecommendationTestTitle:hover > a.anchor,
+p.RecommendationTestTitle > a.anchor:hover {
+  visibility: visible;
+}
+
+table a.anchor {
+  margin-left: -2em;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #00335b;
+  background-color: #f6f8fa;
+}
+body main {
+  margin: 0 3em 0 6em;
+}
+@media screen and (min-width: 768px) {
+  body {
+    padding-left: 360px;
+  }
+}
+@media print {
+  body {
+    padding-left: 0;
+  }
+}
+
+dl {
+  grid-template-columns: minmax(0, 1fr) 93%;
+}
+dl pre {
+  overflow-x: scroll;
+}
+
+#toc ul, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#toc ul li a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) ul li a {
+  padding: 5px 10px;
+}
+#toc ul a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) ul a {
+  color: #00335b;
+  text-decoration: none;
+  display: block;
+}
+#toc ul a:hover, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) ul a:hover {
+  box-shadow: none;
+  color: white;
+}
+#toc .h2, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .h2 {
+  padding-left: 30px;
+}
+#toc .h3, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .h3 {
+  padding-left: 50px;
+}
+#toc .h4, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .h4 {
+  padding-left: 70px;
+}
+#toc .h5, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .h5 {
+  padding-left: 90px;
+}
+#toc .h6, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .h6 {
+  padding-left: 110px;
+}
+#toc .toc-active, #toc li:hover, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .toc-active, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li:hover {
+  background: #00335b;
+  box-shadow: inset -5px 0px 10px -5px #00335b !important;
+}
+#toc .toc-active a, #toc li:hover a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .toc-active a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li:hover a {
+  color: white;
+}
+@media print {
+  #toc .toc-active, #toc li:hover, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .toc-active, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li:hover {
+    background: white;
+    box-shadow: none !important;
+  }
+  #toc .toc-active a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .toc-active a {
+    color: #00335b;
+  }
+  #toc li:hover a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li:hover a {
+    color: black;
+  }
+}
+#toc li a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li a {
+  font-size: 14px;
+}
+#toc li::before, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li::before {
+  content: " ";
+  display: none;
+}
+#toc .toc-active, #toc li:hover, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) .toc-active, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li:hover {
+  font-weight: 600;
+}
+#toc li:hover a, #toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) li:hover a {
+  background: none;
+  box-shadow: none;
+}
+
+#toc > ul :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 323px;
+    font-size: 0.9em;
+    overflow: auto;
+    padding: 0 0 0 30px;
+    background-color: #f1f8ff;
+  }
+}
+@media print {
+  nav {
+    position: relative;
+    width: auto;
+    font-size: 0.9em;
+    overflow: auto;
+    padding: 0;
+    margin-right: 0;
+    background-color: white;
+  }
+}
+@media screen and (min-width: 768px) {
+  nav {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #toggle {
+    position: fixed;
+    height: 100%;
+    width: 30px;
+    background-color: #00335b;
+    color: white !important;
+    cursor: pointer;
+    z-index: 100;
+  }
+  #toggle span {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+@media screen and (max-width: 768px) {
+  #toggle {
+    display: none;
+  }
+}
+@media print {
+  #toggle {
+    display: none;
+  }
+}
+
+.rule {
+  width: 100%;
+  height: 1px;
+  background-color: #00335b;
+  margin: 2em 0;
+}
+@media screen and (min-width: 768px) {
+  .rule.toc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h1.toc-contents {
+    margin-top: 1em;
+  }
+  ul#toc-list, ul#toc-list > :is(.h1, .h2, .h3, .h4, .h5, .h6) {
+    padding: 0;
+    margin: 0;
+  }
+}
+#toc-list ul {
+  margin-bottom: 0.25em;
+}
+#toc-list li {
+  list-style-type: none;
+}
+
+.figure .FigureTitle, .figure .figure-title {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+.figure > img, .figure > svg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.figure {
+  line-height: 1.6em;
+  padding: 1.5em;
+  margin: 2em 0 1em 0;
+  overflow: auto;
+}
+
+table div.figure {
+  padding: 0;
+  margin: 0;
+}
+
+.document-stage-band {
+  left: 0;
+  top: 0;
+  height: 100%;
+  position: fixed;
+  display: block;
+  z-index: 101;
+  box-shadow: -5px 0px 10px #1d1d1d;
+}
+.document-stage-band > :first-child {
+  position: relative;
+  width: 25px;
+  font-weight: 300;
+  height: 160px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0;
+  margin-left: 6px;
+  writing-mode: tb-rl;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  white-space: nowrap;
+  display: block;
+  bottom: 0;
+}
+@media print {
+  .document-stage-band {
+    display: none;
+  }
+}
+
+.document-type-band {
+  left: 0;
+  top: 180px;
+  height: 100%;
+  position: fixed;
+  display: block;
+  z-index: 102;
+}
+.document-type-band > :first-child {
+  position: relative;
+  width: 25px;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0;
+  margin-left: 6px;
+  writing-mode: tb-rl;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  white-space: nowrap;
+  display: block;
+  bottom: 0;
+}
+@media print {
+  .document-type-band {
+    display: none;
+  }
+}
+.document-type-band .document-type {
+  top: 20px;
+}
+
+#governance-band p.document-type {
+  font-weight: 400;
+  height: 230px !important;
+}
+
+#standard-band p {
+  height: 135px;
+}
+
+#proposal-band p {
+  height: 150px;
+}
+
+#standard-band,
+#published-band {
+  color: rgb(123, 168, 18);
+}
+
+#standard,
+#published {
+  color: #9ABD48;
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #00335b;
+  font-weight: 400;
+  margin-top: 1.6em;
+  margin-bottom: 0.3em;
+}
+
+h1, .h1 {
+  font-size: 1.8em;
+  text-transform: uppercase;
+  margin-top: 2em;
+}
+h1 #content, .h1 #content {
+  margin-top: 2em;
+}
+
+h2, .h2 {
+  margin-top: 1.3em;
+  font-size: 1.7em;
+  font-weight: 300;
+}
+h2 p, .h2 p {
+  display: inline;
+}
+
+h3, .h3 {
+  margin-top: 1.3em;
+  font-size: 1.5em;
+  font-weight: 100;
+}
+
+h4, .h4 {
+  font-size: 1.4em;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+  background: none;
+  box-shadow: 0 0 0 0;
+}
+.contact-info a, .contact-info a:hover {
+  color: #00335b;
+}
+.contact-info {
+  padding: 2em;
+  margin-top: 5em;
+  width: 280px;
+  text-align: left;
+  border: #00335b solid 2px;
+  color: #00335b !important;
+  border-radius: 25px;
+}
+.contact-info p, .contact-info a {
+  font-family: "Space Mono",monospace;
+  font-variant-ligatures: none;
+  font-weight: 400;
+}
+.contact-info #boilerplate-name {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+.contact-info #boilerplate-address {
+  font-size: 1em;
+  line-height: 1.3em;
+  margin-top: 0;
+}
+
+ul, ol {
+  margin-left: 1.2em;
+}
+
+ul > li {
+  list-style: none;
+}
+ul > li::before {
+  content: "—";
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+ul > li p:first-child {
+  display: inline;
+}
+ul > li:first-child {
+  margin-top: 1em;
+}
+
+ul ul > li:first-child {
+  margin-top: 0;
+}
+
+ol ul > li:first-child {
+  margin-top: 0;
+}
+
+span.keyword {
+  font-weight: 600;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  font-weight: 300;
+  margin: 1em 0 2em 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 2em;
+}
+table, table th, table td {
+  border: 1px solid black;
+  font-size: 0.95em;
+}
+table th, table td {
+  padding: 1em;
+}
+table td.header {
+  font-weight: 400;
+}
+table {
+  /*color: #010d16;*/
+}
+table thead tr th {
+  background-color: #5d99d6;
+}
+table td, table th {
+  padding: 1em;
+}
+table td.header {
+  font-weight: 400;
+}
+
+.docstage-box table,
+.docstage-box table th,
+.docstage-box table td {
+  border: none;
+}
+
+table.modspec {
+  width: 100%;
+  font-weight: 300;
+  margin: 1em 0 2em 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 2em;
+}
+table.modspec, table.modspec th, table.modspec td {
+  border: none !important;
+  font-size: 0.95em;
+}
+table.modspec th, table.modspec td {
+  padding: 1em;
+}
+table.modspec td.header {
+  font-weight: 400;
+}
+table.modspec {
+  color: #010d16;
+}
+table.modspec tr:nth-child(even) {
+  background: #ffffff;
+}
+table.modspec tr:nth-child(odd) {
+  background: #ffffff;
+}
+table.modspec thead tr th {
+  background-color: #5d99d6;
+}
+table.modspec td, table.modspec th {
+  padding: 1em;
+}
+table.modspec td.header {
+  font-weight: 400;
+}
+
+td > p:first-child, th > p:first-child {
+  margin-top: 0em;
+}
+
+td > p:last-child, th > p:last-child {
+  margin-bottom: 0em;
+}
+
+p.TableTitle {
+  text-align: center;
+  margin-top: 2.5em;
+  font-weight: 400;
+}
+
+/* Terms */
+.TermNum {
+  font-weight: 300;
+}
+
+.TermNum, .Terms, .AltTerms {
+  color: #00335b;
+  font-family: "Overpass",sans-serif;
+}
+
+h2.TermNum {
+  margin-bottom: 0;
+}
+
+p.AltTerms {
+  font-size: 24px;
+  margin-top: 1em;
+}
+
+span.AdmittedLabel, span.DeprecatedLabel {
+  color: #00335b;
+  background-color: #CFE2F3;
+  font-size: 70%;
+  vertical-align: top;
+}
+
+/* Links, selection */
+a, a:visited {
+  text-decoration: none;
+  color: #2e81c2;
+}
+
+a:hover {
+  color: #00335b;
+  background: #39CCCC;
+  box-shadow: 3px 0 0 #39CCCC, -3px 0 0 #39CCCC;
+}
+
+*::selection {
+  background: #39CCCC;
+  color: #00335b;
+}
+
+*::-moz-selection {
+  background: #39CCCC;
+  color: #00335b;
+}
+
+/* Bibliograhy */
+p.Biblio, p.NormRef {
+  margin-top: 1em;
+  margin-left: 2em;
+}
+
+/* Blocks */
+.SourceTitle, .FigureTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+.ListTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+  text-align: left;
+}
+
+pre, .sourcecode {
+  font-family: "Space Mono",monospace;
+  font-variant-ligatures: none;
+  background-color: #f7f7f7;
+  font-size: 0.8em;
+  line-height: 1.6em;
+  padding: 1.5em;
+  margin: 2em 0 1em 0;
+  overflow-y: auto;
+  overflow-x: scroll;
+  font-family: "Space Mono",monospace;
+  font-variant-ligatures: none;
+}
+
+.Admonition .AdmonitionTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+.Admonition {
+  padding: 1em 1.2em 1.2em 1.2em;
+  margin: 1em 0 1em 0;
+  background-color: #fcad88;
+  border-top: 10px solid #eb5a06;
+  color: #290404;
+}
+.Admonition.Important {
+  background-color: #f58cff;
+  color: #5d1364;
+  border-top: 10px solid #9503a8;
+}
+.Admonition.Warning {
+  background-color: #ff989d;
+  color: #270204;
+  border-top: 10px solid #e4010c;
+}
+.Admonition p, .Admonition.Important p, .Admonition.Warning p {
+  margin: 0;
+}
+
+.figure, pre, .pseudocode, .sourcecode {
+  background-color: #e1eef1;
+  color: #424242;
+  font-size: 0.8em;
+}
+
+.Note {
+  background-color: #fff8bb;
+  color: #7d760b;
+  padding: 1.2em;
+  margin: 1em 0 1em 0;
+}
+.Note p {
+  margin: 0;
+}
+
+.example {
+  background-color: #e1eef1;
+  color: #424242;
+  padding: 1.2em;
+  margin: 2em 0 1em 0;
+  padding-left: 2em;
+}
+.example .example-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-left: -1.5em;
+}
+.example pre, .example .pseudocode {
+  background: none;
+}
+
+.Quote {
+  background-color: #e1eef1;
+  font-style: italic;
+  width: 80%;
+  padding: 1.5em;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formula {
+  background-color: #f6f6f6;
+  padding: 1.5em;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.recommend .RecommendationTitle, .recommendtest .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+.require .RecommendationTitle, .requiretest .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+.permission .RecommendationTitle, .permissiontest .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+.RecommendationTestTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+/*
+.recommend {
+  &, .example_label {
+    background-color: #f8ffbd;
+  }
+  .example_label {
+    font-weight: bold;
+  }
+}
+
+.permission {
+  &, .example_label {
+    background-color: #cdfdbe;
+  }
+  .example_label {
+    font-weight: bold;
+  }
+}
+
+.require {
+  &, .example_label {
+    background-color: #d3e6ff;
+  }
+  .example_label {
+    font-weight: bold;
+  }
+}
+*/
+.recommend .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+.require .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+.permission .RecommendationTitle {
+  font-weight: 700;
+  font-size: 1em;
+  text-align: center;
+}
+
+tbody td.recommend p.RecommendationTitle, tbody td.recommend p.RecommendationTitle, tbody td.recommend p.RecommendationTitle {
+  font-weight: normal;
+  text-align: left;
+}
+
+#myBtn {
+  font-family: "Space Mono",monospace;
+  font-variant-ligatures: none;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  background-color: #00335b;
+  opacity: 0.15;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px 10px 15px;
+  border-radius: 4px;
+}
+#myBtn:hover {
+  opacity: 1;
+}
+@media print {
+  #myBtn {
+    display: none;
+  }
+}
+
+a.anchorjs-link:hover {
+  background: none;
+  color: #2e81c2;
+  box-shadow: none;
+}
+
+@page {
+  margin: 2cm 1cm;
+}
+@media print {
+  h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+    page-break-after: avoid;
+    margin-top: 1.2em;
+  }
+  h1, .h1 {
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  h1.content, .h1.content {
+    margin-top: 2em;
+    line-height: 2.5em;
+  }
+  h2, .h2 {
+    font-size: 1.2em;
+  }
+  h3, .h3 {
+    font-size: 1em;
+  }
+  .prefatory-section {
+    page-break-before: always;
+  }
+  .note, .pseudocode {
+    page-break-inside: avoid;
+  }
+  .Note {
+    background-color: #fff495;
+    color: #47430c;
+    padding: 5px;
+    margin: 2em 0 1em 0;
+  }
+  .Note p {
+    padding: 0 5px 0 5px;
+  }
+  nav {
+    line-height: 1;
+  }
+}
+/* Footnotes */
+a.footnote-number {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
+.footnote {
+  font-size: 0.9em;
+}
+
+span.fmt-hi {
+  background-color: yellow;
+}
+
+-->
+</style><style><!--pre.sourcecode table td { padding: 5px; }
+pre.sourcecode table pre { margin: 0; }
+pre.sourcecode, pre.sourcecode .w {
+  color: #444444;
+}
+pre.sourcecode .cp {
+  color: #CC00A3;
+}
+pre.sourcecode .cs {
+  color: #CC00A3;
+}
+pre.sourcecode .c, pre.sourcecode .ch, pre.sourcecode .cd, pre.sourcecode .cm, pre.sourcecode .cpf, pre.sourcecode .c1 {
+  color: #1E90FF;
+}
+pre.sourcecode .kc {
+  color: #C34E00;
+}
+pre.sourcecode .kd {
+  color: #0000FF;
+}
+pre.sourcecode .kr {
+  color: #007575;
+}
+pre.sourcecode .k, pre.sourcecode .kn, pre.sourcecode .kp, pre.sourcecode .kt, pre.sourcecode .kv {
+  color: #0000FF;
+}
+pre.sourcecode .s, pre.sourcecode .sb, pre.sourcecode .sc, pre.sourcecode .ld, pre.sourcecode .sd, pre.sourcecode .s2, pre.sourcecode .se, pre.sourcecode .sh, pre.sourcecode .si, pre.sourcecode .sx, pre.sourcecode .sr, pre.sourcecode .s1, pre.sourcecode .ss {
+  color: #009C00;
+}
+pre.sourcecode .sa {
+  color: #0000FF;
+}
+pre.sourcecode .nb, pre.sourcecode .bp {
+  color: #C34E00;
+}
+pre.sourcecode .nt {
+  color: #0000FF;
+}
+--></style><title>OGC BigTIFF community standard</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!--TOC script import-->
+<script type="text/javascript" src="https://cdn.rawgit.com/jgallen23/toc/0.3.2/dist/toc.min.js"></script>
+<script type="text/javascript">function toclevel() { return "h1:not(:empty):not(.TermNum):not(.noTOC),h2:not(:empty):not(.TermNum):not(.noTOC)";}
+</script>
+
+<!--Google fonts-->
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i|Space+Mono:400,700" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Overpass:300,300i,600,900" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Teko:300,400,500" rel="stylesheet" />
+
+<!--Font awesome import for the link icon-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous" />
+<style class="anchorjs"></style>
+<meta name="keywords" content="ogcdoc, OGC document, TIFF, image format" /><meta name="DC.subject" lang="en" content="ogcdoc, OGC document, TIFF, image format" xml:lang="en" /><meta name="description" content="This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future." />
+<meta name="DC.description" lang="en" content="This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future." xml:lang="en" /><meta name="DC.title" lang="en" content="OGC BigTIFF community standard" xml:lang="en" /><link rel="profile" href="http://dublincore.org/documents/2008/08/04/dc-html/" />
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<meta name="DC.language" content="en" />
+<meta name="DC.rights" lang="en" content="CC-BY-4.0" xml:lang="en" />
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+<link rel="DCTERMS.license" href="https://www.ogc.org/license" />
+</head><body lang="EN-US" link="blue" vlink="#954F72" xml:lang="EN-US" class="container"><div class="title-section"><div class="document-stage-band" id="draft-band">
+    <p class="document-stage">Draft</p>
+</div>
+
+<div class="document-type-band" id="standard-band">
+    <p class="document-type">OGC Standard</p>
+</div>
+
+
+
+  <div id="toggle"> <span>•</span> </div>
+
+  <header>
+
+<!--<div class="WordSection1">-->
+  <div class="coverpage">
+    <div class="wrapper-top">
+
+  <div class="coverpage-doc-identity">
+
+    <div class="coverpage-title">
+      <span class="title-first">OGC BigTIFF community standard</span>
+      <!--<span class="title-second"></span>-->
+    </div>
+  </div>
+
+  <div class="coverpage-logo">
+    <span><img src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTUxMS42NSA1MDYuNzYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO30uY2xzLTJ7Y2xpcC1wYXRoOnVybCgjY2xpcC1wYXRoKTt9LmNscy0ze2ZpbGw6IzAwYjFmZjt9PC9zdHlsZT48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTkyMCIgaGVpZ2h0PSI5NzguMjUiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBpZD0iQmx1ZV9Ib3Jpem9udGFsX0xvY2t1cCIgZGF0YS1uYW1lPSJCbHVlIEhvcml6b250YWwgTG9ja3VwIj48ZyBjbGFzcz0iY2xzLTIiPjxwb2x5Z29uIGNsYXNzPSJjbHMtMyIgcG9pbnRzPSIyMDQuMDcgMzY1LjI3IDIwNC4wNyA1MDYuNzMgMC4wMSAzODguOTEgMCAxNTMuMTUgMjA0LjA3IDI3MC45NyAyMDQuMDcgMzE4LjExIDE2My4zNCAyOTQuNjEgMTQyLjkzIDI4Mi44MiAxNDIuOTIgMjgyLjgyIDQwLjg0IDIyMy44OCA0MC44NCAzNjUuMzMgMTYzLjM0IDQzNi4wNiAxNjMuMzQgMzg4LjkxIDEwMi4wOSAzNTMuNTUgMTAyLjA5IDMyOS45NyAxMDIuMDkgMzA2LjQgMjA0LjA3IDM2NS4yNyIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTQyOC42OCwyMzUuNzYsMjI0LjUsMzUzLjY0LDQyOC42OCw0NzEuNTIsNjMyLjg1LDM1My42NFptMCwxODguNjFMMzA2LjE3LDM1My42NGwxMjIuNTItNzAuNzMsMTIyLjQ5LDcwLjczLTIwLjQxLDExLjc5WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMyIgcG9pbnRzPSIzMjYuNzggMjcwLjQgMzY3LjYyIDI0Ni44MyA0MDguNDUgMjIzLjI1IDQwOC40NiAyNzAuNCA0NDkuMTggMjQ2Ljg5IDQ0OS4xOCAxNTMuMTIgMjQ1LjEyIDI3MC45NCAyNDUuMTIgMzE3LjU1IDI0NS4xMiAzMTcuNTUgMjQ1LjEyIDMzMS42MyAyNDUuMTIgNTA2LjE3IDI0NS4wMSA1MDYuMTEgMjQ1LjAxIDUwNi43NiA0NDkuMTggMzg4Ljg4IDQ0OS4xOCAyOTQuMDQgNDA4LjQ2IDMxNy41NiA0MDguNDYgMzY0LjcxIDI4NS45NSA0MzUuNDQgMjg1Ljk2IDI5My45OCAzMjYuNzggMjcwLjQiLz48ZyBjbGFzcz0iY2xzLTIiPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTg4MC41NywzOTguMTdjLTMyLjgxLDAtNTctMjQuMDYtNTctNTYuMDVzMjQuMi01Ni4wNSw1Ny01Ni4wNSw1Ni45MSwyNCw1Ni45MSw1Ni4wNS0yNC4xNSw1Ni4wNi01Ni45MSw1Ni4wNlptMzguODctNTYuMDVjMC0yMi4zLTE2LjU5LTM5LTM4Ljg3LTM5cy0zOSwxNi44NC0zOSwzOSwxNi42OSwzOSwzOSwzOSwzOC44Ny0xNi42OSwzOC44Ny0zOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTEwMDAuNDgsMzEwLjc2YzI0Ljk0LDAsNDMuMTgsMTguNjIsNDMuMTgsNDMuNzFzLTE4LjI0LDQzLjc1LTQzLjE4LDQzLjc1YTQxLjY3LDQxLjY3LDAsMCwxLTI3LjY3LTEwLjA5VjQyNkg5NTUuNjdWMzEyLjhoMTEuNTVMOTcwLjQ0LDMyM2E0MS41LDQxLjUsMCwwLDEsMzAtMTIuMjZabTI1Ljg0LDQzLjcxYzAtMTUuNzEtMTEuNDctMjcuMzUtMjcuMTktMjcuMzVzLTI3LjMsMTEuNzUtMjcuMywyNy4zNSwxMS41OSwyNy4zNSwyNy4zLDI3LjM1LDI3LjE5LTExLjY0LDI3LjE5LTI3LjM1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA0LjE3IC0yMzUuNzYpIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTE0MS4xOSwzNTQuNjdhNTYuMTUsNTYuMTUsMCwwLDEtLjM1LDUuNjNoLTY3LjY1YzIuMTQsMTMuNSwxMS44NiwyMS44MSwyNS41MSwyMS44MSwxMCwwLDE4LTQuNjEsMjIuNDItMTIuMjFoMThjLTYuNjMsMTcuNi0yMS44NSwyOC4yOC00MC40NiwyOC4yOC0yNC4zNywwLTQyLjgzLTE4LjgxLTQyLjgzLTQzLjcxczE4LjQyLTQzLjcsNDIuODMtNDMuN2MyNS41MSwwLDQyLjQ5LDE5LjY0LDQyLjQ5LDQzLjlabS02Ny41OC04LjNIMTEyNGMtMy4wOC0xMi42Ni0xMi42Mi0yMC4xMy0yNS4zMS0yMC4xMy0xMi44OSwwLTIyLjI4LDcuNzctMjUuMDksMjAuMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDQuMTcgLTIzNS43NikiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xMjAzLjUsMzEwLjljMTkuNDksMCwzMS42NiwxNC41MywzMS42NiwzNS4wNnY1MC4xOUgxMjE4VjM0OS40NGMwLTE1LjE0LTYuNTktMjMuMTgtMTkuMTItMjMuMTgtMTMuMSwwLTIyLjM5LDEwLjU0LTIyLjM5LDI1LjI2djQ0LjYzaC0xNy4xNFYzMTIuOGgxMS45NWwzLjMyLDExLjYzYzYuMzEtOC40MSwxNi42MS0xMy41MywyOC44NS0xMy41M1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDQuMTcgLTIzNS43NikiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik05MzMuNDUsNDkwLjJjLS40NCwzMy4xMi0yMi44LDU2Ljg5LTU0LjU0LDU2Ljg5cy01NS4zLTIzLjctNTUuMy01NiwyMy4yOS01Niw1NC45NS01NmMyNi4zNSwwLDQ4LjQsMTYuNTksNTMuMjgsNDAuMUg5MTMuNTZjLTQuNjMtMTMuODktMTguMzYtMjIuOTQtMzQuNjUtMjIuOTQtMjEuODQsMC0zNy4yNiwxNi0zNy4yNiwzOC44M3MxNSwzOC44NiwzNy4yNiwzOC44NmMxNy4yNSwwLDMxLjI3LTkuNzUsMzUuMzEtMjQuNDNIODc1LjdWNDkwLjE5WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTEwMzEuMzEsNTAzLjU4YTUzLjE5LDUzLjE5LDAsMCwxLS4zNiw1LjYzSDk2My4zYzIuMTQsMTMuNTEsMTEuODcsMjEuODEsMjUuNTEsMjEuODEsMTAsMCwxOC00LjYsMjIuNDMtMTIuMmgxOGMtNi42NCwxNy41OS0yMS44NSwyOC4yNy00MC40NiwyOC4yNy0yNC4zNywwLTQyLjgzLTE4LjgxLTQyLjgzLTQzLjdzMTguNDItNDMuNzEsNDIuODMtNDMuNzFjMjUuNSwwLDQyLjQ5LDE5LjY1LDQyLjQ5LDQzLjlabS02Ny41OC04LjI5aDUwLjRjLTMuMDgtMTIuNjYtMTIuNjItMjAuMTQtMjUuMzItMjAuMTQtMTIuODgsMC0yMi4yNyw3Ljc4LTI1LjA4LDIwLjE0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA0LjE3IC0yMzUuNzYpIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTA4Ny45NCw1NDcuMDljLTI1LjQ5LDAtNDQuNTYtMTguNjUtNDQuNTYtNDMuNzFzMTkuMDctNDMuNyw0NC41Ni00My43LDQ0LjU2LDE4LjYxLDQ0LjU2LDQzLjcxUzExMTMuMzksNTQ3LjA5LDEwODcuOTQsNTQ3LjA5Wm0yNy4xMi00My43MWMwLTE1Ljk1LTExLjM0LTI3LjM0LTI3LjEyLTI3LjM0cy0yNy4xMiwxMS4zOS0yNy4xMiwyNy4zNCwxMS4zNCwyNy4zNSwyNy4xMiwyNy4zNSwyNy4xMi0xMS4zOSwyNy4xMi0yNy4zNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTExNDQuNDQsNTE4LjZoMTYuNzRjLjQ0LDguODEsNy44NCwxMy40MSwxNy44OCwxMy40MSw5LjIxLDAsMTYuMjgtMy44OSwxNi4yOC0xMC44NiwwLTcuOS04Ljk0LTkuNzEtMTkuMTUtMTEuNDMtMTMuODktMi4zOC0zMC4yNS01LjUzLTMwLjI1LTI0Ljg1LDAtMTQuOTUsMTIuOTItMjUuMTksMzIuMzEtMjUuMTlzMzEuOTMsMTAuNTQsMzIuMjYsMjYuNzFoLTE2LjIyYy0uMzMtNy45My02LjM3LTEyLjE5LTE2LjQ0LTEyLjE5LTkuNDcsMC0xNS4zMyw0LTE1LjMzLDEwLjEyLDAsNy4zNSw4LjUsOC44MSwxOC41NiwxMC40NiwxNC4wOCwyLjM2LDMxLjE5LDUuMDcsMzEuMTksMjUuNjIsMCwxNi4xOS0xMy40OSwyNi42OS0zMy44LDI2LjY5cy0zMy41OS0xMS4yLTM0LTI4LjQ5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA0LjE3IC0yMzUuNzYpIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTI3NS40OSw0NTkuNjhjMjQuOTQsMCw0My4xOCwxOC42MSw0My4xOCw0My43MXMtMTguMjQsNDMuNzUtNDMuMTgsNDMuNzVhNDEuNjUsNDEuNjUsMCwwLDEtMjcuNjctMTAuMXYzNy45aC0xNy4xNFY0NjEuNzFoMTEuNTVsMy4yMiwxMC4yNGE0MS40OCw0MS40OCwwLDAsMSwzMC0xMi4yN1ptMjUuODUsNDMuN2MwLTE1LjcxLTExLjQ4LTI3LjM0LTI3LjE5LTI3LjM0cy0yNy4zMSwxMS43NC0yNy4zMSwyNy4zNCwxMS41OSwyNy4zNSwyNy4zMSwyNy4zNSwyNy4xOS0xMS42MywyNy4xOS0yNy4zNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTE0MjAsNDYxLjY3VjU0NWgtMTMuODJsLTEuNjctMTAuMTRhNDEuODQsNDEuODQsMCwwLDEtMzAuMjIsMTIuMjFjLTI0Ljg0LDAtNDMuNC0xOC43Ni00My40LTQzLjc1czE4LjU2LTQzLjY2LDQzLjQtNDMuNjZjMTIuMjgsMCwyMi45MSw0LjY0LDMwLjQ4LDEyLjQxbDItMTAuNDJabS0xNy4xOCw0MS42N2MwLTE1LjcxLTExLjQ4LTI3LjM0LTI3LjE5LTI3LjM0cy0yNy4zLDExLjc0LTI3LjMsMjcuMzQsMTEuNTksMjcuMzUsMjcuMywyNy4zNSwyNy4xOS0xMS42NCwyNy4xOS0yNy4zNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTE0OTEuMDgsNTI5LjV2MTUuNTZoLTEyLjczYy0xOC4yNiwwLTI5LjUzLTExLjI2LTI5LjUzLTI5LjY4di0zOWgtMTQuOTF2LTMuMzJsMjktMzAuODJoMi45MXYxOS40NmgyNC44djE0LjY4SDE0NjZWNTE0YzAsOS45Myw1LjUzLDE1LjQ3LDE1LjYzLDE1LjQ3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTE1MDcuNDIsNDMxLjEyaDE3Ljd2MTcuNjdoLTE3LjdabS4yOCwzMC41OWgxNy4xNHY4My4zNUgxNTA3LjdaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA0LjE3IC0yMzUuNzYpIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTYzMi4yLDQ2MS42N1Y1NDVoLTEzLjgybC0xLjY3LTEwLjE0YTQxLjg0LDQxLjg0LDAsMCwxLTMwLjIyLDEyLjIxYy0yNC44MywwLTQzLjQtMTguNzYtNDMuNC00My43NXMxOC41Ny00My42Niw0My40LTQzLjY2YzEyLjI4LDAsMjIuOTEsNC42NCwzMC40OCwxMi40MWwyLTEwLjQyWk0xNjE1LDUwMy4zNGMwLTE1LjcxLTExLjQ4LTI3LjM0LTI3LjE5LTI3LjM0cy0yNy4zLDExLjc0LTI3LjMsMjcuMzQsMTEuNTksMjcuMzUsMjcuMywyNy4zNVMxNjE1LDUxOS4wNSwxNjE1LDUwMy4zNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMTQ1Mi40NSIgeT0iMTk2LjA4IiB3aWR0aD0iMTcuMTQiIGhlaWdodD0iMTEzLjIzIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNODIzLjYxLDY0MGMwLTMyLjMzLDIzLjU3LTU2LDU1LjU0LTU2LDI1LjU2LDAsNDYuMDUsMTUuOTMsNTEuNzIsNDAuMjVoLTE4Yy01LjE2LTE0LjM5LTE3Ljc3LTIzLjA5LTMzLjc3LTIzLjA5LTIxLjY0LDAtMzcuNSwxNi4yOC0zNy41LDM4LjgzczE1Ljg2LDM4Ljc0LDM3LjUsMzguNzRjMTYuNTEsMCwyOS4yNy05LjMyLDM0LjE0LTI0LjY0aDE4Yy01LjYxLDI1LjQxLTI2LjEsNDEuOC01Mi4xMyw0MS44LTMyLDAtNTUuNTQtMjMuNjYtNTUuNTQtNTUuOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTk4Ni44Niw2OTZjLTI1LjUsMC00NC41Ny0xOC42Ni00NC41Ny00My43MXMxOS4wNy00My43MSw0NC41Ny00My43MSw0NC41NiwxOC42Miw0NC41Niw0My43MVMxMDEyLjMsNjk2LDk4Ni44Niw2OTZaTTEwMTQsNjUyLjNjMC0xNS45NS0xMS4zNS0yNy4zNS0yNy4xMi0yNy4zNXMtMjcuMTMsMTEuNC0yNy4xMywyNy4zNSwxMS4zNSwyNy4zNSwyNy4xMywyNy4zNVMxMDE0LDY2OC4yNSwxMDE0LDY1Mi4zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA0LjE3IC0yMzUuNzYpIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTA5My43Nyw2MDguNzNjMTkuNDksMCwzMS42NiwxNC41MywzMS42NiwzNS4wNlY2OTRIMTEwOC4zVjY0Ny4yN2MwLTE1LjEzLTYuNTktMjMuMTgtMTkuMTItMjMuMTgtMTMuMSwwLTIyLjM5LDEwLjU0LTIyLjM5LDI1LjI2VjY5NGgtMTcuMTRWNjEwLjYzaDExLjk1bDMuMzMsMTEuNjNjNi4zLTguNDEsMTYuNi0xMy41MywyOC44NC0xMy41M1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDQuMTcgLTIzNS43NikiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xMTQyLjQzLDY2Ny41MWgxNi43NGMuNDQsOC44Miw3Ljg0LDEzLjQyLDE3Ljg5LDEzLjQyLDkuMiwwLDE2LjI3LTMuOSwxNi4yNy0xMC44NiwwLTcuOTEtOC45NC05LjcyLTE5LjE1LTExLjQzLTEzLjg4LTIuMzgtMzAuMjUtNS41NC0zMC4yNS0yNC44NiwwLTE0Ljk1LDEyLjkzLTI1LjE4LDMyLjMxLTI1LjE4czMxLjk0LDEwLjU0LDMyLjI3LDI2LjdoLTE2LjIzYy0uMzMtNy45My02LjM3LTEyLjE4LTE2LjQ0LTEyLjE4LTkuNDcsMC0xNS4zMyw0LTE1LjMzLDEwLjExLDAsNy4zNiw4LjUxLDguODEsMTguNTYsMTAuNDcsMTQuMDksMi4zNSwzMS4yLDUuMDcsMzEuMiwyNS42MiwwLDE2LjE5LTEzLjUsMjYuNjktMzMuODEsMjYuNjlzLTMzLjU5LTExLjIxLTM0LTI4LjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDQuMTcgLTIzNS43NikiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xMjY3LjEyLDY5NmMtMjUuNSwwLTQ0LjU3LTE4LjY2LTQ0LjU3LTQzLjcxczE5LjA3LTQzLjcxLDQ0LjU3LTQzLjcxLDQ0LjU2LDE4LjYyLDQ0LjU2LDQzLjcxUzEyOTIuNTYsNjk2LDEyNjcuMTIsNjk2Wm0yNy4xMi00My43MWMwLTE1Ljk1LTExLjM1LTI3LjM1LTI3LjEyLTI3LjM1UzEyNDAsNjM2LjM1LDEyNDAsNjUyLjNzMTEuMzUsMjcuMzUsMjcuMTMsMjcuMzUsMjcuMTItMTEuNCwyNy4xMi0yNy4zNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTEzNzcuMzMsNjEwLjE2djE2LjE5aC05Yy0xNC4xNywwLTIxLjI0LDguMDgtMjEuMjQsMjMuMThWNjk0aC0xNy4xNFY2MTAuNjNoMTEuNTlsMi45LDExLjM3YzYtNy45LDE0LjE0LTExLjg0LDI1LjUyLTExLjg0WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTE0MzcuNTMsNjc4LjQxVjY5NGgtMTIuNzRjLTE4LjI2LDAtMjkuNTItMTEuMjctMjkuNTItMjkuNjh2LTM5aC0xNC45MVY2MjJsMjktMzAuODJoMi45MnYxOS40NmgyNC44VjYyNS4zSDE0MTIuNHYzNy42NGMwLDkuOTQsNS41MywxNS40NywxNS42MiwxNS40N1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDQuMTcgLTIzNS43NikiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNDUzLjg2LDU4MGgxNy43MXYxNy42N2gtMTcuNzFabS4yOSwzMC41OWgxNy4xM1Y2OTRoLTE3LjEzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4xNyAtMjM1Ljc2KSIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTE0OTQuMzYsNjU4Ljc4VjYxMC42M2gxNy4xNHY0NS43NWMwLDE0LjQ4LDcuOSwyMy4yNywyMC43NywyMy4yN1MxNTUzLDY3MC43LDE1NTMsNjU2LjM4VjYxMC42M2gxNy4xNHY0OC4xNWMwLDIyLjQzLTE0Ljg3LDM3LjIzLTM3Ljg3LDM3LjIzcy0zNy45MS0xNC44LTM3LjkxLTM3LjIzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA0LjE3IC0yMzUuNzYpIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTY4Ni4zOSw2MDguNzNjMTcuNTcsMCwyOS40MywxMy4zNywyOS40MywzMi4yNHY1M2gtMTcuMTN2LTQ4LjhjMC0xMy40Mi01LjgzLTIxLjA5LTE2LjIxLTIxLjA5LTExLDAtMTkuNTUsMTAuMTItMTkuNTUsMjQuMzFWNjk0SDE2NDYuMnYtNDguOGMwLTEzLjQyLTUuNzktMjEuMDktMTYuMjQtMjEuMDktMTEuMDgsMC0xOS42MywxMC4xMi0xOS42MywyNC4zMVY2OTRIMTU5My4yVjYxMC42M2gxMi4xNGwzLDEwLjc3YTMzLjM4LDMzLjM4LDAsMCwxLDI1Ljg5LTEyLjY3YzExLjMsMCwyMC4yNSw1LjU1LDI1LDE0LjU5YTMzLDMzLDAsMCwxLDI3LjItMTQuNTlaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA0LjE3IC0yMzUuNzYpIi8+PC9nPjwvZz48L2c+PC9zdmc+" alt="Open Geospatial Consortium" width="" height="" /></span>
+  </div>
+
+  <!--
+  <div class="coverpage-tc-name">
+    <span>Technical</span>
+  </div>
+  -->
+
+  <div class="authors">
+    
+    
+    
+
+    
+    
+    <span>Joan Maso <span class="roletag">Editor</span></span>
+    
+    
+  </div>
+
+    <div class="coverpage-metadata">
+      <span class="label">Submission Date: </span> <span class="value">2029-03-30</span>
+      <span class="label">Approval Date: </span> <span class="value">2029-03-30</span>
+      <span class="label">Publication Date: </span> <span class="value">2029-03-30</span>
+      <span class="label">External identifier of this OGC® document: <span class="docnumber value">http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}</span></span>
+      <span class="label">Internal identifier of this OGC® document: <span class="docnumber value">21-061</span></span>
+      
+      
+    </div>
+
+    <div class="coverpage-alt-formats">
+      
+      <span class="label">Version: </span> <span class="value">1.0</span><br />
+      
+    
+      <span class="label">Additional Formats: </span>
+      
+      <span class="value"><a href="./document.xml"><i class="far fa-file-code"></i>XML</a></span>
+      
+      
+      <span class="value"><a href="./document.pdf"><i class="far fa-file-pdf"></i>PDF</a></span>
+      
+      
+      <span class="value"><a href="./document.doc"><i class="far fa-file-word"></i>DOC</a></span>
+      
+      </div>
+    
+    </div>
+
+  </div>
+
+    <div class="wrapper-top-bottom"></div>
+
+  <div class="WordSection11">
+  <div class="coverpage-stage-block">
+    <span class="coverpage-stage" id="standard">OGC Standard</span>
+  </div>
+
+  <div class="coverpage-stage-block">
+    <p><span class="coverpage-maturity" id="draft">Draft</span></p>
+  </div>
+</div>
+
+  <div class="coverpage-warning">
+    <div class="boilerplate-legal">
+
+<div id="_d969cbc1-a2ce-fc29-9ca8-2b6bf8626cdf"><h1 class="IntroTitle"><a class="anchor" href="#_d969cbc1-a2ce-fc29-9ca8-2b6bf8626cdf"></a><a class="header" href="#_d969cbc1-a2ce-fc29-9ca8-2b6bf8626cdf">Notice for Drafts</a></h1>
+
+<p id="_da556f2c-cb53-8902-19fe-a5f8a6222f48">This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.</p>
+
+<p id="_e8629e34-594d-6076-a18a-23d7b5df19ba">Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.</p>
+</div>
+</div>
+ </div>
+         
+
+
+<div class="docstage-box">
+  <table>
+    <tr><td>Document number:</td><td>21-061</td></tr>
+    <tr><td>Document type:</td><td>OGC Standard</td></tr>
+    <tr><td align="right">Document subtype:</td><td align="right">Implementation</td></tr>
+    <tr><td align="right">Document stage:</td><td align="right">Draft</td></tr>
+    <tr><td align="right">Document language:</td><td align="right">English</td></tr>
+  </table>
+</div>
+
+<div class="info-section">
+<div class="copyright">
+  <div class="boilerplate-copyright">
+
+<div id="_e63a44fa-a301-00ff-d2aa-6801901f4ef4"><h1 class="IntroTitle"><a class="anchor" href="#_e63a44fa-a301-00ff-d2aa-6801901f4ef4"></a><a class="header" href="#_e63a44fa-a301-00ff-d2aa-6801901f4ef4">Copyright notice</a></h1>
+
+<p id="_40768efa-fc98-1961-899c-6813fb6d417b" style="text-align:center;">Copyright © 2026 Open Geospatial Consortium<br /> To obtain additional rights of use, visit<a href="https://www.ogc.org/legal">https://www.ogc.org/legal</a></p>
+</div>
+
+<div id="_6908548e-204b-56e7-9062-6924cccf2315"><h1 class="IntroTitle"><a class="anchor" href="#_6908548e-204b-56e7-9062-6924cccf2315"></a><a class="header" href="#_6908548e-204b-56e7-9062-6924cccf2315">Note</a></h1>
+
+<p id="_e1d5d5c4-54c3-2761-be2c-22547f01c057" style="text-align:left;">Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.</p>
+
+<p id="_02892e94-7b43-630a-129c-d2e0f75ff92b" style="text-align:left;">Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.</p>
+</div>
+</div>
+</div>
+
+<div class="rule"></div>
+</div>
+  </header>
+</div><br /><div class="prefatory-section"><div class="license">
+  <div class="boilerplate-license">
+
+<div id="_45f6bdf5-80f3-f775-9740-2adafc90b1f7"><h1 class="IntroTitle"><a class="anchor" href="#_45f6bdf5-80f3-f775-9740-2adafc90b1f7"></a><a class="header" href="#_45f6bdf5-80f3-f775-9740-2adafc90b1f7">License Agreement</a></h1>
+
+<p id="_772872dd-928c-666f-92c5-676f7f5d3071">Use of this document is subject to the license agreement at <a href="https://www.ogc.org/license">https://www.ogc.org/license</a></p>
+</div>
+</div>
+
+
+<div class="boilerplate-feedback">
+
+<div id="boilerplate-standard-feedback">
+<p id="_cb0581b2-acf2-995c-21c5-080c40d2dfd0">Suggested additions, changes and comments on this document are welcome and encouraged. Such suggestions may be submitted using the online change request form on OGC web site: <a href="http://ogc.standardstracker.org/">http://ogc.standardstracker.org/</a></p>
+</div>
+</div>
+
+
+</div>
+
+<nav>
+  <div id="toc"><h1 class="IntroTitle"><a class="anchor" href="#_13d7055e-30fc-845a-c60e-8972faf092d9"></a><a class="header" href="#_13d7055e-30fc-845a-c60e-8972faf092d9">Contents</a></h1><ul><li class="h1"><a href="#_dd4b8124-4cfe-beee-fc47-5e0a661d85d5">      
+  
+  I.  Abstract
+</a></li>
+<li class="h1"><a href="#_c0216c28-431c-13cd-6fa5-69d83253accb">      
+  
+  II.  Keywords
+</a></li>
+<li class="h1"><a href="#_904d9852-8ec6-bd98-7a60-f706e5146f99">      
+  
+  III.  Preface
+</a></li>
+<li class="h1"><a href="#_2e706609-6654-db2b-33a0-c3cb4d57c048">      
+  
+  IV.  Security considerations
+</a></li>
+<li class="h1"><a href="#_7f736f31-2b76-282a-a8a8-58a23d8076b9">      
+  
+  V.  Submitting Organizations
+</a></li>
+<li class="h1"><a href="#_19d5589d-7cb6-b05b-148e-a2ad6e39d6ac">      
+  
+  VI.  Submitters
+</a></li>
+<li class="h1"><a href="#_2fe2853e-fa60-bb67-2939-c9a69ce71d59">      
+  
+  1.  Scope
+</a></li>
+<li class="h1"><a href="#_805f5907-8704-eb0d-0c1a-9c3000b8ecea">      
+  
+  2.  Conformance
+</a></li>
+<li class="h1"><a href="#_3de56a1f-a556-4c23-84b6-679aa3975ba9">      3.  Normative references</a></li>
+<li class="h1"><a href="#_9c377ee4-e4ef-9bba-f65e-d4ccce733d48">      
+  
+  4.  Terms and definitions
+</a></li>
+<li class="h1"><a href="#_b602fbc7-321d-4a04-19d9-113db0c31bd8">      
+  
+  6.  Conventions
+</a></li>
+<li class="h2"><a href="#_d8ac2a5c-d486-0ca8-90a9-0b20deb66821">      
+  
+  6.1.  Abbreviated terms
+</a></li>
+<li class="h2"><a href="#_4e4ba759-e926-a420-2d3a-c8168153719a">      
+  
+  6.2.  Identifiers
+</a></li>
+<li class="h1"><a href="#_209439bc-4f94-58fb-ca03-daa3c55cde02">      
+  
+  7.  Overview
+</a></li>
+<li class="h2"><a href="#_d398923d-fb6f-3ee1-3d19-57b07330fdff">      
+  
+  7.1.  What is BigTIFF
+</a></li>
+<li class="h2"><a href="#_cc68f872-21ab-1017-5b7c-0b414e20f8df">      
+  
+  7.2.  Origin and compatibility
+</a></li>
+<li class="h2"><a href="#_2c15a873-d874-3add-1c4c-e4687d6bf1e3">      
+  
+  7.3.  Changes to the original version
+</a></li>
+<li class="h1"><a href="#BigTIFFRequirements">      
+  
+  8.  BigTIFF requirements
+</a></li>
+<li class="h2"><a href="#_c6de20cd-0c36-c069-edce-7b4b6903f46f">      
+  
+  8.1.  Requirement Class Core
+</a></li>
+<li class="h1"><a href="#_2978e8e3-5622-d2ad-6dc7-332951a161b1">      
+  
+  9.  Media Types for any data encoding(s)
+</a></li>
+<li class="h1"><a href="#_eb4b41cd-c3ba-d79f-b7db-8ad1a617807e">      
+  
+  Annex A (informative) Conformance Class Abstract Test Suite (Normative)
+</a></li>
+<li class="h2"><a href="#_c32a15fc-08a7-0c78-e6f6-f48610aaaef7">      
+  
+  A.1.  Conformance Class Core
+</a></li>
+<li class="h1"><a href="#annex-classic-tiff-basic-struct-informative">      
+  
+  Annex B (informative) Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)
+</a></li>
+<li class="h2"><a href="#_b14149e0-7c0f-bd5f-048b-1b2ed5487c87">      
+  
+  B.1.  Image File Header
+</a></li>
+<li class="h2"><a href="#_6f5d4144-93f0-c7ae-4a4b-df4da062ee54">      
+  
+  B.2.  Image File Directory
+</a></li>
+<li class="h2"><a href="#_2b80851f-a26a-f35a-2916-f4b7f4e95392">      
+  
+  B.3.  Datatype Tag values
+</a></li>
+<li class="h1"><a href="#_86ce8e65-c445-b308-465c-eba6a1493662">      
+  
+  Annex C (informative) Revision History
+</a></li>
+<li class="h1"><a href="#_cdd6a7fd-7410-488a-a4cb-a2b2df4cec76">      Bibliography</a></li></ul></div>
+
+</nav>
+
+
+<div class="rule toc"></div>
+</div><br /><main class="main-section"><button onclick="topFunction()" id="myBtn" title="Go to top">Top</button><div class="authority">
+
+
+
+
+
+
+</div><br /><br /><div id="_dd4b8124-4cfe-beee-fc47-5e0a661d85d5"><h1 class="AbstractTitle" id="_1f67ee93-d612-4f10-a35d-4074fb8d6a81"><a class="anchor" href="#_dd4b8124-4cfe-beee-fc47-5e0a661d85d5"></a><a class="header" href="#_dd4b8124-4cfe-beee-fc47-5e0a661d85d5">I.  Abstract</a></h1><p id="_6b824034-fbc3-0fd0-fdec-62704fb90838">This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future.</p></div><div class="Section3" id="_c0216c28-431c-13cd-6fa5-69d83253accb"><h1 class="IntroTitle" id="_62516d60-7fd1-46e7-a4b1-d3629349b055"><a class="anchor" href="#_c0216c28-431c-13cd-6fa5-69d83253accb"></a><a class="header" href="#_c0216c28-431c-13cd-6fa5-69d83253accb">II.  Keywords</a></h1><p>The following are keywords to be used by search engines and document catalogues.</p><p>ogcdoc, OGC document, TIFF, image format</p></div><br /><div id="_904d9852-8ec6-bd98-7a60-f706e5146f99"><h1 class="ForewordTitle" id="_609318f3-f38d-4391-b0b3-944e52ad0b61"><a class="anchor" href="#_904d9852-8ec6-bd98-7a60-f706e5146f99"></a><a class="header" href="#_904d9852-8ec6-bd98-7a60-f706e5146f99">III.  Preface</a></h1><p id="_a1bdd0f9-ae52-9502-1b77-b5a8f2aefd93">When the TIFF format was defined back in 1986 the storage capacity of the computers made difficult (or even impossible) for an single file image to be bigger than 4GBytes long. But today capacities makes it viable and if the file can be random accessed in small pieces, could be even useful to have a big remote sensing product in a single file.</p><p id="_bf74325d-e642-bf87-cbf0-b8490c1c07be">The basic BigTIFF design was first proposed in 2004 and refined in (<a href="https://www.asmail.be/msg0055453930.html)">this discussion</a> (now only accessible in the web.archive.org) on the Aware Systems (<a href="https://www.awaresystems.be/)">Aware Systems</a> mailing list (now only available in the web.archive.org). Contributors to the design discussion included Lynn Quam, Frank Warmerdam, Chris Cox, Rob Tillaart, Dan Smith, Bob Freisenhahn, Andrey Kiselev, Phillip Crews, and Gerben Vos. The authors thank all those who came before them for creating libtiff and designing the BigTIFF enhancements. The BigTIFF format was proposed in  <a href="https://www.awaresystems.be/imaging/tiff/bigtiff.html">https://www.awaresystems.be/imaging/tiff/bigtiff.html</a> maintained by Joris Van Damme and has been stable in recent years (now only accessible in the web.archive.org).</p><p id="_132129b8-05c9-0215-22ae-01ae68b7a08a">Changes were made by Ole Eichhorn (<a href="mailto:ole.eichhorn@gmail.com">ole.eichhorn@gmail.com</a>) while at (www.aperio.com)[Aperio] (now only accessible in the web.archive.org) and were donated to the public domain, in gratitude to Sam Leffler, Silicon Graphics, Joris Van Damme, Aware Systems, Frank Warmerdam, Andrey Kisley, Mike Welles, and all who have worked on libtiff over the years to provide this tool. These changes were published on an “as is” basis and neither Ole Eichhorn nor Aperio made any warranty as to their fitness for any intended use.</p><p id="_70533547-1221-0aed-68d1-e59f86ba52f4">GeoTIFF 1.1 was brought to the OGC as a community standard and This document is an adaptation of the <a href="https://www.awaresystems.be/imaging/tiff/bigtiff.html">https://www.awaresystems.be/imaging/tiff/bigtiff.html</a> content to an OGC language to bring it to the OGC standards process as a community standard. It was done with the intention of creating a transcription with no practical modifications, so old BigTIFF implementations would be compatible with this document. In the process, the Standard was made dependent form the classical TIFF specification. It is expected that Next version of GeoTIFF supports both Classical TIFF and  BigTIFF.<div id="_12ede555-91d8-4bbf-2e3f-2dd5f4dea079" class="Note"><p><span class="note_label">NOTE:  </span>Recipients of this Standard are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.</p></div></p></div><div class="Section3" id="_2e706609-6654-db2b-33a0-c3cb4d57c048"><h1 class="IntroTitle" id="_06fee252-68db-4f83-9235-3af7c687914d"><a class="anchor" href="#_2e706609-6654-db2b-33a0-c3cb4d57c048"></a><a class="header" href="#_2e706609-6654-db2b-33a0-c3cb4d57c048">IV.  Security considerations</a></h1><p id="_b2512eeb-995a-eabe-4ee2-ae30853fc76e">No security considerations have been made for this Standard.</p></div><div class="Section3" id="_7f736f31-2b76-282a-a8a8-58a23d8076b9"><h1 class="IntroTitle" id="_ad05376e-a4da-4b79-91a9-e03b3e8c1d6d"><a class="anchor" href="#_7f736f31-2b76-282a-a8a8-58a23d8076b9"></a><a class="header" href="#_7f736f31-2b76-282a-a8a8-58a23d8076b9">V.  Submitting Organizations</a></h1><p>The following organizations submitted this Document to the Open Geospatial Consortium (OGC):</p><div class="ul_wrap"><ul id="_9d6759f9-ca1f-44f4-fc3c-1a8bc8bc44d8"><li id="_0201f40b-9507-731e-2e0d-6a1a76a63a92">UAB-CREAF</li></ul></div></div><div class="Section3" id="_19d5589d-7cb6-b05b-148e-a2ad6e39d6ac"><h1 class="IntroTitle" id="_65a19402-2898-44c8-acf2-8ce4d6139fe2"><a class="anchor" href="#_19d5589d-7cb6-b05b-148e-a2ad6e39d6ac"></a><a class="header" href="#_19d5589d-7cb6-b05b-148e-a2ad6e39d6ac">VI.  Submitters</a></h1><p id="_6e1b734b-e32c-864b-59a1-81792b76695c">All questions regarding this submission should be directed to the editor or the submitters:</p><table id="_3b0ac6ff-4f0d-0ff8-b465-b2d5be2985b0" class="MsoISOTable" style="border-width:1px;border-spacing:0;"><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><b>Name</b></td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><b>Affiliation</b></td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Joan Maso</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">UAB-CREAF</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Martin Desruisseaux</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Geomatys</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Gilles Cebelieu</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">IGN-F</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">Michel Leedahl</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">Michel Leedahl</td></tr></tbody></table></div><div id="_2fe2853e-fa60-bb67-2939-c9a69ce71d59"><h1 id="_f708f41f-a869-4e59-80ed-8b2724a20c41"><a class="anchor" href="#_2fe2853e-fa60-bb67-2939-c9a69ce71d59"></a><a class="header" href="#_2fe2853e-fa60-bb67-2939-c9a69ce71d59">1.  Scope</a></h1><p id="_ff1be970-4d0f-8e1c-8b2a-fd68a7c76fd2">This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but two essential data structures called Image File Header and Image File Directory are replaced by Big File Header and Big Image File Directory to support the necessary longer integer numbers that act as internal offsets of the file. It also adds 3 new extra data types: LONG8 (uint64) SLONG8 (int64) or IFD8 (uint64).</p></div><div id="_805f5907-8704-eb0d-0c1a-9c3000b8ecea"><h1 id="_448c9dec-187a-476d-8c0a-dfe5efee5804"><a class="anchor" href="#_805f5907-8704-eb0d-0c1a-9c3000b8ecea"></a><a class="header" href="#_805f5907-8704-eb0d-0c1a-9c3000b8ecea">2.  Conformance</a></h1><p id="_85868bec-290e-608a-d495-f3a2a1f31c32">This Standard defines a single conformance class</p><p id="_8e06a550-d1fb-74b0-7249-0ab33a942342"><b><a href="#BigTIFFRequirements">Clause 8</a></b> (<a href="http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core">http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core</a>)</p><p id="_bb52e949-e321-741f-13a6-0f4e7fe1f255">This class defines the requirements of the BigTIFF format.</p><p id="_d2aa981f-0ae7-109c-8e96-b1e91084517a">Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p><p id="_0075785b-3fbe-26fa-7860-b662ab447460">In order to conform to this OGC® interface standard, a software implementation shall choose to implement:</p><div class="ul_wrap"><ul id="_16710219-d2ea-ed39-81b0-832ee9fb3a0a"><li id="_d01b2d8d-496f-5b30-9153-c49bc09748dc"><p id="_5040bb54-aff3-966f-4b90-2ee3362e2617">Any one of the conformance levels specified in Annex A (normative).</p>
+</li>
+</ul></div><p id="_640e75b3-5ab7-4100-f66a-dbabcc5bb34a">All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.</p></div><div><h1 id="_3de56a1f-a556-4c23-84b6-679aa3975ba9">3.  Normative references</h1>
+<p id="_49996d2b-65c1-916b-9bbf-42b933aa0025">The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
+
+
+
+<p id="AdobeTIFF6" class="NormRef">Adobe Developers Association, TIFF Revision 6.0 Final, June 3, 1992, Adobe Systems Incorporated, <a href="https://www.adobe.io/open/standards/TIFF.html">https://www.adobe.io/open/standards/TIFF.html</a></p>
+
+<div id="_39e20f24-6e8b-1d27-64ab-f2b8acc64108" class="Note"><p><span class="note_label">NOTE:  </span>This Standard includes requirements that overwrite some basic data structures specified in Section 2 of the TIFF Revision 6.0. The rest of the TIFF Revision 6.0 is still a normative reference to this Standard.</p></div>
+</div><div id="_9c377ee4-e4ef-9bba-f65e-d4ccce733d48"><h1 id="_d2508972-7134-414e-b758-43d9f88ae6eb"><a class="anchor" href="#_9c377ee4-e4ef-9bba-f65e-d4ccce733d48"></a><a class="header" href="#_9c377ee4-e4ef-9bba-f65e-d4ccce733d48">4.  Terms and definitions</a></h1>
+<p id="_8c49041f-8363-1e0b-0484-6e1046987489">This document uses the terms defined in <a href="https://portal.ogc.org/public_ogc/directives/directives.php">OGC Policy Directive 49</a>, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this document and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.</p>
+
+<p id="_7bbae1f8-9cf5-3d71-b33b-b85f9ba4c251">This document also uses terms defined in the OGC Standard for Modular specifications (<a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131r3</a>), also known as the ‘ModSpec’. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.</p>
+
+<p id="_548e409e-2890-5c36-8c0d-528166f290d6">For the purposes of this document, the following additional terms and definitions apply.</p>
+
+<p id="_33a502d5-9875-3870-02ee-f695d61553c1">This document uses the terms defined in OGC Policy Directive 49, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
+
+<p id="_0f50c843-87f7-88da-8425-b8bc86c6180c">For the purposes of this document, the following additional terms and definitions apply.</p>
+
+<div id="term-big-image-file-directory"><h2 class="TermNum" style="text-align:left;" id="_011ddbf6-05c8-4bce-a6db-d0c4a314070d"><a class="anchor" href="#term-big-image-file-directory"></a><a class="header" href="#term-big-image-file-directory">4.1. <b>big image file directory</b></a></h2></div>
+<p id="_05ce2b30-d968-65ee-0f27-ade1f4ec1c2e">a modified data structure containing the TIFF fields (identified by a tag) of a BigTIFF file.</p>
+
+
+<div id="term-big-image-file-header"><h2 class="TermNum" style="text-align:left;" id="_33a9de3c-a9ed-4c69-a769-fdb04b18452e"><a class="anchor" href="#term-big-image-file-header"></a><a class="header" href="#term-big-image-file-header">4.2. <b>big image file header</b></a></h2></div>
+<p id="_5f9b5b33-b291-b791-7e55-72d31d4b9283">a modified data structure at the beginning of a BigTIFF file.</p>
+
+
+<div id="term-classic-TIFF"><h2 class="TermNum" style="text-align:left;" id="_1855220e-4286-479d-8093-b8ff757ac43f"><a class="anchor" href="#term-classic-TIFF"></a><a class="header" href="#term-classic-TIFF">4.3. <b>classic TIFF</b></a></h2></div>
+<p id="_a30f2ed5-0bb5-4397-d39f-f5df87b505a8">a TIFF file that follows the TIFF specification version 6.0.</p>
+
+
+<div id="term-field"><h2 class="TermNum" style="text-align:left;" id="_32c4ecc3-3dd4-4c1e-8259-8e0105224b22"><a class="anchor" href="#term-field"></a><a class="header" href="#term-field">4.4. <b>field</b></a></h2></div>
+<p id="_e1228f75-4247-85bd-d8ec-22c6aa553656">each entry on a image file directory or a big image file directory. A field is characterized by a tag numerical value and contains or points to the data (source: TIFF specification version 6.0)</p>
+
+
+ <p>[<b>SOURCE:</b> <a href="#AdobeTIFF6">TIFF Revision 6.0 Final</a>]</p>
+
+<div id="term-image-file-directory"><h2 class="TermNum" style="text-align:left;" id="_130777e6-be59-4a02-98f9-9cc2f4e7462a"><a class="anchor" href="#term-image-file-directory"></a><a class="header" href="#term-image-file-directory">4.5. <b>image file directory</b></a></h2></div>
+<p id="_7fa0316d-f1c7-9a9a-52c6-8c3d92c638e7">a data structure containing a list of TIFF fields (identified by a tag) of a TIFF file.</p>
+
+
+ <p>[<b>SOURCE:</b> <a href="#AdobeTIFF6">TIFF Revision 6.0 Final</a>]</p>
+
+<div id="term-image-file-header"><h2 class="TermNum" style="text-align:left;" id="_b2b541a5-3780-4285-af40-49de25cb1496"><a class="anchor" href="#term-image-file-header"></a><a class="header" href="#term-image-file-header">4.6. <b>image file header</b></a></h2></div>
+<p id="_e19594ab-4462-08cc-6c7e-df26680fe1b8">a data structure at the beginning of a TIFF file.</p>
+
+
+ <p>[<b>SOURCE:</b> <a href="#AdobeTIFF6">TIFF Revision 6.0 Final</a>]</p>
+
+<div id="term-tag"><h2 class="TermNum" style="text-align:left;" id="_59f2820e-0f26-482b-b327-83137d1a520a"><a class="anchor" href="#term-tag"></a><a class="header" href="#term-tag">4.7. <b>tag</b></a></h2></div>
+<p id="_13e91c42-8740-fbcf-fa3d-868edf368242">the identifying number of a field type in the image file directory or the big image file directory.</p>
+
+
+
+
+ <div id="_dab42594-abd1-22c3-99b0-6875001298bb" class="Note"><p><span class="termnote_label">Note 1 to entry: </span>In previous versions of the TIFF specification, the term “tag” referred both to the identifying number of a TIFF field and to the entire field.</p></div><p>[<b>SOURCE:</b> <a href="#AdobeTIFF6">TIFF Revision 6.0 Final</a>]</p>
+
+<div id="term-TIFF"><h2 class="TermNum" style="text-align:left;" id="_0320ef12-1dd7-4bda-bf4e-5f173ffb03c7"><a class="anchor" href="#term-TIFF"></a><a class="header" href="#term-TIFF">4.8. <b>TIFF</b></a></h2></div>
+<p id="_d8bc1999-c5a5-6443-c3f8-a6d9ffc1f371">a tag-based file format for storing and interchanging raster images</p>
+
+
+ <p>[<b>SOURCE:</b> <a href="#AdobeTIFF6">TIFF Revision 6.0 Final</a>]</p>
+</div><div id="_b602fbc7-321d-4a04-19d9-113db0c31bd8"><h1 id="_24203e1e-6ecc-4822-b4cc-5bbf1eac62a8"><a class="anchor" href="#_b602fbc7-321d-4a04-19d9-113db0c31bd8"></a><a class="header" href="#_b602fbc7-321d-4a04-19d9-113db0c31bd8">6.  Conventions</a></h1><p id="_87fee229-ff6c-bb90-5546-852478e6f22e">This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.</p><div id="_d8ac2a5c-d486-0ca8-90a9-0b20deb66821"><h2 id="_89ee435e-18d8-4c4a-841f-8b1e2fe7279e"><a class="anchor" href="#_d8ac2a5c-d486-0ca8-90a9-0b20deb66821"></a><a class="header" href="#_d8ac2a5c-d486-0ca8-90a9-0b20deb66821">6.1.  Abbreviated terms</a></h2>
+
+<div class="figdl"><dl id="_d332a61e-ad37-67e2-6388-d209236d6a28"><dt id="symbol-BIFD"><p>BIFD</p></dt><dd id="_0961b01b-f7d2-1504-de93-c7c8df70599f"><p id="_61ea0125-a48e-b379-90d3-ee5337d2e26f">BigTIFF Image File Directory</p>
+</dd><dt id="symbol-IFD"><p>IFD</p></dt><dd id="_1adfe2fa-6bdb-1670-02b0-5d3a4b674a24"><p id="_d03c2ede-44f4-2c05-bdfa-d83eed3c8dd6">Image File Directory</p>
+</dd><dt id="symbol-TIFF"><p>TIFF</p></dt><dd id="_cbd26f2d-bdd6-6985-3c91-31e6120b0d86"><p id="_4f965dfd-274e-2435-b276-f2fb8f2fb855">Tag Image File Format</p>
+</dd></dl></div>
+</div><div id="_4e4ba759-e926-a420-2d3a-c8168153719a"><h2 id="_6b2593b6-2812-4a42-a80d-d96a99c0c6a4"><a class="anchor" href="#_4e4ba759-e926-a420-2d3a-c8168153719a"></a><a class="header" href="#_4e4ba759-e926-a420-2d3a-c8168153719a">6.2.  Identifiers</a></h2>
+
+<p id="_1b4116b9-4764-4b40-7e20-cd1f67125a28">The normative provisions in this standard are denoted by the URI</p>
+
+<p id="_7197d0e6-f6c2-b54e-3764-dbccf205caa4"><tt><a href="https://www.opengis.net/spec/bigtiff/1.0">https://www.opengis.net/spec/bigtiff/1.0</a></tt></p>
+
+<p id="_f66b306e-eaed-7bb5-c6f2-99b2de1fb591">All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.</p>
+</div></div><div id="_209439bc-4f94-58fb-ca03-daa3c55cde02"><h1 id="_6ae09308-bfb8-421c-89d1-9d00209dc927"><a class="anchor" href="#_209439bc-4f94-58fb-ca03-daa3c55cde02"></a><a class="header" href="#_209439bc-4f94-58fb-ca03-daa3c55cde02">7.  Overview</a></h1><div id="_d398923d-fb6f-3ee1-3d19-57b07330fdff"><h2 id="_1f00df6f-efcf-4462-b2a3-4e32247ad768"><a class="anchor" href="#_d398923d-fb6f-3ee1-3d19-57b07330fdff"></a><a class="header" href="#_d398923d-fb6f-3ee1-3d19-57b07330fdff">7.1.  What is BigTIFF</a></h2>
+
+<p id="_c05ad984-838c-a2dd-5a5d-85b8b7ab8363">The TIFF file format was defined in mid-1980s as an extensible format. At that time 32bit offsets seemed sufficient, giving a limit to a four GByte file size. This has been quite sufficient for many years. Today however, there is a need for a good multi-purpose open image file format that can handle huge images, or very large collections of images, that together exceed the four GByte boundary.</p>
+
+<p id="_d0e221a1-771e-0d1c-29b6-1f457274f2b4">BigTIFF is very similar to the original TIFF and only changes some internal headers to support 64 bits offsets and data types. The benefits of BigTIFF closely resembling TIFF are huge. For instance, existing TIFF libraries can quite easily extend their support for TIFF to also include this variant. This results in a very short list of requirements. All the much-appreciated properties of the TIFF format that have been around and have been extended for decades are inherited. All properly known tags are being reused, all supported bit depths and datatypes remain valid. The arbitrary number of ‘extra channels’, the tiling and striping schemes, the multitude of compression schemes, and the private tag scheme, that made TIFF very useful in pre-press as well as for storing scientific data, and many other applications, all remain intact. Yet, by changing the offset bit depth, BigTIFF files are no longer restrained by the 4 GByte limitation from which classic TIFF suffers.</p>
+
+<p id="_3d3b5f8c-5ca6-8ada-75b3-fa5f5756c20e">Since the BigTIFF format is based on the TIFF format, the reader is encouraged to familiarize with the current version of the TIFF specification before reading this.</p>
+</div><div id="_cc68f872-21ab-1017-5b7c-0b414e20f8df"><h2 id="_374c919b-ae76-426b-9062-70402714343f"><a class="anchor" href="#_cc68f872-21ab-1017-5b7c-0b414e20f8df"></a><a class="header" href="#_cc68f872-21ab-1017-5b7c-0b414e20f8df">7.2.  Origin and compatibility</a></h2>
+
+<p id="_48f93b17-4cb2-9aa0-f0ec-cae71775d41e">This Standard collects the attempt to launch a new variant of TIFF, called BigTIFF, that closely resembles TIFF, but uses 64bit offsets instead. The results of the BigTIFF discussion resulted in an original specification exposed in the Aware Systems website: <a href="https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html">https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html</a>. Aware Systems was managed by Joris Van Damme but was discontinued after July 6th, 2025 and can only be accessible in backup copies done by the WebAchive iniciative. In order to preserve and consolidate the BigTIFF iniciative, the process of creating this Standard started with Joris Van Damme initial work and was translated it into an OGC standard. Another source of information on the BigTIFF format is the BigTIFF design page at the LibTiff site <a href="http://bigtiff.org/">http://bigtiff.org/</a>.</p>
+
+<p id="_65dd7085-7b99-34bb-8175-c23386df74f3">There are at least two independent implementations of the original BigTIFF specification. (AWare Systems AsTiff, and LibTiff since version 4.0). This OGC Standard does not contradicts the original BigTIFF specification so the implementations of BigTIFF are immediatelly compatible with this Standard.</p>
+</div><div id="_2c15a873-d874-3add-1c4c-e4687d6bf1e3"><h2 id="_33c7ca12-2f3a-4320-821e-591ac6b72f64"><a class="anchor" href="#_2c15a873-d874-3add-1c4c-e4687d6bf1e3"></a><a class="header" href="#_2c15a873-d874-3add-1c4c-e4687d6bf1e3">7.3.  Changes to the original version</a></h2>
+
+<p id="_b1d48ab8-7749-6a78-f720-9194aed34b17">In the elaboration of this Standard a new naming for the data types have been adopted for clarity.</p>
+
+<p class="TableTitle" style="text-align:center;">Table 1 — Changes in data types.</p><table id="classic-tiff-file-header" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Original</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Adopted</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Description</th></tr></thead><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">Word</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">unsigned short integer (2 bytes)</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Unsigned long</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">uint32</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">unsigned long integer (4 bytes)</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Signed 8Byte</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">int64</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">signed long long integer (8 bytes)</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">Unsigned 8Byte</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">uint64</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">unsigned long long integer (8 bytes)</td></tr></tbody></table>
+</div></div><div id="BigTIFFRequirements"><h1 id="_fb7fcee4-7ae5-4cd7-89dd-98ff1c4cfdcc"><a class="anchor" href="#BigTIFFRequirements"></a><a class="header" href="#BigTIFFRequirements">8.  BigTIFF requirements</a></h1><p id="_36e9c606-6c49-062b-4d95-43a7335c8072">The BigTIFF standard provides a solution for a TIFF file that requires a file size larger than 4 Gigabytes. In principle, the BigTIFF standard will also support smaller files. However, files that do not require file size bigger than 4 Gigabytes or not using the new data types, should use TIFF version 6 specification instead. This is in order to ensure backwards compatibility with old TIFF implementations not supporting BigTIFF.</p><p id="_0e1249b3-ee75-9a38-8303-1a3d2be5a7ec">A BigTIFF file (and a TIFF) is defined as a sequence of 8-bit bytes, where the bytes are numbered from 0 to N. In a BigTIFF file, the largest possible TIFF file is 2<sup>64</sup> bytes in length.</p><div id="_c6de20cd-0c36-c069-edce-7b4b6903f46f"><h2 id="_86448e69-3561-4b8d-b7d9-364eef31dc17"><a class="anchor" href="#_c6de20cd-0c36-c069-edce-7b4b6903f46f"></a><a class="header" href="#_c6de20cd-0c36-c069-edce-7b4b6903f46f">8.1.  Requirement Class Core</a></h2>
+
+<div class="require" id="_d4ebad79-4134-4c15-a04f-cdd8287402ac"><table id="req_class_core" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTitle"><a class="anchor" href="#req_class_core"></a><a class="header" href="#req_class_core">Requirements class 1: Requirements Class ‘Core’</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>https://www.opengis.net/spec/BigTIFF/1.0/req/core</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Target type</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">BigTIFF Encoder</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Conformance class</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Conformance class A.1: <tt><a href="#ats_core">https://www.opengis.net/spec/BigTIFF/1.0/conf/core</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Prerequisite</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><a href="https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf">https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf</a></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">Normative statements</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><a id="_ccd64992-6a58-4ae6-0c57-ef4e36b96950"></a>Requirement 1: <tt><a href="#req_class_core_big-offsets">/req/core/big-offsets</a></tt><br /><a id="_f9d78cd9-605b-9569-7d2f-cadcd46a7f7b"></a>Requirement 2: <tt><a href="#req_class_core_bifh">/req/core/bifh</a></tt><br /><a id="_3dc19fa4-d28e-d67c-90ef-3bc8cc5c7053"></a>Requirement 3: <tt><a href="#req_class_core_bifd">/req/core/bifd</a></tt></td></tr></tbody></table></div>
+
+<div id="_efa99492-c1eb-10a0-e7e9-fb2b3b92572e"><h3><a class="anchor" href="#_efa99492-c1eb-10a0-e7e9-fb2b3b92572e"></a><a class="header" href="#_efa99492-c1eb-10a0-e7e9-fb2b3b92572e">8.1.1.  Basic format</a></h3>
+
+<div class="permission" id="_020fce12-c64e-411b-8b87-03f08ce290d6"><table id="per_class_core_big-offsets" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTitle"><a class="anchor" href="#per_class_core_big-offsets"></a><a class="header" href="#per_class_core_big-offsets">Permission 1</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/per/core/per-big-offsets</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">A</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_b8f155fe-4439-260c-20f0-d325bb0e1d9e">A BigTIFF is allowed to ignore the introduction and the first 2 subsections in Section 2 of the TIFF version 6 specification describing the <i>Image File Header</i> and the <i>Image File directory</i> and use a <i>Big Image File Header</i> and a <i>Big Image File directory</i> instead. When some part of the the <i>Image File directory</i> subsection are still relevant for this standard, they are explicitly referenced</p>
+</td></tr></tbody></table></div>
+
+<div id="_c9505d17-dac4-9d3f-bf2d-6525d159b652" class="Note"><p><span class="note_label">NOTE:  </span>Commonly “permissions” are statements that emphasizes the usefulness of some possibilities that may be not obvious but do not contractic requirements. In this case we are forced to use a permission to overwrite requirements in the original TIFF specification and allow for 64 bit offsets.</p></div>
+
+<div class="require" id="_525b1070-6f54-41d9-9b57-bbaf3a8e24b3"><table id="req_class_core_big-offsets" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTitle"><a class="anchor" href="#req_class_core_big-offsets"></a><a class="header" href="#req_class_core_big-offsets">Requirement 1</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/req/core/big-offsets</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Included in</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Requirements class 1: <tt><a href="#req_class_core">https://www.opengis.net/spec/BigTIFF/1.0/req/core</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">A</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_483553f8-e802-38ce-e8c1-ca00d16c3dac">A BigTIFF SHALL begin with a 16 byte <i>big image file header</i> (that replaces the &#x3c;&#x3c;[AdobeTIFF6&#x3e;&#x3e; 8 byte <i>image file header</i>)</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">B</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_d02beb21-0b1b-5dea-3c42-8a6c1a28cde4">A <i>big image file header</i> SHALL point to the first <i>big image file directory</i> (BIFD). A <i>big image file directory</i> contains information about the image, as well as pointers to the actual image data in a similar way as a  <i>image file directory</i> does in &#x3c;&#x3c;[AdobeTIFF6&#x3e;&#x3e;</p>
+</td></tr></tbody></table></div>
+
+<div class="require" id="_eaa090f4-f236-4fc3-a31a-2587723d338c"><table id="req_class_core_bifh" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTitle"><a class="anchor" href="#req_class_core_bifh"></a><a class="header" href="#req_class_core_bifh">Requirement 2</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/req/core/bifh</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Included in</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Requirements class 1: <tt><a href="#req_class_core">https://www.opengis.net/spec/BigTIFF/1.0/req/core</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">A</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_55130143-010d-50d3-3cb7-e2fb8d9de03f">A <i>big image file header</i> SHALL follow the structure presented in <a href="#bigtiff-file-header">Table 2</a></p>
+</td></tr></tbody></table></div>
+
+<p class="TableTitle" style="text-align:center;">Table 2 — BigTIFF file header (normative)</p><table id="bigtiff-file-header" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;table-layout:fixed;"><colgroup><col style="width: 16.6666%;" /><col style="width: 16.6666%;" /><col style="width: 66.6668%;" /></colgroup><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Offset </th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Datatype</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value</th></tr></thead><tbody><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">0 </th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">uint16</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Byte order indication (use the values stated in the TIFF version 6 Image File Header Bytes 0-1)</th></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">2</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">uint16</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Version number (always 43)</th></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">4</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">uint16</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Size of offset in bytes Always 8 in BigTIFF (it could be 16 in a future version for superbig TIFFs)</th></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">6</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">uint16</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Reserved. Populate with 0</th></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">8</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">uint64</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">Offset (in bytes) to first BIFD</th></tr></tbody></table>
+
+<p id="_3ef6fdb3-7f95-233b-8e21-c7e6c6d270b6">(The <a href="#annex-classic-tiff-basic-struct-informative">Annex B</a> contains the TIFF version 6 classic structures for comparison purposes).</p>
+
+<p id="_93f4c92c-8a09-52f6-df5e-65efff4f2159">While the classic TIFF <i>image file header</i> points to the first <i>Image File Directory</i> (IFD), the BigTIFF <i>big image file header</i> points to the first <i>Big Image File Directory</i> (BIFD). In that sense IFD and BIFD are equivalent. Both IFD and BIFD can be located anywhere in the file. Every ‘page’ in a multi-page TIFF, either classic TIFF or BigTIFF, is represented by exactly one IFD and one BIFD respectively. Please note that BIFD and IFD can not be used together in the same file.</p>
+
+<div class="require" id="_33c752c9-4354-4633-8e51-be5a9ce47e9e"><table id="req_class_core_bifd" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTitle"><a class="anchor" href="#req_class_core_bifd"></a><a class="header" href="#req_class_core_bifd">Requirement 3</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/req/core/bifd</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Included in</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Requirements class 1: <tt><a href="#req_class_core">https://www.opengis.net/spec/BigTIFF/1.0/req/core</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">A</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_cbe6cf64-0398-5192-ace5-12558716d176">There SHALL be at least ONE  <i>big image file directory</i> in a TIFF file and each BIFD must have at least one entry</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">B</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_6ea4c7b5-7c9c-0e62-c798-45b9856221a9">A <i>big image file directory</i> SHALL follow the structure of <i>Big Directory Entries</i> presented in <a href="#bigtiff-ifd-structure">Table 3</a></p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">C</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_091fdfb1-adbe-b0be-3095-3b19844ae3f2">The <i>big directory entries</i> in a BIFD SHALL be sorted by code (in the same way than classic TIFF does)</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">D</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_c579a062-4aa2-d4f1-df12-6580da89dcf2">Each <i>big directory entry</i> SHALL follow the structure presented in <a href="#bigtiff-de-structure">Table 4</a></p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">E</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_2b61e8c3-3a52-d4e6-b04f-3488db3d0f34">The tag <i>value</i> SHALL be written inside the tag structure, in the <i>big directory entry</i>, if its size is smaller than or equal to 8 bytes. Otherwise, it’s written elsewhere, and pointed to by the offset written as the value</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">F</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_3045802f-0b34-d551-d875-48f179492308">In case of multibyte values (e.g a SHORT, LONG, etc), the byte order (II or MM) in the TIFF header SHALL govern the order of the bytes</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">G</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_615f961f-bccd-615e-7b8f-0e484556c563">The reader SHALL check the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. For example, ImageWidth and ImageLength are usually specified as having type SHORT, but images with more than 64K rows or columns should use the LONG field type. TIFF readers SHALL accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field. This allows a single procedure to retrieve any integer value, and makes reading more robust, and saves disk space in some situations</p>
+</td></tr></tbody></table></div>
+
+<p id="_d8b748a2-29cd-bb96-eda6-4fd6f7602ed1">A <i>Big Image File Directory</i> (BIFD) consists of an 8-byte count of the number of directory entries (i.e., the number of fields), followed by a sequence of 20-byte field entries, followed by an 8-byte offset of the next BIFD (or 0 if no other BIFD is required).</p>
+
+<p id="_0f0834b2-068d-5577-9e0e-0c186494b6d0">Every <i>Big Directory Entry</i> takes up exactly 20 bytes in BigTIFF, and the complete BIFD looks like this:</p>
+
+<p class="TableTitle" style="text-align:center;">Table 3 — BigTIFF Image File Directory (BIFD)</p><table id="bigtiff-ifd-structure" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Offset </th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Datatype</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value</th></tr></thead><tbody><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">0 </th><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">uint64</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">Number of big directory entries in BIFD (B)</td></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">8+0*20</th><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Big directory entry structure (see <a href="#bigtiff-de-structure">Table 4</a>)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">First tag data</td></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">8+1*20</th><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Big directory entry structure (see <a href="#bigtiff-de-structure">Table 4</a>)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Second tag data</td></tr><tr><th colspan="3" style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">…​</th></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">8+(B-1)*20</th><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Big directory entry structure (see <a href="#bigtiff-de-structure">Table 4</a>)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Last tag data</td></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">8+B*20</th><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">uint64</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">Offset to next BIFD, if there is a next BIFD or 0 otherwise</td></tr></tbody></table>
+
+<p id="_de5aa9e4-eacb-e034-e9da-d2cde14d5feb">A <i>TIFF field</i> is a logical entity consisting of TIFF tag and its value. This logical concept is implemented as a <i>Directory Entry</i> in the TIFF version 6 and it is implemented in here as a <i>Big Directory Entry</i>, plus the actual value if it does not fit into the value/offset part, the last 8 bytes of the BIFD Entry.</p>
+
+<p class="TableTitle" style="text-align:center;">Table 4 — BigTIFF Tag structure</p><table id="bigtiff-de-structure" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Offset </th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Datatype</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value</th></tr></thead><tbody><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">0 </th><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">Tag identifying code <sup>1</sup></td></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">2</th><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Datatype of tag data. See <a href="#datatype-values">Table 5</a></td></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">4</th><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">uint64</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Number of values (it is not the total number of bytes but the number of values)</td></tr><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">12</th><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">x * Tag data or uint64 offset</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Tag data or offset to tag data</td></tr><tr><th colspan="3" style="font-weight:bold;text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row"><sup>1</sup> See a list of codes in the TIFF version 6 specification. The GeoTIFF standard adds some extra TIFF tag identifiers.</th></tr></tbody></table>
+
+<p id="_8c940100-677a-9c78-f790-2181768f0ed7">Each TIFF field has an associated Count. This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.</p>
+
+<p id="_e47ea892-a89d-dc79-a669-e47bb65c337f">The same rule for value ‘inlining’ the tag data applies to both classic TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by an offset and written elsewhere.</p>
+
+<p id="_a708e3b5-2504-2bd0-ba6d-40da82f92995">The following table contains the Tag datatypes that are defined in BigTIFF, in addition to the ones defined in the TIFF specifications  (see the last part of <a href="#datatype-values">Table 5</a>)</p>
+
+<p class="TableTitle" style="text-align:center;">Table 5 — BigTIFF Datatype Tag values</p><table id="datatype-values" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value </th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Name</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Description</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Source</th></tr></thead><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">16</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">LONG8 (uint64)</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">64-bit (8-byte) unsigned integer</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">BigTIFF</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">17</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">SLONG8 (int64)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">64-bit (8-byte) signed integer</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">BigTIFF</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">18</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">IFD8</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">A uint64 IFD offset</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">BigTIFF</td></tr></tbody></table>
+
+<div class="permission" id="_e3cf12c6-6501-4f95-a106-7f6e885873c3"><table id="per_class_core_long8" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTitle"><a class="anchor" href="#per_class_core_long8"></a><a class="header" href="#per_class_core_long8">Permission 2</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/per/core/per-core-long8</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">A</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_532d4b3d-8e42-a5fd-8229-7482cdcacfa8">StripOffsets, StripByteCounts, TileOffsets, and TileByteCounts tags are allowed to have the datatype LONG8 in BigTIFF when necessary. LONG, and SHORT are still valid</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">B</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_92549ff7-1fb4-f400-431a-9d86e288cd47">Tags that point to other IFDs, such as the SubIFDs tag (see TIFF PageMaker version 6), are allowed to have the datatype IFD8. The datatypes IFD (and the not recommendable LONG) are still valid</p>
+</td></tr></tbody></table></div>
+</div>
+</div></div><div id="_2978e8e3-5622-d2ad-6dc7-332951a161b1"><h1 id="_029d1273-adba-43ff-b7d2-4221520482f4"><a class="anchor" href="#_2978e8e3-5622-d2ad-6dc7-332951a161b1"></a><a class="header" href="#_2978e8e3-5622-d2ad-6dc7-332951a161b1">9.  Media Types for any data encoding(s)</a></h1><p id="_adb07dc6-0201-c972-99ac-91deb538b922">IANA defines the image/tiff media type for TIFF (<a href="https://www.iana.org/assignments/media-types/image/tiff">https://www.iana.org/assignments/media-types/image/tiff</a>). Since the software is able to programaticaly differenciate between a TIFF and a BigTIFF, we suggest the use of the same media time for the BigTIFF.</p><p id="_03d8fb4a-73e1-e9ed-9710-e4d4221c19cf">We also suggest the use of the same file extension (’tif’ or ‘tiff’) despite other suggestions such as ‘tf8’ and ‘btf’ (as some time ago discussed in the LibTiff mailing list).</p></div><br /><div id="_eb4b41cd-c3ba-d79f-b7db-8ad1a617807e" class="Section3"><h1 class="Annex" id="_d6528aca-dcd2-4b13-bed2-d6abfa288de8"><a class="anchor" href="#_eb4b41cd-c3ba-d79f-b7db-8ad1a617807e"></a><a class="header" href="#_eb4b41cd-c3ba-d79f-b7db-8ad1a617807e"><b>Annex A</b><br />(informative)<br /><b>Conformance Class Abstract Test Suite (Normative)</b></a></h1><p id="_084b43e1-c795-7d6f-c571-ce140e77d085">This is the Abstract test of this BigTIFF Standard. However to implement a complete test on a BigTIFF file the dependency on TIFF version 6 should be taken into account. Unfortunately the TIFF version 6 file does not contain an abstract test to guide this developement</p><div id="_c32a15fc-08a7-0c78-e6f6-f48610aaaef7"><h2 id="_82392a7c-06d6-4749-8f52-7898e32c47c4"><a class="anchor" href="#_c32a15fc-08a7-0c78-e6f6-f48610aaaef7"></a><a class="header" href="#_c32a15fc-08a7-0c78-e6f6-f48610aaaef7">A.1.  Conformance Class Core</a></h2>
+
+<div class="require" id="_e7e4e609-0aac-497d-a99d-fe431f96b463"><table id="ats_core" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTitle"><a class="anchor" href="#ats_core"></a><a class="header" href="#ats_core">Conformance class A.1</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>https://www.opengis.net/spec/BigTIFF/1.0/conf/core</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Requirements class</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Requirements class 1: <tt><a href="#req_class_core">https://www.opengis.net/spec/BigTIFF/1.0/req/core</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Target Type</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">BigTIFF Encoder</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">Conformance tests</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><a id="_ed0c90da-81ea-33fe-91d3-102318ddba2b"></a>Abstract test A.1: <tt><a href="#ats_core_big-offsets">/conf/core/big-offsets</a></tt><br /><a id="_9d480bf6-5c13-40cd-c257-aaf6b42374d4"></a>Abstract test A.2: <tt><a href="#ats_core_bifh">/conf/core/bifh</a></tt><br /><a id="_0f270819-86e0-7b7e-b155-2f679f91255c"></a>Abstract test A.3: <tt><a href="#ats_core_api-definition-op">/conf/core/bifd</a></tt></td></tr></tbody></table></div>
+
+<div id="_a0ebf294-026b-191e-a587-1f82f879d56c"><h3><a class="anchor" href="#_a0ebf294-026b-191e-a587-1f82f879d56c"></a><a class="header" href="#_a0ebf294-026b-191e-a587-1f82f879d56c">A.1.1.  big-offset</a></h3>
+
+<div class="require" id="_1ff4b68f-0433-42ff-812c-9ec576f8a12d"><table id="ats_core_big-offsets" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTestTitle"><a class="anchor" href="#ats_core_big-offsets"></a><a class="header" href="#ats_core_big-offsets">Abstract test A.1</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/conf/core/big-offsets</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Requirement</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Requirement 1: <tt><a href="#req_class_core_big-offsets">/req/core/big-offsets</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Test purpose</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_b8619702-0980-e311-07a9-550d30acc4b6">Verify that the section <i>big image file header</i> uses 8 bit offsets</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">Test method</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_d55a03b6-a2a8-90a0-da43-f72fd0255c75">Inspect that aBigTIFF begins with a 16 byte <i>big image file header</i> (that replaces the TIFF v6 8 byte <i>image file header</i>)</p>
+<br /><p id="_47b124a4-e769-d42c-d56f-cfb6425eb37c">Inspect that the <i>big image file header</i> points to the first <i>big image file directory</i> (BIFD)</p>
+</td></tr></tbody></table></div>
+</div>
+
+<div id="_7eeb1f25-c0dc-a8ea-32f6-517da3c6c3e1"><h3><a class="anchor" href="#_7eeb1f25-c0dc-a8ea-32f6-517da3c6c3e1"></a><a class="header" href="#_7eeb1f25-c0dc-a8ea-32f6-517da3c6c3e1">A.1.2.  bifh</a></h3>
+
+<div class="require" id="_a02e1596-8402-4b9e-b94f-870929cf8404"><table id="ats_core_bifh" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTestTitle"><a class="anchor" href="#ats_core_bifh"></a><a class="header" href="#ats_core_bifh">Abstract test A.2</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/conf/core/bifh</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Requirement</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Requirement 2: <tt><a href="#req_class_core_bifh">/req/core/bifh</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Test purpose</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_8a8079ef-7ff3-9a88-dcf7-d21ee64aba0c">Verify that the section <i>big image file header</i> exists and is correctly encoded.</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">Test method</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_88d493e9-e9bd-f9e4-6f3d-9025c37f5c58">Inspect that a <i>big image file header</i> follows the structure presented in <a href="#bigtiff-file-header">Table 2</a>.</p>
+</td></tr></tbody></table></div>
+</div>
+
+<div id="_dad33747-4c09-6462-a49e-5da0b4c112e6"><h3><a class="anchor" href="#_dad33747-4c09-6462-a49e-5da0b4c112e6"></a><a class="header" href="#_dad33747-4c09-6462-a49e-5da0b4c112e6">A.1.3.  bifd</a></h3>
+
+<div class="require" id="_a3cf1ac9-2ed7-46d4-b920-9e9f8985402a"><table id="ats_core_api-definition-op" class="modspec" style="border-width:1px;border-spacing:0;"><thead><tr><th colspan="2" style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="colgroup"><p class="RecommendationTestTitle"><a class="anchor" href="#ats_core_api-definition-op"></a><a class="header" href="#ats_core_api-definition-op">Abstract test A.3</a></p></th></tr></thead><tbody><tr><th style="font-weight:bold;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;" scope="row">Identifier</th><td style="border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;"><tt>/conf/core/bifd</tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Requirement</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;">Requirement 3: <tt><a href="#req_class_core_bifd">/req/core/bifd</a></tt></td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.0pt;" scope="row">Test purpose</th><td style="border-top:none;border-bottom:solid windowtext 1.0pt;"><p id="_b2dc6510-424e-85b1-1955-f218f17c62f0">Verify that the section <i>big image file directory</i> exists and is correctly encoded.</p>
+</td></tr><tr><th style="font-weight:bold;border-top:none;border-bottom:solid windowtext 1.5pt;" scope="row">Test method</th><td style="border-top:none;border-bottom:solid windowtext 1.5pt;"><p id="_2ad12f66-339d-535c-4f52-2248e46511d9">Inspect that there is at least ONE  <i>big image file directory</i> in a TIFF file and that each BIFD have at least one entry.</p>
+<br /><p id="_b5a06c59-ca48-c79f-b752-1b9c53201841">Inspect that a <i>big image file directory</i> follows the structure of <i>Big Directory Entries</i> presented in <a href="#bigtiff-ifd-structure">Table 3</a>.</p>
+<br /><p id="_19ededdb-40b2-a669-2368-0ab14500b5ac">Inspect that <i>big directory entries</i> in a BIFD are sorted by code (in the same way than classic TIFF does) .</p>
+<br /><p id="_8f2750ba-3cb8-2bc5-6566-b5469693172d">Inspect that each <i>big directory entry</i> follows the structure presented in <a href="#bigtiff-de-structure">Table 4</a>.</p>
+<br /><p id="_71e900ff-79b2-f82f-b099-071b01a25cde">Inspect that the tag <i>value</i> is written inside the tag structure, in the <i>big directory entry</i>, if its size is smaller than or equal to 8 bytes. Otherwise, inspect that it’s written elsewhere, and pointed to by the offset written as the value.</p>
+<br /><p id="_7098f79a-7275-6036-7f69-3fac423c4973">In case of multibyte values (e.g a SHORT, LONG, etc), Inspect that the byte order (II or MM) in the TIFF header governs the order of the bytes.</p>
+<br /><p id="_778ac914-a855-e223-68b6-8c678a8a7562">In case of a client/reader implementation, inspect it checks the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. Inspect that the reader accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field.</p>
+</td></tr></tbody></table></div>
+</div>
+</div></div><br /><div id="annex-classic-tiff-basic-struct-informative" class="Section3"><h1 class="Annex" id="_e082db7d-233a-4ed9-9152-5c1988f0d086"><a class="anchor" href="#annex-classic-tiff-basic-struct-informative"></a><a class="header" href="#annex-classic-tiff-basic-struct-informative"><b>Annex B</b><br />(informative)<br /><b>Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)</b></a></h1><div id="_b14149e0-7c0f-bd5f-048b-1b2ed5487c87"><h2 id="_6d0ddb67-c2b0-4e78-941e-d1749eea997c"><a class="anchor" href="#_b14149e0-7c0f-bd5f-048b-1b2ed5487c87"></a><a class="header" href="#_b14149e0-7c0f-bd5f-048b-1b2ed5487c87">B.1.  Image File Header</a></h2>
+
+<p id="_880c7bdf-a37d-6732-a838-fd2b811ae0e7">For comparison purposes, we reproduce the original TIFF version 6 TIFF header here.</p>
+
+<p class="TableTitle" style="text-align:center;">Table B.1 — Classic TIFF file header (informative)</p><table id="classic-tiff-file-header-annex" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Offset</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Datatype</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value</th></tr></thead><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">0</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">Byte order indication</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">2</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Version number (always 42)</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">4</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">uint32</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">Offset to first IFD</td></tr></tbody></table>
+</div><div id="_6f5d4144-93f0-c7ae-4a4b-df4da062ee54"><h2 id="_7e99a1ba-6bf9-40dc-8ec9-998d4a14d891"><a class="anchor" href="#_6f5d4144-93f0-c7ae-4a4b-df4da062ee54"></a><a class="header" href="#_6f5d4144-93f0-c7ae-4a4b-df4da062ee54">B.2.  Image File Directory</a></h2>
+
+<p id="_8ab8d634-e9d4-90e6-910d-a101018966ff">For comparison purposes, we reproduce the original TIFF version 6 Image File Directory here.</p>
+
+<p class="TableTitle" style="text-align:center;">Table B.2 — Classic IFD (informative)</p><table id="classic-ifd" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Offset</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Datatype</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value</th></tr></thead><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">0</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">Number of tags in IFD (B)</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">2+0*12</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Tag structure</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">First tag data</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">2+1*12</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Tag structure</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Second tag data …​</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">2+(B-1)*12</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Tag structure</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Last tag data</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">2+B*12</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">uint32</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">Offset to next IFD, if there is a next IFD or 0 otherwise</td></tr></tbody></table>
+
+<p id="_3bc5e5ea-c450-42c1-11e0-4fe6c44c54e4">Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:</p>
+
+<p class="TableTitle" style="text-align:center;">Table B.3 — Classic Tag structure (informative)</p><table id="classic-tag-structure" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Offset</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Datatype</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value</th></tr></thead><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">0</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">Tag identifying code</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">2</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">uint16</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Datatype of tag data</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">4</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">uint32</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Number of values</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">8</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">x * Tag data datatype or uint32 offset</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;">Tag data or offset to tag data</td></tr></tbody></table>
+
+<p id="_a7d54f43-3c29-0b80-9304-ea1b92ad1bea">In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it’s written elsewhere, and pointed to.</p>
+
+<p class="collapsible active"> </p><div id="img_TIFFandBigTIFFstructure" class="figure hidable">
+
+<img src="data:image/png;base64,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" height="309" width="800" /></div><p class="FigureTitle" style="text-align:center;">Figure B.1 — TIFF and BigTIFF data structures side by side.</p>
+</div><div id="_2b80851f-a26a-f35a-2916-f4b7f4e95392"><h2 id="_3b8d2df4-03d6-4dfe-baab-8dca04f27962"><a class="anchor" href="#_2b80851f-a26a-f35a-2916-f4b7f4e95392"></a><a class="header" href="#_2b80851f-a26a-f35a-2916-f4b7f4e95392">B.3.  Datatype Tag values</a></h2>
+
+<p id="_d812c7fd-ba52-4862-6229-f3310caa1877">The following table summarizes the Tag datatypes aplicable for BigTIFF. This list includes “Types” described in the TIFF version 6 specification, as well as some extra types that have been defined by the BigTIFF (this Standard).</p>
+
+<p class="TableTitle" style="text-align:center;">Table B.4 — BigTIFF Datatype Tag values</p><table id="datatype-values-annex" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:100%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Value </th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Name</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Description</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Source</th></tr></thead><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">1 </td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">BYTE (uint8)</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">8-bit unsigned integer</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;">TIFF specification</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">2</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">ASCII</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">8-bit byte that contains a 7-bit ASCII code; the last byte SHALL be a NUL character (binary zero)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF specification</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">3</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">SHORT (uint16)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">16-bit (2-byte) unsigned integer</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF specification</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">4</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">LONG (uint32)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">32-bit (4-byte) unsigned integer</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF specification</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">5</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">RATIONAL</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Two LONGs: the first represents the numerator of a fraction; the second, the denominator</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF specification</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">6</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">SBYTE</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">An 8-bit signed (twos-complement) integer</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">7</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">UNDEFINED</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">An 8-bit byte that may contain anything, depending on the definition of the field <sup>a</sup></td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">8</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">SSHORT (int16)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">A 16-bit (2-byte) signed (twos-complement) integer</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">9</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">SLONG (int32)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">A 32-bit (4-byte) signed (twos-complement) integer.</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">10</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">SRATIONAL</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Two SLONGs:  the first represents the numerator of a fraction, the second the denominator</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">11</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">FLOAT</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Single precision (4-byte) IEEE format</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">12</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">DOUBLE</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">Double precision (8-byte) IEEE format</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">13</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">IFD</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">A uint32 IFD offset</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">TIFF PageMaker version 6</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">16<sup>b</sup></td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">LONG8 (uint64)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">64-bit (8-byte) unsigned integer</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">BigTIFF</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">17</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">SLONG8 (int64)</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">64-bit (8-byte) signed integer</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">BigTIFF</td></tr><tr><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">18</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">IFD8</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">A uint64 IFD offset</td><td style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.0pt;">BigTIFF</td></tr><tr><td colspan="4" style="text-align:left;vertical-align:middle;border-top:none;border-bottom:solid windowtext 1.5pt;"><sup>a</sup> It can be used to store a complicated data structure in a single private field, The Count will be the number of bytes required to hold the data structure.  <sup>b</sup> numbers 14 and 15 have   no meaning.</td></tr></tbody></table>
+</div></div><br /><div id="_86ce8e65-c445-b308-465c-eba6a1493662" class="Section3"><h1 class="Annex" id="_4b824e74-a12c-4e49-a21b-2fe9efb537e8"><a class="anchor" href="#_86ce8e65-c445-b308-465c-eba6a1493662"></a><a class="header" href="#_86ce8e65-c445-b308-465c-eba6a1493662"><b>Annex C</b><br />(informative)<br /><b>Revision History</b></a></h1><p class="TableTitle" style="text-align:center;">Table C.1</p><table id="_0faf00c7-cf79-9959-f614-3126c05f4ab8" class="MsoISOTable" style="border-width:1px;border-spacing:0;width:90%;"><thead><tr><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Date</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Release</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Editor</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Primary clauses modified</th><th style="font-weight:bold;text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;" scope="col">Description</th></tr></thead><tbody><tr><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">2016-04-28</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">0.1</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">G. Editor</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">all</td><td style="text-align:left;vertical-align:middle;border-top:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;">initial version</td></tr></tbody></table></div><br /><div><h1 class="Section3" id="_cdd6a7fd-7410-488a-a4cb-a2b2df4cec76">Bibliography</h1>
+<p id="BigTIFFFormat" class="Biblio">[1]  Joris Van Damme. The BigTIFF File Format. In Internet: <a href="https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html">https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html</a></p><p id="BigTIFFWeb" class="Biblio">[2]  Welcome to the BigTIFF version of the libtiff library. In Internet: <a href="http://bigtiff.org/">http://bigtiff.org/</a></p>
+
+
+</div></main><script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "STIX",
+      linebreaks: {
+        automatic: true,
+        width: "container"  // or specify something like "90%"/"30em"
+      }
+    },
+    MathML: {
+      linebreaks: {
+        automatic: true
+      }
+    },
+    asciimath2jax: { delimiters: [['(#(', ')#)']] }
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=MML_HTMLorMML-full" async="async"></script>
+  <script>
+    $("#toc").on('click', 'li', function(e) {
+    $(this).parent().find('li.toc-active').removeClass('toc-active');
+    $(this).addClass('toc-active');
+});
+  </script>
+
+  <script>
+    //TOC toggle animation
+    (function() {
+      const jqNav = $('nav');
+      const jqBody = $('body');
+      const jqToggle = $('#toggle');
+      const animationSpeed = 'slow';
+
+      jqToggle.on('click', function() {
+        const isNavVisible = jqNav.is(':visible');
+        const fullNavWidth = jqNav.outerWidth();
+        const navLeft = isNavVisible ? '-' + fullNavWidth + 'px' : '0px';
+        const bodyMarginLeft = isNavVisible ? '0px' : fullNavWidth + 'px';
+
+        // Stop current animations
+        jqNav.stop(true, true);
+        jqBody.stop(true, true);
+
+        if(!isNavVisible) {
+            jqNav.show();
+        }
+        jqNav.animate({'left': navLeft}, animationSpeed, function() {
+          if(isNavVisible) {jqNav.hide()}
+        });
+        jqBody.animate({'marginLeft': bodyMarginLeft}, animationSpeed);
+
+      });
+    })();
+  </script>
+
+<script>
+    // Scroll to top button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+
+<script>
+/*
+  $(document).ready(function() {
+	  $('[id^=toc]').each(function ()
+	  {
+	     var currentToc = $(this);
+       var url = window.location.href;
+            currentToc.wrap("<a href='" + url + "#" + currentToc.attr("id") + "'></a>");
+	  });
+});
+*/
+</script>
+
+  <script>
+    document.querySelectorAll('*|svg a').forEach(function(item) {
+      var loc = item.getAttribute('href');
+      if (loc !== null && loc.startsWith('#')) {
+  item.setAttribute('href', location.pathname + loc);
+      }
+});
+  </script>
+
+
+<script>
+
+// jQuery Inline Footnotes v1.0.3
+// Copyright (c) 2011 Vesa Vänskä, released under the MIT License.
+
+// Generated by CoffeeScript 1.6.1
+(function() {
+
+  (function($) {
+    $.inlineFootnote = function(el, options) {
+      var _this = this;
+      this.el = $(el);
+      this.el.data("inlineFootnote", this);
+      this.initialize = function() {
+        this.options = $.extend({}, $.inlineFootnote.defaultOptions, options);
+        this.footnoteId = this.el.attr("href").match(/#(.*)/)[1];
+        if (this.footnoteId) {
+          this.el.mouseenter(this.openBox);
+          return $("body").mousemove(this.closeBox);
+        }
+      };
+      this.openBox = function(event) {
+        var footnoteContent, linkOffset;
+        if (!_this.box) {
+          footnoteContent = $("[id='" + _this.footnoteId + "']").children().filter(":not('" + _this.options.hideFromContent + "')");
+          linkOffset = _this.el.offset();
+          _this.box = $("<div />", {
+            id: _this.options.boxId,
+            html: footnoteContent.clone().find(_this.options.hideFromContent).remove().end(),
+            css: {
+              position: "absolute",
+              top: linkOffset.top,
+              left: linkOffset.left + _this.el.outerWidth()
+            }
+          }).appendTo("body");
+          return _this.positionBox();
+        }
+      };
+      this.closeBox = function(event) {
+        if (_this.box) {
+          if (_this.isHoveringFootnote(event)) {
+            clearTimeout(_this.closeTimeout);
+            return _this.closeTimeout = null;
+          } else {
+            if (!_this.closeTimeout) {
+              return _this.closeTimeout = setTimeout((function() {
+                _this.box.remove();
+                return _this.box = null;
+              }), _this.options.hideDelay);
+            }
+          }
+        }
+      };
+      this.isHoveringFootnote = function(event) {
+        return this.box.is(event.target) || $(event.target).closest(this.box).length > 0 || event.target === this.el[0];
+      };
+      this.positionBox = function() {
+        var boxHorizontalPadding, boxLeft, boxWidth, linkLeftOffset, windowWidth;
+        boxHorizontalPadding = parseInt(this.box.css("padding-left")) + parseInt(this.box.css("padding-right"));
+        linkLeftOffset = this.el.offset().left;
+        windowWidth = $(window).width();
+        if ((windowWidth / 2) > linkLeftOffset) {
+          boxLeft = linkLeftOffset + 20;
+          boxWidth = windowWidth - boxLeft - boxHorizontalPadding - this.options.boxMargin * 2;
+          if (boxWidth > this.options.maximumBoxWidth) {
+            boxWidth = this.options.maximumBoxWidth;
+          }
+        } else {
+          boxWidth = linkLeftOffset - boxHorizontalPadding - this.options.boxMargin * 2;
+          if (boxWidth > this.options.maximumBoxWidth) {
+            boxWidth = this.options.maximumBoxWidth;
+          }
+          boxLeft = linkLeftOffset - boxWidth - this.options.boxMargin * 2;
+        }
+        return this.box.css({
+          width: boxWidth,
+          left: boxLeft
+        });
+      };
+      return this.initialize();
+    };
+    $.inlineFootnote.defaultOptions = {
+      boxMargin: 20,
+      hideDelay: 200,
+      hideFromContent: "[rel=footnote]",
+      maximumBoxWidth: 500,
+      boxId: "footnote_box"
+    };
+    return $.fn.inlineFootnote = function(options) {
+      return this.each(function() {
+        return new $.inlineFootnote(this, options);
+      });
+    };
+  })(jQuery);
+
+}).call(this);
+</script>
+
+<script>
+      $(function() {
+        $("[rel=footnote]").inlineFootnote();
+        });
+</script>
+  <script>
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+//
+// AnchorJS - v4.2.2 - 2020-04-20
+// https://www.bryanbraun.com/anchorjs/
+// Copyright (c) 2020 Bryan Braun; Licensed MIT
+//
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+!function(A,e){"use strict";"function"==typeof define&&define.amd?define([],e):"object"==typeof module&&module.exports?module.exports=e():(A.AnchorJS=e(),A.anchors=new A.AnchorJS)}(this,function(){"use strict";return function(A){function f(A){A.icon=A.hasOwnProperty("icon")?A.icon:"",A.visible=A.hasOwnProperty("visible")?A.visible:"hover",A.placement=A.hasOwnProperty("placement")?A.placement:"right",A.ariaLabel=A.hasOwnProperty("ariaLabel")?A.ariaLabel:"Anchor",A.class=A.hasOwnProperty("class")?A.class:"",A.base=A.hasOwnProperty("base")?A.base:"",A.truncate=A.hasOwnProperty("truncate")?Math.floor(A.truncate):64,A.titleText=A.hasOwnProperty("titleText")?A.titleText:""}function p(A){var e;if("string"==typeof A||A instanceof String)e=[].slice.call(document.querySelectorAll(A));else{if(!(Array.isArray(A)||A instanceof NodeList))throw new Error("The selector provided to AnchorJS was invalid.");e=[].slice.call(A)}return e}this.options=A||{},this.elements=[],f(this.options),this.isTouchDevice=function(){return!!("ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch)},this.add=function(A){var e,t,i,n,o,s,a,r,c,h,l,u,d=[];if(f(this.options),"touch"===(l=this.options.visible)&&(l=this.isTouchDevice()?"always":"hover"),0===(e=p(A=A||"h2, h3, h4, h5, h6")).length)return this;for(!function(){if(null!==document.head.querySelector("style.anchorjs"))return;var A,e=document.createElement("style");e.className="anchorjs",e.appendChild(document.createTextNode("")),void 0===(A=document.head.querySelector('[rel="stylesheet"],style'))?document.head.appendChild(e):document.head.insertBefore(e,A);e.sheet.insertRule(".anchorjs-link{opacity:0;text-decoration:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}",e.sheet.cssRules.length),e.sheet.insertRule(":hover>.anchorjs-link,.anchorjs-link:focus{opacity:1}",e.sheet.cssRules.length),e.sheet.insertRule("[data-anchorjs-icon]::after{content:attr(data-anchorjs-icon)}",e.sheet.cssRules.length),e.sheet.insertRule('@font-face{font-family:anchorjs-icons;src:url(data:n/a;base64,AAEAAAALAIAAAwAwT1MvMg8yG2cAAAE4AAAAYGNtYXDp3gC3AAABpAAAAExnYXNwAAAAEAAAA9wAAAAIZ2x5ZlQCcfwAAAH4AAABCGhlYWQHFvHyAAAAvAAAADZoaGVhBnACFwAAAPQAAAAkaG10eASAADEAAAGYAAAADGxvY2EACACEAAAB8AAAAAhtYXhwAAYAVwAAARgAAAAgbmFtZQGOH9cAAAMAAAAAunBvc3QAAwAAAAADvAAAACAAAQAAAAEAAHzE2p9fDzz1AAkEAAAAAADRecUWAAAAANQA6R8AAAAAAoACwAAAAAgAAgAAAAAAAAABAAADwP/AAAACgAAA/9MCrQABAAAAAAAAAAAAAAAAAAAAAwABAAAAAwBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAMCQAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg//0DwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAIAAAACgAAxAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADAAAAAIAAgAAgAAACDpy//9//8AAAAg6cv//f///+EWNwADAAEAAAAAAAAAAAAAAAAACACEAAEAAAAAAAAAAAAAAAAxAAACAAQARAKAAsAAKwBUAAABIiYnJjQ3NzY2MzIWFxYUBwcGIicmNDc3NjQnJiYjIgYHBwYUFxYUBwYGIwciJicmNDc3NjIXFhQHBwYUFxYWMzI2Nzc2NCcmNDc2MhcWFAcHBgYjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAAADACWAAEAAAAAAAEACAAAAAEAAAAAAAIAAwAIAAEAAAAAAAMACAAAAAEAAAAAAAQACAAAAAEAAAAAAAUAAQALAAEAAAAAAAYACAAAAAMAAQQJAAEAEAAMAAMAAQQJAAIABgAcAAMAAQQJAAMAEAAMAAMAAQQJAAQAEAAMAAMAAQQJAAUAAgAiAAMAAQQJAAYAEAAMYW5jaG9yanM0MDBAAGEAbgBjAGgAbwByAGoAcwA0ADAAMABAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAH//wAP) format("truetype")}',e.sheet.cssRules.length)}(),t=document.querySelectorAll("[id]"),i=[].map.call(t,function(A){return A.id}),o=0;o<e.length;o++)if(this.hasAnchorJSLink(e[o]))d.push(o);else{if(e[o].hasAttribute("id"))n=e[o].getAttribute("id");else if(e[o].hasAttribute("data-anchor-id"))n=e[o].getAttribute("data-anchor-id");else{for(c=r=this.urlify(e[o].textContent),a=0;void 0!==s&&(c=r+"-"+a),a+=1,-1!==(s=i.indexOf(c)););s=void 0,i.push(c),e[o].setAttribute("id",c),n=c}(h=document.createElement("a")).className="anchorjs-link "+this.options.class,h.setAttribute("aria-label",this.options.ariaLabel),h.setAttribute("data-anchorjs-icon",this.options.icon),this.options.titleText&&(h.title=this.options.titleText),u=document.querySelector("base")?window.location.pathname+window.location.search:"",u=this.options.base||u,h.href=u+"#"+n,"always"===l&&(h.style.opacity="1"),""===this.options.icon&&(h.style.font="1em/1 anchorjs-icons","left"===this.options.placement&&(h.style.lineHeight="inherit")),"left"===this.options.placement?(h.style.position="absolute",h.style.marginLeft="-1em",h.style.paddingRight="0.5em",e[o].insertBefore(h,e[o].firstChild)):(h.style.paddingLeft="0.375em",e[o].appendChild(h))}for(o=0;o<d.length;o++)e.splice(d[o]-o,1);return this.elements=this.elements.concat(e),this},this.remove=function(A){for(var e,t,i=p(A),n=0;n<i.length;n++)(t=i[n].querySelector(".anchorjs-link"))&&(-1!==(e=this.elements.indexOf(i[n]))&&this.elements.splice(e,1),i[n].removeChild(t));return this},this.removeAll=function(){this.remove(this.elements)},this.urlify=function(A){return this.options.truncate||f(this.options),A.trim().replace(/\'/gi,"").replace(/[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\\n\t\b\v]/g,"-").replace(/-{2,}/g,"-").substring(0,this.options.truncate).replace(/^-+|-+$/gm,"").toLowerCase()},this.hasAnchorJSLink=function(A){var e=A.firstChild&&-1<(" "+A.firstChild.className+" ").indexOf(" anchorjs-link "),t=A.lastChild&&-1<(" "+A.lastChild.className+" ").indexOf(" anchorjs-link ");return e||t||!1}}});
+// @license-end
+  </script>
+    <script>
+  anchors.options = {
+  placement: 'left'
+};
+anchors.add('h1, h2, h3, h4');
+</script>
+
+<script>
+// use .collapsible element to toggle visibility of element following it
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+
+<script>
+const activeBtns = document.querySelectorAll('.collapsible.active')
+
+// check if there are any active buttons, and open the content for each of them as default
+if (activeBtns.length) {
+    activeBtns.forEach(btn => {
+        const content = btn.nextElementSibling
+        content.style.maxHeight = content.scrollHeight + 'px'
+    })
+}
+</script>
+
+</html>

@@ -1,9 +1,0 @@
-[appendix]
-:appendix-caption: Annex
-[[Bibliography]]
-= Bibliography
-
-[[BigTIFF-Format]]
-[1] Joris Van Damme. The BigTIFF File Format. In Internet: https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html
-
-[2] Welcome to the BigTIFF version of the libtiff library. In Internet: http://bigtiff.org/

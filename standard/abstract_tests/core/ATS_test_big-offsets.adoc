@@ -1,0 +1,10 @@
+[[ats_core_big-offsets]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/big-offsets
+target:: /req/core/big-offsets
+test-purpose:: Verify that the section _big image file header_ uses 8 bit offsets
+test-method:: Inspect that aBigTIFF begins with a 16 byte _big image file header_ (that replaces the TIFF v6 8 byte _image file header_) 
+test-method:: Inspect that the _big image file header_ points to the first _big image file directory_ (BIFD)
+====

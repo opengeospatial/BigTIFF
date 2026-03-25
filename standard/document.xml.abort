@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metanorma xmlns="https://www.metanorma.org/ns/standoc" type="semantic" version="2.8.7" schema-version="v2.1.3" flavor="ogc">
+<bibdata type="standard">
+<title language="en" type="main">OGC BigTIFF community standard</title>
+<uri type="xml">./document.xml</uri><uri type="pdf">./document.pdf</uri><uri type="doc">./document.doc</uri><docidentifier type="ogc-external">http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}</docidentifier><docidentifier type="ogc-internal" primary="true">21-061</docidentifier><docnumber>21-061</docnumber><date type="published"><on>2029-03-30</on></date><date type="issued"><on>2029-03-30</on></date><date type="received"><on>2029-03-30</on></date><contributor><role type="author"/><organization>
+<name>UAB-CREAF</name>
+</organization></contributor><contributor><role type="editor"/><person>
+<name><completename>Joan Maso</completename></name>
+</person></contributor><contributor><role type="author"><description>committee</description></role><organization>
+<name>Open Geospatial Consortium</name>
+<subdivision type="Committee">
+<name>technical</name>
+</subdivision><abbreviation>OGC</abbreviation></organization></contributor><contributor><role type="publisher"/><organization>
+<name>Open Geospatial Consortium</name>
+<abbreviation>OGC</abbreviation></organization></contributor><edition>1.0</edition><version><draft>1.0</draft></version><language>en</language><script>Latn</script><abstract><p>This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future.</p>
+</abstract><status><stage>draft</stage></status><copyright><from>2026</from><owner><organization>
+<name>Open Geospatial Consortium</name>
+<abbreviation>OGC</abbreviation></organization></owner></copyright><keyword>ogcdoc</keyword><keyword>OGC document</keyword><keyword>TIFF</keyword><keyword>image format</keyword><ext><doctype>standard</doctype><subdoctype>implementation</subdoctype><flavor>ogc</flavor></ext></bibdata><metanorma-extension><semantic-metadata><stage-published>false</stage-published></semantic-metadata>
+<presentation-metadata><name>document-scheme</name><value>2022</value></presentation-metadata><presentation-metadata><name>color-admonition-caution</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-admonition-editor</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-admonition-important</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-admonition-note</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-admonition-safety-precaution</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-admonition-tip</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-admonition-todo</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-admonition-warning</name><value>rgb(79, 129, 189)</value></presentation-metadata><presentation-metadata><name>color-background-definition-description</name><value>rgb(242, 251, 255)</value></presentation-metadata><presentation-metadata><name>color-background-definition-term</name><value>rgb(215, 243, 255)</value></presentation-metadata><presentation-metadata><name>color-background-page</name><value>rgb(33, 55, 92)</value></presentation-metadata><presentation-metadata><name>color-background-table-header</name><value>rgb(33, 55, 92)</value></presentation-metadata><presentation-metadata><name>color-background-table-row-even</name><value>rgb(252, 246, 222)</value></presentation-metadata><presentation-metadata><name>color-background-table-row-odd</name><value>rgb(254, 252, 245)</value></presentation-metadata><presentation-metadata><name>color-background-term-admitted-label</name><value>rgb(223, 236, 249)</value></presentation-metadata><presentation-metadata><name>color-background-term-deprecated-label</name><value>rgb(237, 237, 238)</value></presentation-metadata><presentation-metadata><name>color-background-term-preferred-label</name><value>rgb(249, 235, 187)</value></presentation-metadata><presentation-metadata><name>color-background-text-label-legacy</name><value>rgb(33, 60, 107)</value></presentation-metadata><presentation-metadata><name>color-secondary-shade-1</name><value>rgb(0, 177, 255)</value></presentation-metadata><presentation-metadata><name>color-secondary-shade-2</name><value>rgb(0, 177, 255)</value></presentation-metadata><presentation-metadata><name>color-text</name><value>rgb(88, 89, 91)</value></presentation-metadata><presentation-metadata><name>color-text-title</name><value>rgb(33, 55, 92)</value></presentation-metadata><table anchor="_misccontainer_anchor_aliases" id="_d73ea4da-d864-e688-086b-a6f799bc8b2a"><tbody><tr><th>req_class_core</th><td>https://www.opengis.net/spec/BigTIFF/1.0/req/core</td><td>https___www.opengis.net_spec_BigTIFF_1.0_req_core</td></tr><tr><th>per_class_core_big-offsets</th><td>/per/core/per-big-offsets</td><td>_per_core_per-big-offsets</td></tr><tr><th>req_class_core_big-offsets</th><td>/req/core/big-offsets</td><td>_req_core_big-offsets</td></tr><tr><th>req_class_core_bifh</th><td>/req/core/bifh</td><td>_req_core_bifh</td></tr><tr><th>req_class_core_bifd</th><td>/req/core/bifd</td><td>_req_core_bifd</td></tr><tr><th>per_class_core_long8</th><td>/per/core/per-core-long8</td><td>_per_core_per-core-long8</td></tr><tr><th>ats_core</th><td>https://www.opengis.net/spec/BigTIFF/1.0/conf/core</td><td>https___www.opengis.net_spec_BigTIFF_1.0_conf_core</td></tr><tr><th>ats_core_big-offsets</th><td>/conf/core/big-offsets</td><td>_conf_core_big-offsets</td></tr><tr><th>ats_core_bifh</th><td>/conf/core/bifh</td><td>_conf_core_bifh</td></tr><tr><th>ats_core_api-definition-op</th><td>/conf/core/bifd</td><td>_conf_core_bifd</td></tr></tbody></table><presentation-metadata><name>TOC Heading Levels</name><value>2</value></presentation-metadata><presentation-metadata><name>HTML TOC Heading Levels</name><value>2</value></presentation-metadata><presentation-metadata><name>DOC TOC Heading Levels</name><value>2</value></presentation-metadata><presentation-metadata><name>PDF TOC Heading Levels</name><value>2</value></presentation-metadata></metanorma-extension>
+<boilerplate><copyright-statement>
+
+<clause id="_e63a44fa-a301-00ff-d2aa-6801901f4ef4" obligation="normative">
+<title id="_19604a82-a482-3c87-1356-705ef7b11f09">Copyright notice</title>
+<p id="_40768efa-fc98-1961-899c-6813fb6d417b" align="center">Copyright © 2026 Open Geospatial Consortium<br/> To obtain additional rights of use, visit<link target="https://www.ogc.org/legal"/></p>
+</clause>
+
+<clause id="_6908548e-204b-56e7-9062-6924cccf2315" obligation="normative">
+<title id="_db83e2f6-5841-eaeb-0d35-1277ee9d3f6a">Note</title>
+<p id="_e1d5d5c4-54c3-2761-be2c-22547f01c057" align="left">Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.</p>
+
+<p id="_02892e94-7b43-630a-129c-d2e0f75ff92b" align="left">Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.</p>
+</clause>
+</copyright-statement>
+
+<license-statement>
+
+<clause id="_45f6bdf5-80f3-f775-9740-2adafc90b1f7" obligation="normative">
+<title id="_3788828e-41fb-3895-6acc-52071643abed">License Agreement</title>
+<p id="_772872dd-928c-666f-92c5-676f7f5d3071">Use of this document is subject to the license agreement at <link target="https://www.ogc.org/license"/></p>
+</clause>
+</license-statement>
+
+<legal-statement>
+
+<clause id="_d969cbc1-a2ce-fc29-9ca8-2b6bf8626cdf" obligation="normative">
+<title id="_58a63032-6943-6f37-087e-470a8982dad8">Notice for Drafts</title>
+<p id="_da556f2c-cb53-8902-19fe-a5f8a6222f48">This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.</p>
+
+<p id="_e8629e34-594d-6076-a18a-23d7b5df19ba">Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.</p>
+</clause>
+</legal-statement>
+
+<feedback-statement>
+
+<clause id="_6996447f-5ac1-ea6d-b3c2-369445330718" anchor="boilerplate-standard-feedback" obligation="normative">
+<p id="_cb0581b2-acf2-995c-21c5-080c40d2dfd0">Suggested additions, changes and comments on this document are welcome and encouraged. Such suggestions may be submitted using the online change request form on OGC web site: <link target="http://ogc.standardstracker.org/"/></p>
+</clause>
+</feedback-statement>
+</boilerplate><preface><abstract id="_dd4b8124-4cfe-beee-fc47-5e0a661d85d5"><title id="_37c298bf-5619-a5c6-817b-d777b5ead0b1">Abstract</title><p id="_6b824034-fbc3-0fd0-fdec-62704fb90838">This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future.</p>
+</abstract><foreword id="_904d9852-8ec6-bd98-7a60-f706e5146f99" obligation="informative">
+<title id="_67001cd2-f272-ceff-f849-7a43bc65e67d">Preface</title>
+<p id="_a1bdd0f9-ae52-9502-1b77-b5a8f2aefd93">When the TIFF format was defined back in 1986 the storage capacity of the computers made difficult (or even impossible) for an single file image to be bigger than 4GBytes long. But today capacities makes it viable and if the file can be random accessed in small pieces, could be even useful to have a big remote sensing product in a single file.</p>
+
+<p id="_bf74325d-e642-bf87-cbf0-b8490c1c07be">The basic BigTIFF design was first proposed in 2004 and refined in (<link target="https://www.asmail.be/msg0055453930.html)">this discussion</link> (now only accessible in the web.archive.org) on the Aware Systems (<link target="https://www.awaresystems.be/)">Aware Systems</link> mailing list (now only available in the web.archive.org). Contributors to the design discussion included Lynn Quam, Frank Warmerdam, Chris Cox, Rob Tillaart, Dan Smith, Bob Freisenhahn, Andrey Kiselev, Phillip Crews, and Gerben Vos. The authors thank all those who came before them for creating libtiff and designing the BigTIFF enhancements. The BigTIFF format was proposed in  <link target="https://www.awaresystems.be/imaging/tiff/bigtiff.html"/> maintained by Joris Van Damme and has been stable in recent years (now only accessible in the web.archive.org).</p>
+
+<p id="_132129b8-05c9-0215-22ae-01ae68b7a08a">Changes were made by Ole Eichhorn (<link target="mailto:ole.eichhorn@gmail.com"/>) while at (www.aperio.com)[Aperio] (now only accessible in the web.archive.org) and were donated to the public domain, in gratitude to Sam Leffler, Silicon Graphics, Joris Van Damme, Aware Systems, Frank Warmerdam, Andrey Kisley, Mike Welles, and all who have worked on libtiff over the years to provide this tool. These changes were published on an “as is” basis and neither Ole Eichhorn nor Aperio made any warranty as to their fitness for any intended use.</p>
+
+<p id="_70533547-1221-0aed-68d1-e59f86ba52f4">GeoTIFF 1.1 was brought to the OGC as a community standard and This document is an adaptation of the <link target="https://www.awaresystems.be/imaging/tiff/bigtiff.html"/> content to an OGC language to bring it to the OGC standards process as a community standard. It was done with the intention of creating a transcription with no practical modifications, so old BigTIFF implementations would be compatible with this document. In the process, the Standard was made dependent form the classical TIFF specification. It is expected that Next version of GeoTIFF supports both Classical TIFF and  BigTIFF.<note id="_12ede555-91d8-4bbf-2e3f-2dd5f4dea079"><p id="_3e84416d-91ba-4196-bd6d-1a5d7bea5a94">Recipients of this Standard are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.</p>
+</note></p>
+
+
+</foreword><clause id="_2e706609-6654-db2b-33a0-c3cb4d57c048" type="security" obligation="informative">
+<title id="_7974edf1-0459-03d8-f74c-5b72ab98795c">Security considerations</title>
+<p id="_b2512eeb-995a-eabe-4ee2-ae30853fc76e">No security considerations have been made for this Standard.</p>
+</clause><clause id="_19d5589d-7cb6-b05b-148e-a2ad6e39d6ac" type="submitters" obligation="informative">
+<title id="_454e8fd9-fbfc-9c82-30fc-9121a2f52315">Submitters</title>
+<p id="_6e1b734b-e32c-864b-59a1-81792b76695c">All questions regarding this submission should be directed to the editor or the submitters:</p>
+
+<table id="_3b0ac6ff-4f0d-0ff8-b465-b2d5be2985b0" unnumbered="true"><tbody><tr id="_c4fc1fb2-75c0-7d0a-b52e-111e87f4a829"><td id="_a7738332-a145-8faa-723b-af71e1ccccf6" valign="middle" align="left"><strong>Name</strong></td>
+<td id="_88d632c9-1ff3-7cf1-d412-a86674180463" valign="middle" align="left"><strong>Affiliation</strong></td>
+</tr><tr id="_0ab05c60-fbfe-e0ce-076e-b7a88917e9fc"><td id="_cda6bb27-219e-42e2-f251-decd9b047b1f" valign="middle" align="left">Joan Maso</td>
+<td id="_e92c32df-9550-8c36-33db-4e63a3a593ca" valign="middle" align="left">UAB-CREAF</td>
+</tr><tr id="_224a58f1-d70e-4216-36bd-0c90b4ac0ef4"><td id="_ecc92cb9-bef1-e74a-a111-959974346277" valign="middle" align="left">Martin Desruisseaux</td>
+<td id="_09b860ff-7450-9f83-8484-d52f6b5c8df0" valign="middle" align="left">Geomatys</td>
+</tr><tr id="_fbca8501-d9cb-2162-c0ab-0a9d0bfea04c"><td id="_ee8fd273-7f5a-4c5e-d45d-35a769255e6b" valign="middle" align="left">Gilles Cebelieu</td>
+<td id="_354f2814-730b-f836-e358-342675e21189" valign="middle" align="left">IGN-F</td>
+</tr><tr id="_62a425be-cd5f-1042-3e5c-6dee57cc71e3"><td id="_979f0c1a-070b-4f3d-c8b2-8a1713f85a77" valign="middle" align="left">Michel Leedahl</td>
+<td id="_8b7f1b06-6304-065f-ebc1-5c9753363a43" valign="middle" align="left">Michel Leedahl</td>
+</tr></tbody>
+</table>
+</clause></preface><sections>
+
+
+
+
+
+<clause id="_2fe2853e-fa60-bb67-2939-c9a69ce71d59" type="scope" obligation="normative">
+<title id="_f70b6ff6-6131-0e24-81e1-850dbe94b63d">Scope</title>
+<p id="_ff1be970-4d0f-8e1c-8b2a-fd68a7c76fd2">This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but two essential data structures called Image File Header and Image File Directory are replaced by Big File Header and Big Image File Directory to support the necessary longer integer numbers that act as internal offsets of the file. It also adds 3 new extra data types: LONG8 (uint64) SLONG8 (int64) or IFD8 (uint64).</p>
+</clause>
+
+<clause id="_805f5907-8704-eb0d-0c1a-9c3000b8ecea" type="conformance" obligation="normative">
+<title id="_e246d3c1-cf3f-232c-cb69-d9b3793ef60f">Conformance</title>
+<p id="_85868bec-290e-608a-d495-f3a2a1f31c32">This Standard defines a single conformance class</p>
+
+<p id="_8e06a550-d1fb-74b0-7249-0ab33a942342"><strong><xref target="BigTIFFRequirements"/></strong> (<link target="http://www.opengis.net/spec/BigTIFF/1.0/req/req-class-core"/>)</p>
+
+<p id="_bb52e949-e321-741f-13a6-0f4e7fe1f255">This class defines the requirements of the BigTIFF format.</p>
+
+<p id="_d2aa981f-0ae7-109c-8e96-b1e91084517a">Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
+
+<p id="_0075785b-3fbe-26fa-7860-b662ab447460">In order to conform to this OGC® interface standard, a software implementation shall choose to implement:</p>
+
+<ul id="_16710219-d2ea-ed39-81b0-832ee9fb3a0a"><li><p id="_5040bb54-aff3-966f-4b90-2ee3362e2617">Any one of the conformance levels specified in Annex A (normative).</p>
+</li>
+</ul>
+
+<p id="_640e75b3-5ab7-4100-f66a-dbabcc5bb34a">All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.</p>
+</clause>
+
+
+
+<terms id="_9c377ee4-e4ef-9bba-f65e-d4ccce733d48" obligation="normative">
+<title id="_dfb2eab2-f980-6365-3c47-81d0eb272962">Terms and definitions</title><p id="_8c49041f-8363-1e0b-0484-6e1046987489">This document uses the terms defined in <link target="https://portal.ogc.org/public_ogc/directives/directives.php">OGC Policy Directive 49</link>, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this document and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.</p>
+
+<p id="_7bbae1f8-9cf5-3d71-b33b-b85f9ba4c251">This document also uses terms defined in the OGC Standard for Modular specifications (<link target="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131r3</link>), also known as the ‘ModSpec’. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.</p>
+
+<p id="_548e409e-2890-5c36-8c0d-528166f290d6">For the purposes of this document, the following additional terms and definitions apply.</p>
+
+<p id="_33a502d5-9875-3870-02ee-f695d61553c1">This document uses the terms defined in OGC Policy Directive 49, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
+
+<p id="_0f50c843-87f7-88da-8425-b8bc86c6180c">For the purposes of this document, the following additional terms and definitions apply.</p>
+
+<term id="_d9a56494-d03c-7c94-bb20-01fdbaf461a7" anchor="term-big-image-file-directory"><preferred><expression>
+<name>big image file directory</name>
+</expression>
+</preferred>
+<definition id="_f88e1b91-aee2-6a7a-e245-1c1ade987b49"><verbal-definition id="_3e98dd6a-40fa-e4e8-6dd2-d8c39eb00cba"><p id="_05ce2b30-d968-65ee-0f27-ade1f4ec1c2e">a modified data structure containing the TIFF fields (identified by a tag) of a BigTIFF file.</p></verbal-definition></definition>
+ </term>
+
+<term id="_3241bba8-a427-9fa7-8708-5a99d8527dfb" anchor="term-big-image-file-header"><preferred><expression>
+<name>big image file header</name>
+</expression>
+</preferred>
+<definition id="_2ec4ef55-01b7-0bb7-91dc-41d28c89c7fb"><verbal-definition id="_d1e1d83d-7aeb-a672-5d00-3bf22859b225"><p id="_5f9b5b33-b291-b791-7e55-72d31d4b9283">a modified data structure at the beginning of a BigTIFF file.</p></verbal-definition></definition>
+ </term>
+
+<term id="_46855975-041d-2ad4-2549-d0d8db95fdb3" anchor="term-classic-TIFF"><preferred><expression>
+<name>classic TIFF</name>
+</expression>
+</preferred>
+<definition id="_bf40d563-bc0a-740d-d4ff-e940583a6ecb"><verbal-definition id="_1c17b26e-cc0e-abd5-a2ac-2cc35f45c3bb"><p id="_a30f2ed5-0bb5-4397-d39f-f5df87b505a8">a TIFF file that follows the TIFF specification version 6.0.</p></verbal-definition></definition>
+ </term>
+
+<term id="_bb1c45f3-2d00-279b-bbb6-5431ad0b36db" anchor="term-field"><preferred><expression>
+<name>field</name>
+</expression>
+</preferred>
+<definition id="_b99ceeb2-cc65-d7c2-1ff9-2c4b63853601"><verbal-definition id="_fecac297-ffc4-8c22-5838-f6e06a9f23a9"><p id="_e1228f75-4247-85bd-d8ec-22c6aa553656">each entry on a image file directory or a big image file directory. A field is characterized by a tag numerical value and contains or points to the data (source: TIFF specification version 6.0)</p></verbal-definition></definition>
+
+
+ <source status="identical" type="authoritative"><origin bibitemid="AdobeTIFF6" type="inline" citeas="TIFF Revision 6.0 Final"/></source></term>
+
+<term id="_eea3e4fb-b8e7-16bd-971c-7fa2cb096dea" anchor="term-image-file-directory"><preferred><expression>
+<name>image file directory</name>
+</expression>
+</preferred>
+<definition id="_4aa982a4-458e-5d23-99f4-36d2ef89f9ee"><verbal-definition id="_bb2f54b2-98b3-9853-0620-d17af00df7a1"><p id="_7fa0316d-f1c7-9a9a-52c6-8c3d92c638e7">a data structure containing a list of TIFF fields (identified by a tag) of a TIFF file.</p></verbal-definition></definition>
+
+
+ <source status="identical" type="authoritative"><origin bibitemid="AdobeTIFF6" type="inline" citeas="TIFF Revision 6.0 Final"/></source></term>
+
+<term id="_8dd46c03-3472-ef18-06f5-8bd04d07c794" anchor="term-image-file-header"><preferred><expression>
+<name>image file header</name>
+</expression>
+</preferred>
+<definition id="_fa6ab1f4-e30b-65ef-9046-741a86b23392"><verbal-definition id="_e60eae66-66f0-5918-2391-2cf387bbae20"><p id="_e19594ab-4462-08cc-6c7e-df26680fe1b8">a data structure at the beginning of a TIFF file.</p></verbal-definition></definition>
+
+
+ <source status="identical" type="authoritative"><origin bibitemid="AdobeTIFF6" type="inline" citeas="TIFF Revision 6.0 Final"/></source></term>
+
+<term id="_43e7fecf-ea0d-e018-919b-666726ad5b80" anchor="term-tag"><preferred><expression>
+<name>tag</name>
+</expression>
+</preferred>
+<definition id="_020ea71c-f50b-782f-49fe-b4a95fb140ab"><verbal-definition id="_2bb31e3b-e2e9-4c7f-5722-5561bd0b7b68"><p id="_13e91c42-8740-fbcf-fa3d-868edf368242">the identifying number of a field type in the image file directory or the big image file directory.</p></verbal-definition></definition>
+
+
+
+
+ <termnote id="_dab42594-abd1-22c3-99b0-6875001298bb"><p id="_73c62c50-63b6-2991-6d1d-91bd5576741e">In previous versions of the TIFF specification, the term “tag” referred both to the identifying number of a TIFF field and to the entire field.</p>
+</termnote><source status="identical" type="authoritative"><origin bibitemid="AdobeTIFF6" type="inline" citeas="TIFF Revision 6.0 Final"/></source></term>
+
+<term id="_201b2615-93d1-69a8-d9be-c33073f75df5" anchor="term-TIFF"><preferred><expression>
+<name>TIFF</name>
+</expression>
+</preferred>
+<definition id="_55c3438c-e5e8-3495-ef5b-db52f6ba82e4"><verbal-definition id="_777f088f-3b2c-165c-b91f-d4b81b3ed91d"><p id="_d8bc1999-c5a5-6443-c3f8-a6d9ffc1f371">a tag-based file format for storing and interchanging raster images</p></verbal-definition></definition>
+
+
+ <source status="identical" type="authoritative"><origin bibitemid="AdobeTIFF6" type="inline" citeas="TIFF Revision 6.0 Final"/></source></term>
+</terms>
+
+<clause id="_b602fbc7-321d-4a04-19d9-113db0c31bd8" obligation="normative">
+<title id="_6948b4ae-f705-e7f5-8bc1-a5f5e5f04db2">Conventions</title>
+<p id="_87fee229-ff6c-bb90-5546-852478e6f22e">This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.</p>
+
+<definitions id="_d8ac2a5c-d486-0ca8-90a9-0b20deb66821" type="abbreviated_terms" obligation="normative">
+<title id="_32e29d4b-6207-26d1-09e5-7ab17e052031">Abbreviated terms</title>
+<dl id="_d332a61e-ad37-67e2-6388-d209236d6a28"><dt anchor="symbol-BIFD" id="_d982a400-eec9-026f-cfa7-f81ec676f83a">BIFD</dt><dd id="_0961b01b-f7d2-1504-de93-c7c8df70599f"><p id="_61ea0125-a48e-b379-90d3-ee5337d2e26f">BigTIFF Image File Directory</p>
+</dd>
+<dt anchor="symbol-IFD" id="_3773ef4b-8071-17ee-dc82-c4bbc996733e">IFD</dt><dd id="_1adfe2fa-6bdb-1670-02b0-5d3a4b674a24"><p id="_d03c2ede-44f4-2c05-bdfa-d83eed3c8dd6">Image File Directory</p>
+</dd>
+<dt anchor="symbol-TIFF" id="_78bb0581-497f-a47f-b606-99142959bc4b">TIFF</dt><dd id="_cbd26f2d-bdd6-6985-3c91-31e6120b0d86"><p id="_4f965dfd-274e-2435-b276-f2fb8f2fb855">Tag Image File Format</p>
+</dd></dl>
+</definitions>
+<clause id="_4e4ba759-e926-a420-2d3a-c8168153719a" obligation="normative">
+<title id="_9923b864-ae86-80fc-d444-ba5ba017c4b3">Identifiers</title>
+<p id="_1b4116b9-4764-4b40-7e20-cd1f67125a28">The normative provisions in this standard are denoted by the URI</p>
+
+<p id="_7197d0e6-f6c2-b54e-3764-dbccf205caa4"><tt><link target="https://www.opengis.net/spec/bigtiff/1.0"/></tt></p>
+
+<p id="_f66b306e-eaed-7bb5-c6f2-99b2de1fb591">All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.</p>
+</clause>
+</clause>
+
+<clause id="_209439bc-4f94-58fb-ca03-daa3c55cde02" obligation="informative">
+<title id="_07312b42-a993-be07-d2f8-4375a986b378">Overview</title>
+<clause id="_d398923d-fb6f-3ee1-3d19-57b07330fdff" obligation="informative">
+<title id="_de6af222-b901-2e9c-12c3-9bddba8a852c">What is BigTIFF</title>
+<p id="_c05ad984-838c-a2dd-5a5d-85b8b7ab8363">The TIFF file format was defined in mid-1980s as an extensible format. At that time 32bit offsets seemed sufficient, giving a limit to a four GByte file size. This has been quite sufficient for many years. Today however, there is a need for a good multi-purpose open image file format that can handle huge images, or very large collections of images, that together exceed the four GByte boundary.</p>
+
+<p id="_d0e221a1-771e-0d1c-29b6-1f457274f2b4">BigTIFF is very similar to the original TIFF and only changes some internal headers to support 64 bits offsets and data types. The benefits of BigTIFF closely resembling TIFF are huge. For instance, existing TIFF libraries can quite easily extend their support for TIFF to also include this variant. This results in a very short list of requirements. All the much-appreciated properties of the TIFF format that have been around and have been extended for decades are inherited. All properly known tags are being reused, all supported bit depths and datatypes remain valid. The arbitrary number of ‘extra channels’, the tiling and striping schemes, the multitude of compression schemes, and the private tag scheme, that made TIFF very useful in pre-press as well as for storing scientific data, and many other applications, all remain intact. Yet, by changing the offset bit depth, BigTIFF files are no longer restrained by the 4 GByte limitation from which classic TIFF suffers.</p>
+
+<p id="_3d3b5f8c-5ca6-8ada-75b3-fa5f5756c20e">Since the BigTIFF format is based on the TIFF format, the reader is encouraged to familiarize with the current version of the TIFF specification before reading this.</p>
+</clause>
+
+<clause id="_cc68f872-21ab-1017-5b7c-0b414e20f8df" obligation="informative">
+<title id="_7b2763ef-b060-20b5-f304-f86833659e84">Origin and compatibility</title>
+<p id="_48f93b17-4cb2-9aa0-f0ec-cae71775d41e">This Standard collects the attempt to launch a new variant of TIFF, called BigTIFF, that closely resembles TIFF, but uses 64bit offsets instead. The results of the BigTIFF discussion resulted in an original specification exposed in the Aware Systems website: <link target="https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html"/>. Aware Systems was managed by Joris Van Damme but was discontinued after July 6th, 2025 and can only be accessible in backup copies done by the WebAchive iniciative. In order to preserve and consolidate the BigTIFF iniciative, the process of creating this Standard started with Joris Van Damme initial work and was translated it into an OGC standard. Another source of information on the BigTIFF format is the BigTIFF design page at the LibTiff site <link target="http://bigtiff.org/"/>.</p>
+
+<p id="_65dd7085-7b99-34bb-8175-c23386df74f3">There are at least two independent implementations of the original BigTIFF specification. (AWare Systems AsTiff, and LibTiff since version 4.0). This OGC Standard does not contradicts the original BigTIFF specification so the implementations of BigTIFF are immediatelly compatible with this Standard.</p>
+</clause>
+
+<clause id="_2c15a873-d874-3add-1c4c-e4687d6bf1e3" obligation="informative">
+<title id="_ff652b76-7b8f-d844-8206-6f95fb356287">Changes to the original version</title>
+<p id="_b1d48ab8-7749-6a78-f720-9194aed34b17">In the elaboration of this Standard a new naming for the data types have been adopted for clarity.</p>
+
+<table id="_8512dd3d-7ad5-4696-e323-9ef08490be99" anchor="classic-tiff-file-header" width="100%">
+<name id="_ee4e2e15-88ed-ffa9-ae83-e9ec706638da">Changes in data types.</name>
+<thead><tr id="_e38bd727-4209-0dad-f66e-0ed135fcf31a"><th id="_eb7f59ce-2e5a-6d43-5dbe-dfb43f375525" valign="middle" align="left">Original</th>
+<th id="_fef39607-6062-94dc-8c07-2750441878cd" valign="middle" align="left">Adopted</th>
+<th id="_86e8a57a-1c17-fb98-5a0b-a2e0871046a9" valign="middle" align="left">Description</th>
+</tr></thead>
+<tbody><tr id="_31d07b2b-2c2c-da56-2f95-b251c7188b50"><td id="_9672f448-b1c6-8ba2-6269-a093bc6692a1" valign="middle" align="left">Word</td>
+<td id="_74f17ce4-c6d4-f272-1b2c-3db3c5033c61" valign="middle" align="left">uint16</td>
+<td id="_0435add1-2a33-cb60-2996-7e6eeb52410f" valign="middle" align="left">unsigned short integer (2 bytes)</td>
+</tr><tr id="_9efb05f0-b0a6-7164-e90d-6232bd28b5d7"><td id="_57ac094f-e976-0e8f-52d3-d92e980b69f2" valign="middle" align="left">Unsigned long</td>
+<td id="_d4ae861a-2adc-184f-2a02-95371c05bc9a" valign="middle" align="left">uint32</td>
+<td id="_bfc9afd0-c398-a617-2577-33ffa87f1d55" valign="middle" align="left">unsigned long integer (4 bytes)</td>
+</tr><tr id="_b5064191-37c0-2b6f-2612-401bd7fa77ef"><td id="_f93402df-b3da-334d-5571-a3d43fea23a4" valign="middle" align="left">Signed 8Byte</td>
+<td id="_9a2d2d21-d01c-dd9f-a232-e0b0f507009d" valign="middle" align="left">int64</td>
+<td id="_da2ba494-b2d9-4697-8a4d-3dab71b314c9" valign="middle" align="left">signed long long integer (8 bytes)</td>
+</tr><tr id="_7c0305f0-4da0-8579-cdde-b7b673f49f0f"><td id="_fad40a25-0d9e-e8dd-98b8-14fe87711337" valign="middle" align="left">Unsigned 8Byte</td>
+<td id="_93d5ff55-ff82-e883-5557-0c32c7033cff" valign="middle" align="left">uint64</td>
+<td id="_7f12d250-1cfe-3078-3ca6-dbdf5aaade4c" valign="middle" align="left">unsigned long long integer (8 bytes)</td>
+</tr></tbody>
+</table>
+</clause>
+</clause>
+
+<clause id="_78807770-b123-2596-74ff-b72482994483" anchor="BigTIFFRequirements" obligation="normative">
+<title id="_1de7d78b-227f-fc20-e618-fca8c6c3421a">BigTIFF requirements</title>
+<p id="_36e9c606-6c49-062b-4d95-43a7335c8072">The BigTIFF standard provides a solution for a TIFF file that requires a file size larger than 4 Gigabytes. In principle, the BigTIFF standard will also support smaller files. However, files that do not require file size bigger than 4 Gigabytes or not using the new data types, should use TIFF version 6 specification instead. This is in order to ensure backwards compatibility with old TIFF implementations not supporting BigTIFF.</p>
+
+<p id="_0e1249b3-ee75-9a38-8303-1a3d2be5a7ec">A BigTIFF file (and a TIFF) is defined as a sequence of 8-bit bytes, where the bytes are numbered from 0 to N. In a BigTIFF file, the largest possible TIFF file is 2<sup>64</sup> bytes in length.</p>
+
+<clause id="_c6de20cd-0c36-c069-edce-7b4b6903f46f" obligation="normative">
+<title id="_8c4802cc-99fb-bc68-f9e8-c627b57fa24f">Requirement Class Core</title>
+<requirement id="_e5b9897b-99a9-497c-43ff-ba1468cfc236" anchor="req_class_core" model="ogc" type="class">
+<title>Requirements Class ‘Core’</title><identifier>https://www.opengis.net/spec/BigTIFF/1.0/req/core</identifier><subject>BigTIFF Encoder</subject><inherit>https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf</inherit><requirement id="_ccd64992-6a58-4ae6-0c57-ef4e36b96950" model="ogc" type="general"> <identifier>/req/core/big-offsets</identifier></requirement><requirement id="_f9d78cd9-605b-9569-7d2f-cadcd46a7f7b" model="ogc" type="general"> <identifier>/req/core/bifh</identifier></requirement><requirement id="_3dc19fa4-d28e-d67c-90ef-3bc8cc5c7053" model="ogc" type="general"> <identifier>/req/core/bifd</identifier></requirement>
+
+</requirement>
+
+<clause id="_efa99492-c1eb-10a0-e7e9-fb2b3b92572e" obligation="normative">
+<title id="_1fec6331-5c2f-019a-d206-03570572cfd1">Basic format</title>
+<permission id="_37af9873-fd0e-0e0a-5a6a-7b168b7c21c2" anchor="per_class_core_big-offsets" model="ogc"> <identifier>/per/core/per-big-offsets</identifier><component id="_6876b034-c28f-f2b7-0fd7-5891401cd9d8" class="part"><p id="_b8f155fe-4439-260c-20f0-d325bb0e1d9e">A BigTIFF is allowed to ignore the introduction and the first 2 subsections in Section 2 of the TIFF version 6 specification describing the <em>Image File Header</em> and the <em>Image File directory</em> and use a <em>Big Image File Header</em> and a <em>Big Image File directory</em> instead. When some part of the the <em>Image File directory</em> subsection are still relevant for this standard, they are explicitly referenced</p>
+</component>
+</permission>
+
+<note id="_c9505d17-dac4-9d3f-bf2d-6525d159b652"><p id="_52a6d425-ea12-a936-510f-00c58554f2c8">Commonly “permissions” are statements that emphasizes the usefulness of some possibilities that may be not obvious but do not contractic requirements. In this case we are forced to use a permission to overwrite requirements in the original TIFF specification and allow for 64 bit offsets.</p>
+</note>
+
+<requirement id="_aa28b905-709c-b63d-b2f9-1b9bccadf281" anchor="req_class_core_big-offsets" model="ogc"> <identifier>/req/core/big-offsets</identifier><component id="_a9b41bb3-1274-a1dd-392b-1f0f88a3816c" class="part"><p id="_483553f8-e802-38ce-e8c1-ca00d16c3dac">A BigTIFF SHALL begin with a 16 byte <em>big image file header</em> (that replaces the &lt;&lt;[AdobeTIFF6&gt;&gt; 8 byte <em>image file header</em>)</p>
+</component><component id="_14314d0e-19fa-5b71-0600-56bbb1000bfb" class="part"><p id="_d02beb21-0b1b-5dea-3c42-8a6c1a28cde4">A <em>big image file header</em> SHALL point to the first <em>big image file directory</em> (BIFD). A <em>big image file directory</em> contains information about the image, as well as pointers to the actual image data in a similar way as a  <em>image file directory</em> does in &lt;&lt;[AdobeTIFF6&gt;&gt;</p>
+</component>
+</requirement>
+
+<requirement id="_c2de22e1-1099-0cb3-ac37-1329d4c7a3c8" anchor="req_class_core_bifh" model="ogc"> <identifier>/req/core/bifh</identifier><component id="_0a5a9717-2053-4370-8007-8788378d940b" class="part"><p id="_55130143-010d-50d3-3cb7-e2fb8d9de03f">A <em>big image file header</em> SHALL follow the structure presented in <xref target="bigtiff-file-header"/></p>
+</component>
+</requirement>
+
+<table id="_12c413a2-6e9a-b96e-4f15-183d363eb87e" anchor="bigtiff-file-header" width="100%"><colgroup><col width="16.6666%"/><col width="16.6666%"/><col width="66.6668%"/></colgroup>
+<name id="_87bd85bd-ee45-8406-f2c7-a8f59f890471">BigTIFF file header (normative)</name>
+<thead><tr id="_09d5434a-dd3b-9385-f9d4-f517543514c9"><th id="_78bb6f81-be92-7c39-c949-3bc369169b94" valign="middle" align="left">Offset </th>
+<th id="_84d6fdcf-f180-1620-3fa1-48078b88a78d" valign="middle" align="left">Datatype</th>
+<th id="_7db4409e-34a1-6dc7-156e-58e86b797a2a" valign="middle" align="left">Value</th>
+</tr></thead>
+<tbody><tr id="_43c3121b-bf7a-32aa-d59a-5ec7bc08b36f"><th id="_d35701e0-1449-65d0-b2f1-4c609c0ef86a" valign="middle" align="left">0 </th>
+<th id="_b96918af-9cc6-d7b3-9748-1020db969c9d" valign="middle" align="left">uint16</th>
+<th id="_483ac352-183f-efc4-3857-9b84a55ff368" valign="middle" align="left">Byte order indication (use the values stated in the TIFF version 6 Image File Header Bytes 0-1)</th>
+</tr><tr id="_428be8f1-ab85-b4f7-79ed-1ace6cf90576"><th id="_2cb63ceb-7a33-9baa-ec5b-79604cc9ab64" valign="middle" align="left">2</th>
+<th id="_e0358d6b-779a-f858-437f-32b568002602" valign="middle" align="left">uint16</th>
+<th id="_ba34ad9a-6f79-63d1-8a56-503e90e2a8d5" valign="middle" align="left">Version number (always 43)</th>
+</tr><tr id="_0498ba34-fa3a-1eb0-fc46-1025a0bd63c9"><th id="_ec2a4950-e297-8ab4-f785-74caefac5781" valign="middle" align="left">4</th>
+<th id="_750004a8-3190-bee6-4feb-8c189344d935" valign="middle" align="left">uint16</th>
+<th id="_44bcc638-0822-b8de-6b86-e540617f90c2" valign="middle" align="left">Size of offset in bytes Always 8 in BigTIFF (it could be 16 in a future version for superbig TIFFs)</th>
+</tr><tr id="_10c631c6-b9e5-5130-3efa-2ab59dd1da66"><th id="_29dcf7b1-5911-00b6-e8cd-13d766428b88" valign="middle" align="left">6</th>
+<th id="_2ac76ed5-627e-637d-4437-1890df9d54f3" valign="middle" align="left">uint16</th>
+<th id="_1d476650-d3c2-166d-2ad5-e80c48010736" valign="middle" align="left">Reserved. Populate with 0</th>
+</tr><tr id="_cc521ae2-3759-ebd7-3616-43c5fdbbb976"><th id="_2e8936e1-fda7-d9a9-af3d-0020b5bfdb1e" valign="middle" align="left">8</th>
+<th id="_ae08b4ec-3c08-a801-85dc-f65e46664dcd" valign="middle" align="left">uint64</th>
+<th id="_30967668-d6eb-45aa-c520-1bed1d77b893" valign="middle" align="left">Offset (in bytes) to first BIFD</th>
+</tr></tbody>
+</table>
+
+<p id="_3ef6fdb3-7f95-233b-8e21-c7e6c6d270b6">(The <xref target="annex-classic-tiff-basic-struct-informative"/> contains the TIFF version 6 classic structures for comparison purposes).</p>
+
+<p id="_93f4c92c-8a09-52f6-df5e-65efff4f2159">While the classic TIFF <em>image file header</em> points to the first <em>Image File Directory</em> (IFD), the BigTIFF <em>big image file header</em> points to the first <em>Big Image File Directory</em> (BIFD). In that sense IFD and BIFD are equivalent. Both IFD and BIFD can be located anywhere in the file. Every ‘page’ in a multi-page TIFF, either classic TIFF or BigTIFF, is represented by exactly one IFD and one BIFD respectively. Please note that BIFD and IFD can not be used together in the same file.</p>
+
+<requirement id="_362814c9-07bf-5486-4245-aa739d6e7ae7" anchor="req_class_core_bifd" model="ogc"> <identifier>/req/core/bifd</identifier><component id="_0c129ae9-203c-5b34-2548-5201fd5b9ebb" class="part"><p id="_cbe6cf64-0398-5192-ace5-12558716d176">There SHALL be at least ONE  <em>big image file directory</em> in a TIFF file and each BIFD must have at least one entry</p>
+</component><component id="_5c0a755d-940e-80db-e5ba-b300bb3225dd" class="part"><p id="_6ea4c7b5-7c9c-0e62-c798-45b9856221a9">A <em>big image file directory</em> SHALL follow the structure of <em>Big Directory Entries</em> presented in <xref target="bigtiff-ifd-structure"/></p>
+</component><component id="_69a83b38-f239-d2dc-d104-9231a765ed34" class="part"><p id="_091fdfb1-adbe-b0be-3095-3b19844ae3f2">The <em>big directory entries</em> in a BIFD SHALL be sorted by code (in the same way than classic TIFF does)</p>
+</component><component id="_3148a132-262c-cfef-39b3-9689a9076e67" class="part"><p id="_c579a062-4aa2-d4f1-df12-6580da89dcf2">Each <em>big directory entry</em> SHALL follow the structure presented in <xref target="bigtiff-de-structure"/></p>
+</component><component id="_1b58caf0-a789-db1f-0c22-d79a7856b45e" class="part"><p id="_2b61e8c3-3a52-d4e6-b04f-3488db3d0f34">The tag <em>value</em> SHALL be written inside the tag structure, in the <em>big directory entry</em>, if its size is smaller than or equal to 8 bytes. Otherwise, it’s written elsewhere, and pointed to by the offset written as the value</p>
+</component><component id="_e5fddaf4-333c-3337-a21a-ea318a378c27" class="part"><p id="_3045802f-0b34-d551-d875-48f179492308">In case of multibyte values (e.g a SHORT, LONG, etc), the byte order (II or MM) in the TIFF header SHALL govern the order of the bytes</p>
+</component><component id="_4874d7e2-b167-0b14-4fa6-c1dd1cb57824" class="part"><p id="_615f961f-bccd-615e-7b8f-0e484556c563">The reader SHALL check the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. For example, ImageWidth and ImageLength are usually specified as having type SHORT, but images with more than 64K rows or columns should use the LONG field type. TIFF readers SHALL accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field. This allows a single procedure to retrieve any integer value, and makes reading more robust, and saves disk space in some situations</p>
+</component>
+</requirement>
+
+<p id="_d8b748a2-29cd-bb96-eda6-4fd6f7602ed1">A <em>Big Image File Directory</em> (BIFD) consists of an 8-byte count of the number of directory entries (i.e., the number of fields), followed by a sequence of 20-byte field entries, followed by an 8-byte offset of the next BIFD (or 0 if no other BIFD is required).</p>
+
+<p id="_0f0834b2-068d-5577-9e0e-0c186494b6d0">Every <em>Big Directory Entry</em> takes up exactly 20 bytes in BigTIFF, and the complete BIFD looks like this:</p>
+
+<table id="_dbcb9be5-ab72-20f5-44fc-c61e8ed69206" anchor="bigtiff-ifd-structure" width="100%">
+<name id="_f769689a-876b-747a-f25c-f010244ea534">BigTIFF Image File Directory (BIFD)</name>
+<thead><tr id="_5ae87fe9-40b6-413a-9600-5e94e6667a4a"><th id="_708bf779-d2d0-22fe-bf5a-56ca22ea4645" valign="middle" align="left">Offset </th>
+<th id="_c714fec3-c432-244b-c4bb-a0f8f2d0d887" valign="middle" align="left">Datatype</th>
+<th id="_de6b91c2-2502-e02d-1901-223d173682a1" valign="middle" align="left">Value</th>
+</tr></thead>
+<tbody><tr id="_72c5f9e8-e621-8ab7-dd0a-d2142ab0af8a"><th id="_2d4f05d6-f741-8c9e-e589-6d54b8622eb5" valign="middle" align="left">0 </th>
+<td id="_4c491b02-1751-2e1b-aca3-fe5fc6480f73" valign="middle" align="left">uint64</td>
+<td id="_700f5cea-ee7a-0904-1ffe-8eb34190cea0" valign="middle" align="left">Number of big directory entries in BIFD (B)</td>
+</tr><tr id="_32aaaca0-2495-0ed1-92b5-b9e820afeb83"><th id="_9df5e634-fdb5-1b82-6392-56901327b247" valign="middle" align="left">8+0*20</th>
+<td id="_825c3086-aeed-e92a-8381-850746673638" valign="middle" align="left">Big directory entry structure (see <xref target="bigtiff-de-structure"/>)</td>
+<td id="_ec23d82a-80e2-a710-8468-35fadbd93d6c" valign="middle" align="left">First tag data</td>
+</tr><tr id="_9ea7253d-5aab-a1e4-e82a-f6ef0c295c68"><th id="_48f743a5-16e7-23bf-0bba-874d037b3476" valign="middle" align="left">8+1*20</th>
+<td id="_f96d0171-219e-8d81-8de3-df9c38a338b3" valign="middle" align="left">Big directory entry structure (see <xref target="bigtiff-de-structure"/>)</td>
+<td id="_cf398904-d177-949a-8590-b37fb440381b" valign="middle" align="left">Second tag data</td>
+</tr><tr id="_1cb1e3c1-f7ad-4493-3834-398ff4c60b49"><th id="_5c7961a9-fb2c-1a54-8674-6c30efe63d82" colspan="3" valign="middle" align="left">…​</th>
+</tr><tr id="_f7b12bc4-4859-0fe7-a484-37e11897f483"><th id="_6e1e6c5f-68cb-ac2f-7b27-f199aa0f57b1" valign="middle" align="left">8+(B-1)*20</th>
+<td id="_bb51e991-ef9b-f95e-544d-e7d4b112ef77" valign="middle" align="left">Big directory entry structure (see <xref target="bigtiff-de-structure"/>)</td>
+<td id="_93b5e63c-9c39-0d11-cc8f-37b63f42e76e" valign="middle" align="left">Last tag data</td>
+</tr><tr id="_7c522d31-5063-57e4-b2a1-f8342c266f2d"><th id="_c9c6804d-0382-b550-665f-423c5d22360a" valign="middle" align="left">8+B*20</th>
+<td id="_378b1805-26d5-27e4-82c1-112a59b5b2e4" valign="middle" align="left">uint64</td>
+<td id="_deacdee7-b1aa-88a8-38c7-587f91673125" valign="middle" align="left">Offset to next BIFD, if there is a next BIFD or 0 otherwise</td>
+</tr></tbody>
+</table>
+
+<p id="_de5aa9e4-eacb-e034-e9da-d2cde14d5feb">A <em>TIFF field</em> is a logical entity consisting of TIFF tag and its value. This logical concept is implemented as a <em>Directory Entry</em> in the TIFF version 6 and it is implemented in here as a <em>Big Directory Entry</em>, plus the actual value if it does not fit into the value/offset part, the last 8 bytes of the BIFD Entry.</p>
+
+<table id="_c94ae7f8-a3aa-a0f8-901a-6b4c93798616" anchor="bigtiff-de-structure" width="100%">
+<name id="_20369da7-eb95-9296-9fe1-372d6b97afea">BigTIFF Tag structure</name>
+<thead><tr id="_8249616b-e69e-7686-c440-000e4e6c8a22"><th id="_6434fb50-84e0-a349-2dc6-bf9092d6a982" valign="middle" align="left">Offset </th>
+<th id="_e649d1fd-9ab0-739b-0a44-6bff509659f0" valign="middle" align="left">Datatype</th>
+<th id="_9441ae47-424c-06cf-d184-7a40b08cb0f1" valign="middle" align="left">Value</th>
+</tr></thead>
+<tbody><tr id="_0ec5ea0d-d3a9-28b0-357f-80e154988fcc"><th id="_18396b3e-d141-cd63-4c3f-d531678d1ed1" valign="middle" align="left">0 </th>
+<td id="_bac07783-eaef-bf63-e485-73a83b3026dd" valign="middle" align="left">uint16</td>
+<td id="_685044ff-e5dd-8646-388e-3488dd057f2b" valign="middle" align="left">Tag identifying code <sup>1</sup></td>
+</tr><tr id="_9a2c2bf8-473d-3767-491e-f8b296d92995"><th id="_8f6a64b0-c247-647d-3ff8-55c3d7bde126" valign="middle" align="left">2</th>
+<td id="_ca2b4aaa-947b-4aa0-b08e-1e953739e5b4" valign="middle" align="left">uint16</td>
+<td id="_e9537a26-2bfb-3c64-1054-7eb06da4c591" valign="middle" align="left">Datatype of tag data. See <xref target="datatype-values"/></td>
+</tr><tr id="_679b8b23-c2dc-05f3-a78d-0f56c3d3bf63"><th id="_933b3efc-df96-7131-33f8-f41ede99426e" valign="middle" align="left">4</th>
+<td id="_8e4d24b9-ed43-5ef5-0938-2414f9d9ae40" valign="middle" align="left">uint64</td>
+<td id="_367b172f-35fe-8e75-42e9-fdf7b53c9af1" valign="middle" align="left">Number of values (it is not the total number of bytes but the number of values)</td>
+</tr><tr id="_c6ea520f-15c1-9cbf-6a9d-a59917af0caf"><th id="_23925cee-bbac-fab5-89ff-09aa3b862b84" valign="middle" align="left">12</th>
+<td id="_48acbbc6-cf3f-7353-977f-ff2a5e27e9d4" valign="middle" align="left">x * Tag data or uint64 offset</td>
+<td id="_b1e4b7b7-fedc-e2ea-d892-c00cd3cd59ea" valign="middle" align="left">Tag data or offset to tag data</td>
+</tr><tr id="_76009407-9280-832f-88b5-68c12370ce66"><th id="_43b298e3-1209-79bf-cd1d-11ed9d607e02" colspan="3" valign="middle" align="left"><sup>1</sup> See a list of codes in the TIFF version 6 specification. The GeoTIFF standard adds some extra TIFF tag identifiers.</th>
+</tr></tbody>
+</table>
+
+<p id="_8c940100-677a-9c78-f790-2181768f0ed7">Each TIFF field has an associated Count. This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.</p>
+
+<p id="_e47ea892-a89d-dc79-a669-e47bb65c337f">The same rule for value ‘inlining’ the tag data applies to both classic TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by an offset and written elsewhere.</p>
+
+<p id="_a708e3b5-2504-2bd0-ba6d-40da82f92995">The following table contains the Tag datatypes that are defined in BigTIFF, in addition to the ones defined in the TIFF specifications  (see the last part of <xref target="datatype-values"/>)</p>
+
+<table id="_6fcccbc5-15ee-eb02-3931-f5f556c7a47f" anchor="datatype-values" width="100%">
+<name id="_0be4efb6-3170-45c1-732d-4f25da1e73e9">BigTIFF Datatype Tag values</name>
+<thead><tr id="_5501c166-afc5-c403-8550-f29f5fd7d1c6"><th id="_b5c84411-6acf-36fa-4519-c97cbf7fd03b" valign="middle" align="left">Value </th>
+<th id="_144a39ff-7e2b-9ae7-77c5-3016daf64d61" valign="middle" align="left">Name</th>
+<th id="_f23523df-d5b1-8151-0881-8e4c6ca462ea" valign="middle" align="left">Description</th>
+<th id="_e8c47777-d893-32ec-2bbe-81b088d8536f" valign="middle" align="left">Source</th>
+</tr></thead>
+<tbody><tr id="_06b64fda-071a-7e4e-f276-0e5f58510eb5"><td id="_aba5cd80-dd54-39f2-6c40-2f3476616756" valign="middle" align="left">16</td>
+<td id="_a3ebd8a2-6570-89ac-f548-06c15342e1ff" valign="middle" align="left">LONG8 (uint64)</td>
+<td id="_6c770db7-1d21-874d-336d-568cdee4b5c3" valign="middle" align="left">64-bit (8-byte) unsigned integer</td>
+<td id="_9059b8a9-b903-86ce-6d4f-bfe8e1639f9f" valign="middle" align="left">BigTIFF</td>
+</tr><tr id="_602f96e2-726c-1b30-88cf-7ce279f35ad4"><td id="_54885484-83a8-dd7a-67bc-ec6b7591a833" valign="middle" align="left">17</td>
+<td id="_30c7ab06-0d56-324f-e2a6-8580cc394aa1" valign="middle" align="left">SLONG8 (int64)</td>
+<td id="_8cf15751-43d0-578c-388c-e2ed5391d2d6" valign="middle" align="left">64-bit (8-byte) signed integer</td>
+<td id="_f61f3e7e-339b-76fc-c8f4-26b56f7c40d0" valign="middle" align="left">BigTIFF</td>
+</tr><tr id="_06bb824f-ad37-29c6-590e-e2569f809073"><td id="_822f146d-f2ef-223c-70fe-5c7a52bbd0aa" valign="middle" align="left">18</td>
+<td id="_4e982de5-4e9e-08eb-0a6a-2e0692e1a02c" valign="middle" align="left">IFD8</td>
+<td id="_ed75921c-ea2a-c5f7-3fd4-f577fccdd655" valign="middle" align="left">A uint64 IFD offset</td>
+<td id="_963da987-3745-09e6-b48e-639589092f2f" valign="middle" align="left">BigTIFF</td>
+</tr></tbody>
+</table>
+
+<permission id="_e3c52f7f-51a6-6d1f-b65e-180a7829963b" anchor="per_class_core_long8" model="ogc"> <identifier>/per/core/per-core-long8</identifier><component id="_d802acfa-adf9-b6af-75cc-1fd6f9656f5f" class="part"><p id="_532d4b3d-8e42-a5fd-8229-7482cdcacfa8">StripOffsets, StripByteCounts, TileOffsets, and TileByteCounts tags are allowed to have the datatype LONG8 in BigTIFF when necessary. LONG, and SHORT are still valid</p>
+</component><component id="_751e9cd5-eb0c-6e22-1246-c582c974547f" class="part"><p id="_92549ff7-1fb4-f400-431a-9d86e288cd47">Tags that point to other IFDs, such as the SubIFDs tag (see TIFF PageMaker version 6), are allowed to have the datatype IFD8. The datatypes IFD (and the not recommendable LONG) are still valid</p>
+</component>
+</permission>
+</clause>
+</clause>
+</clause>
+
+<clause id="_2978e8e3-5622-d2ad-6dc7-332951a161b1" obligation="normative">
+<title id="_aca62767-ad1e-4176-196c-5168c8171ccd">Media Types for any data encoding(s)</title>
+<p id="_adb07dc6-0201-c972-99ac-91deb538b922">IANA defines the image/tiff media type for TIFF (<link target="https://www.iana.org/assignments/media-types/image/tiff"/>). Since the software is able to programaticaly differenciate between a TIFF and a BigTIFF, we suggest the use of the same media time for the BigTIFF.</p>
+
+<p id="_03d8fb4a-73e1-e9ed-9710-e4d4221c19cf">We also suggest the use of the same file extension (’tif’ or ‘tiff’) despite other suggestions such as ‘tf8’ and ‘btf’ (as some time ago discussed in the LibTiff mailing list).</p>
+</clause>
+
+
+
+
+
+
+
+
+</sections><annex id="_eb4b41cd-c3ba-d79f-b7db-8ad1a617807e" obligation="informative">
+<title id="_0ae400d0-fc5b-94a1-586c-a20b12ca10c6">Conformance Class Abstract Test Suite (Normative)</title>
+<p id="_084b43e1-c795-7d6f-c571-ce140e77d085">This is the Abstract test of this BigTIFF Standard. However to implement a complete test on a BigTIFF file the dependency on TIFF version 6 should be taken into account. Unfortunately the TIFF version 6 file does not contain an abstract test to guide this developement</p>
+
+<clause id="_c32a15fc-08a7-0c78-e6f6-f48610aaaef7" obligation="informative">
+<title id="_6fd6e9aa-9dfc-193e-16b7-8d2e3ec60610">Conformance Class Core</title>
+<requirement id="_f4544539-7ace-1c4d-cc97-16affb5c988f" anchor="ats_core" model="ogc" type="conformanceclass"> <identifier>https://www.opengis.net/spec/BigTIFF/1.0/conf/core</identifier><classification><tag>Target Type</tag><value>BigTIFF Encoder</value></classification><classification><tag>target</tag><value>https://www.opengis.net/spec/BigTIFF/1.0/req/core</value></classification><requirement id="_ed0c90da-81ea-33fe-91d3-102318ddba2b" model="ogc" type="abstracttest"> <identifier>/conf/core/big-offsets</identifier></requirement><requirement id="_9d480bf6-5c13-40cd-c257-aaf6b42374d4" model="ogc" type="abstracttest"> <identifier>/conf/core/bifh</identifier></requirement><requirement id="_0f270819-86e0-7b7e-b155-2f679f91255c" model="ogc" type="abstracttest"> <identifier>/conf/core/bifd</identifier></requirement>
+</requirement>
+
+<clause id="_a0ebf294-026b-191e-a587-1f82f879d56c" obligation="informative">
+<title id="_aa517ce8-78ee-2398-857c-93b97d2b9c8a">big-offset</title>
+<requirement id="_1a6c7ac9-ddcb-b7b9-a3e3-d9adceed343a" anchor="ats_core_big-offsets" model="ogc" type="abstracttest"> <identifier>/conf/core/big-offsets</identifier><classification><tag>target</tag><value>/req/core/big-offsets</value></classification><component id="_8cd0465f-07e2-b6f1-aa43-0888a1498870" class="test-purpose"><p id="_b8619702-0980-e311-07a9-550d30acc4b6">Verify that the section <em>big image file header</em> uses 8 bit offsets</p>
+</component><component id="_e68b34ad-20d3-ee0e-ba1c-8241a9cbfb34" class="test-method"><p id="_d55a03b6-a2a8-90a0-da43-f72fd0255c75">Inspect that aBigTIFF begins with a 16 byte <em>big image file header</em> (that replaces the TIFF v6 8 byte <em>image file header</em>)</p>
+</component><component id="_7ff1661c-b06f-ba4b-989a-2003a6457b0a" class="test-method"><p id="_47b124a4-e769-d42c-d56f-cfb6425eb37c">Inspect that the <em>big image file header</em> points to the first <em>big image file directory</em> (BIFD)</p>
+</component>
+</requirement>
+</clause>
+
+<clause id="_7eeb1f25-c0dc-a8ea-32f6-517da3c6c3e1" obligation="informative">
+<title id="_3f210522-bef0-2a41-f1e9-862433ad1c03">bifh</title>
+<requirement id="_e7f82a8f-615f-a562-73f3-d63355483169" anchor="ats_core_bifh" model="ogc" type="abstracttest"> <identifier>/conf/core/bifh</identifier><classification><tag>target</tag><value>/req/core/bifh</value></classification><component id="_a8f44cf1-58b2-087d-e41f-f6975992d8ed" class="test-purpose"><p id="_8a8079ef-7ff3-9a88-dcf7-d21ee64aba0c">Verify that the section <em>big image file header</em> exists and is correctly encoded.</p>
+</component><component id="_dfdd2bb1-ae73-748a-6804-3c94c6b74306" class="test-method"><p id="_88d493e9-e9bd-f9e4-6f3d-9025c37f5c58">Inspect that a <em>big image file header</em> follows the structure presented in <xref target="bigtiff-file-header"/>.</p>
+</component>
+</requirement>
+</clause>
+
+<clause id="_dad33747-4c09-6462-a49e-5da0b4c112e6" obligation="informative">
+<title id="_017b3026-6534-0368-c585-b01668a60fb3">bifd</title>
+<requirement id="_b83b0b59-b62d-0f21-cdef-8856121c3e98" anchor="ats_core_api-definition-op" model="ogc" type="abstracttest"> <identifier>/conf/core/bifd</identifier><classification><tag>target</tag><value>/req/core/bifd</value></classification><component id="_9097d460-af86-1df5-0b93-98309fb3f711" class="test-purpose"><p id="_b2dc6510-424e-85b1-1955-f218f17c62f0">Verify that the section <em>big image file directory</em> exists and is correctly encoded.</p>
+</component><component id="_0d3d3f34-ec8a-ae2e-c3e6-1bf4e4a678e8" class="test-method"><p id="_2ad12f66-339d-535c-4f52-2248e46511d9">Inspect that there is at least ONE  <em>big image file directory</em> in a TIFF file and that each BIFD have at least one entry.</p>
+</component><component id="_f6374a56-57a5-d6e3-d58e-bcda2b9ed5e6" class="test-method"><p id="_b5a06c59-ca48-c79f-b752-1b9c53201841">Inspect that a <em>big image file directory</em> follows the structure of <em>Big Directory Entries</em> presented in <xref target="bigtiff-ifd-structure"/>.</p>
+</component><component id="_17a13ecc-39f1-ddee-ec8d-507ef1246a8c" class="test-method"><p id="_19ededdb-40b2-a669-2368-0ab14500b5ac">Inspect that <em>big directory entries</em> in a BIFD are sorted by code (in the same way than classic TIFF does) .</p>
+</component><component id="_e121a40b-c208-c80b-8f36-73a4ec7b4155" class="test-method"><p id="_8f2750ba-3cb8-2bc5-6566-b5469693172d">Inspect that each <em>big directory entry</em> follows the structure presented in <xref target="bigtiff-de-structure"/>.</p>
+</component><component id="_61825e79-b964-de05-d847-d9bb20d9044c" class="test-method"><p id="_71e900ff-79b2-f82f-b099-071b01a25cde">Inspect that the tag <em>value</em> is written inside the tag structure, in the <em>big directory entry</em>, if its size is smaller than or equal to 8 bytes. Otherwise, inspect that it’s written elsewhere, and pointed to by the offset written as the value.</p>
+</component><component id="_d1e9f3c8-c478-f068-83c9-c94368a85512" class="test-method"><p id="_7098f79a-7275-6036-7f69-3fac423c4973">In case of multibyte values (e.g a SHORT, LONG, etc), Inspect that the byte order (II or MM) in the TIFF header governs the order of the bytes.</p>
+</component><component id="_0d6a0b52-ee99-8348-c513-a51ccecc25c6" class="test-method"><p id="_778ac914-a855-e223-68b6-8c678a8a7562">In case of a client/reader implementation, inspect it checks the type to verify that it contains an expected value. TIFF allows for more than one valid type for some fields. Inspect that the reader accept BYTE, SHORT, LONG or LONG8 values for any unsigned integer field.</p>
+</component>
+</requirement>
+</clause>
+</clause>
+</annex><annex id="_a6bf59bd-0f55-73ce-3974-9b1c002d53ad" anchor="annex-classic-tiff-basic-struct-informative" obligation="informative">
+<title id="_ecace175-be60-d533-b74b-3b97115aaea5">Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)</title>
+<clause id="_b14149e0-7c0f-bd5f-048b-1b2ed5487c87" obligation="informative">
+<title id="_d662ce75-3ccf-09cb-ed13-408a0adc3484">Image File Header</title>
+<p id="_880c7bdf-a37d-6732-a838-fd2b811ae0e7">For comparison purposes, we reproduce the original TIFF version 6 TIFF header here.</p>
+
+<table id="_79714dab-fb5c-07cf-9cf3-bb853e70ca13" anchor="classic-tiff-file-header-annex" width="100%">
+<name id="_fa264bdb-7382-53cc-7039-45b8c5dc5a13">Classic TIFF file header (informative)</name>
+<thead><tr id="_4b7e2106-771f-df91-13ea-0fb52ac09153"><th id="_77d6f8db-4771-e1b7-8d66-33371ba26f3f" valign="middle" align="left">Offset</th>
+<th id="_619cc394-2040-59e9-daca-d69c8e15595a" valign="middle" align="left">Datatype</th>
+<th id="_a51337b2-690a-9b26-7d50-8931d5115ceb" valign="middle" align="left">Value</th>
+</tr></thead>
+<tbody><tr id="_e80f32f0-dbcb-79e6-1153-9c45a325da76"><td id="_815672ed-90cb-6de1-9282-8e5b779e2ddc" valign="middle" align="left">0</td>
+<td id="_454b8ca7-f656-265a-fd21-46f7967de158" valign="middle" align="left">uint16</td>
+<td id="_e5a3afd0-dcbe-9b0f-a535-9112c7c88535" valign="middle" align="left">Byte order indication</td>
+</tr><tr id="_61807c8f-fad0-7072-13ae-88ac4977a9ae"><td id="_7f5ee15c-51b7-0cf0-109f-59ea727509f8" valign="middle" align="left">2</td>
+<td id="_63adca73-1a15-6e52-5e96-71bedabfc5f9" valign="middle" align="left">uint16</td>
+<td id="_be63dbb7-9840-e515-2d10-49b3f043d5c8" valign="middle" align="left">Version number (always 42)</td>
+</tr><tr id="_315381e1-b4f4-ca00-a3c7-9d87501e7a77"><td id="_d6d3bed8-fda9-46ec-a802-b661f8d353f9" valign="middle" align="left">4</td>
+<td id="_9707d54c-558e-601b-ef5d-1e13e4a731db" valign="middle" align="left">uint32</td>
+<td id="_f9c05bc0-54dc-45be-ce22-6f07c225993c" valign="middle" align="left">Offset to first IFD</td>
+</tr></tbody>
+</table>
+</clause>
+
+<clause id="_6f5d4144-93f0-c7ae-4a4b-df4da062ee54" obligation="informative">
+<title id="_3d2b0744-b8fd-3c38-1117-83a6c778fbc5">Image File Directory</title>
+<p id="_8ab8d634-e9d4-90e6-910d-a101018966ff">For comparison purposes, we reproduce the original TIFF version 6 Image File Directory here.</p>
+
+<table id="_7aa539a4-32c9-fdda-c037-4903b7d4d6f3" anchor="classic-ifd" width="100%">
+<name id="_abf9640e-7460-54d9-8ac5-adb4d3653d62">Classic IFD (informative)</name>
+<thead><tr id="_365c549d-77ff-dac4-25d6-378dbe442514"><th id="_14ba76f4-0113-7fac-3fa9-03e07b2903cb" valign="middle" align="left">Offset</th>
+<th id="_71ecff62-354c-0d87-88d9-38759bab9a41" valign="middle" align="left">Datatype</th>
+<th id="_28c15b21-9bae-e653-d11a-d5fb0fb87dcc" valign="middle" align="left">Value</th>
+</tr></thead>
+<tbody><tr id="_966ef9fa-8068-070e-448d-c1c3c8445bc3"><td id="_70067d2a-4b13-d761-46c3-6232a9fe886f" valign="middle" align="left">0</td>
+<td id="_56527f56-c3fe-ed8c-98f9-79e62e4bb543" valign="middle" align="left">uint16</td>
+<td id="_622f38dd-097a-f850-638b-cf6b4418cdb6" valign="middle" align="left">Number of tags in IFD (B)</td>
+</tr><tr id="_e197b201-944d-be6b-dacb-ebcb1c9f46f1"><td id="_f23423ad-b51c-75b2-59e2-700300f8ef04" valign="middle" align="left">2+0*12</td>
+<td id="_780c6c38-655a-100e-14f8-051b4839fc4c" valign="middle" align="left">Tag structure</td>
+<td id="_a78d5667-c126-64b5-c6f0-38169caf0ad2" valign="middle" align="left">First tag data</td>
+</tr><tr id="_9caa00fa-0b23-0b68-3880-4267d074e3af"><td id="_0caa377d-88db-fa89-7fbc-93d13a91793c" valign="middle" align="left">2+1*12</td>
+<td id="_10e36e2b-d99b-34d6-f53a-a402868c9ec6" valign="middle" align="left">Tag structure</td>
+<td id="_6c07642e-845e-ac35-57b3-153a9a4fc6cd" valign="middle" align="left">Second tag data …​</td>
+</tr><tr id="_cd7186df-4cd6-dd72-a3d7-f515e590dbc7"><td id="_9dbaf885-d678-1557-16e2-961a0ff15aed" valign="middle" align="left">2+(B-1)*12</td>
+<td id="_8e00265f-28c1-ac0f-3d93-8bda985d6882" valign="middle" align="left">Tag structure</td>
+<td id="_b7bb70fb-b840-a9c9-7c16-93fcc64c36d5" valign="middle" align="left">Last tag data</td>
+</tr><tr id="_435a1ccf-d29e-c8e1-a0bd-d7bdab6e2929"><td id="_7eafe473-9a84-6721-f68b-18e2af33da8c" valign="middle" align="left">2+B*12</td>
+<td id="_ef285ddf-9960-7c35-adae-aa7b735b2d8d" valign="middle" align="left">uint32</td>
+<td id="_3f3b08dc-5662-f14e-b035-5124131b43ca" valign="middle" align="left">Offset to next IFD, if there is a next IFD or 0 otherwise</td>
+</tr></tbody>
+</table>
+
+<p id="_3bc5e5ea-c450-42c1-11e0-4fe6c44c54e4">Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:</p>
+
+<table id="_b6f38291-1925-3ba0-5efd-2b7c6d7a3b17" anchor="classic-tag-structure" width="100%">
+<name id="_5bdafbe1-cbca-090f-8dd0-e472d089bb9c">Classic Tag structure (informative)</name>
+<thead><tr id="_2c379fbe-7bb3-98dc-be2e-855e627dc35e"><th id="_78898534-6a5d-086a-7840-413e83880bc6" valign="middle" align="left">Offset</th>
+<th id="_591e7fa5-826f-b8a9-2251-ac5db6d67787" valign="middle" align="left">Datatype</th>
+<th id="_9bae8b07-5038-bb8e-914c-27c36d5fa810" valign="middle" align="left">Value</th>
+</tr></thead>
+<tbody><tr id="_8403ce0a-e32c-a4c3-5af4-566d366f7ca4"><td id="_32fd14e9-46ad-d107-2574-5343b264da13" valign="middle" align="left">0</td>
+<td id="_8d028355-7b56-7905-6590-874297fd3add" valign="middle" align="left">uint16</td>
+<td id="_9107df04-3302-0341-07e0-53884987d6c8" valign="middle" align="left">Tag identifying code</td>
+</tr><tr id="_7bbb6adb-3522-76b4-34a4-aa3e1fbd4cf0"><td id="_eb544033-7d25-e177-7d43-979e75ecc7e7" valign="middle" align="left">2</td>
+<td id="_fcbe3195-f931-66a8-5f07-34cff493a2ca" valign="middle" align="left">uint16</td>
+<td id="_662f08ad-5642-15b9-e02e-71570a4916a5" valign="middle" align="left">Datatype of tag data</td>
+</tr><tr id="_607ad12a-e7e5-a167-d636-f9eaac0b7735"><td id="_e6e3a99e-3b2b-b1d2-9783-ee0b76b94729" valign="middle" align="left">4</td>
+<td id="_1457421e-fa3a-8293-af25-014fa0216bed" valign="middle" align="left">uint32</td>
+<td id="_8f08b04f-312a-6afa-a5b9-913f568ac36c" valign="middle" align="left">Number of values</td>
+</tr><tr id="_10cdeed5-9b8e-3a55-b226-6fc7cbc950de"><td id="_dc59a54f-f83b-20d4-b371-4ca1388f3dec" valign="middle" align="left">8</td>
+<td id="_16e8ec65-519c-64f5-21b3-61c70a19840e" valign="middle" align="left">x * Tag data datatype or uint32 offset</td>
+<td id="_597dce93-53d7-735a-3635-f0f341b9d69d" valign="middle" align="left">Tag data or offset to tag data</td>
+</tr></tbody>
+</table>
+
+<p id="_a7d54f43-3c29-0b80-9304-ea1b92ad1bea">In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it’s written elsewhere, and pointed to.</p>
+
+<figure id="_53c8ef5d-434a-1d57-d534-82f8470b7fca" anchor="img_TIFFandBigTIFFstructure" width="800">
+<name id="_d78dbb86-9345-0c5d-4f18-3a0b85961c15">TIFF and BigTIFF data structures side by side.</name>
+<image id="_fb3f1cee-ca78-a329-af0f-fb0bc972daf5" src="data:image/png;base64,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" mimetype="image/png" height="auto" width="800" filename="figures/TIFFandBigTIFFstructure.png"/></figure>
+</clause>
+
+<clause id="_2b80851f-a26a-f35a-2916-f4b7f4e95392" obligation="informative">
+<title id="_75f72b20-b79e-62ec-a78a-fae997356367">Datatype Tag values</title>
+<p id="_d812c7fd-ba52-4862-6229-f3310caa1877">The following table summarizes the Tag datatypes aplicable for BigTIFF. This list includes “Types” described in the TIFF version 6 specification, as well as some extra types that have been defined by the BigTIFF (this Standard).</p>
+
+<table id="_f988ec5b-9deb-c63f-21ce-0f812cdf5b31" anchor="datatype-values-annex" width="100%">
+<name id="_d358db48-2914-7bd2-d7a0-b9c2ce97e8c5">BigTIFF Datatype Tag values</name>
+<thead><tr id="_ae7a462c-13f2-194e-b5c3-697c3ba9508f"><th id="_631dd04f-62c0-8e3f-4a04-fd36d95383b1" valign="middle" align="left">Value </th>
+<th id="_d3d60e41-5d5b-c2b8-13e6-c3f9c47d7a82" valign="middle" align="left">Name</th>
+<th id="_0c1db795-7247-2b32-c6a9-075deff13fde" valign="middle" align="left">Description</th>
+<th id="_88e7ad71-2d70-3a0f-e58a-2f2cc7422b0d" valign="middle" align="left">Source</th>
+</tr></thead>
+<tbody><tr id="_bbd1b111-8a74-89a7-00eb-f900e09acf2c"><td id="_8ab4a77a-08a8-75a8-eaea-bd45ca2b866c" valign="middle" align="left">1 </td>
+<td id="_2cbaddfd-de06-cb1a-295b-86eca1ca1d4b" valign="middle" align="left">BYTE (uint8)</td>
+<td id="_2b5da4e2-61eb-6374-fcc4-0fed99c6d3da" valign="middle" align="left">8-bit unsigned integer</td>
+<td id="_c31395d0-a9f3-5638-481d-5aa238ef772e" valign="middle" align="left">TIFF specification</td>
+</tr><tr id="_2a987c5f-fadf-c016-bc5c-09dad583f878"><td id="_458ecdbc-9d91-2d72-3cd6-1a62cf2bbc9e" valign="middle" align="left">2</td>
+<td id="_2a3985f3-1bd2-11ee-2da4-3178d1d3a6b6" valign="middle" align="left">ASCII</td>
+<td id="_5472af6a-d5a5-d8b1-45e4-29b99390078c" valign="middle" align="left">8-bit byte that contains a 7-bit ASCII code; the last byte SHALL be a NUL character (binary zero)</td>
+<td id="_d596ca5a-ed6c-5ebc-bd5a-5fee7b621adf" valign="middle" align="left">TIFF specification</td>
+</tr><tr id="_9868354c-6334-f454-1814-e3fb42f60e75"><td id="_ed46db37-e5bd-0950-2f1e-499713193479" valign="middle" align="left">3</td>
+<td id="_035f53d6-e706-4fd7-848c-8d126274dfc6" valign="middle" align="left">SHORT (uint16)</td>
+<td id="_b024cf5a-95d5-af7b-ee40-5f088a7bf26f" valign="middle" align="left">16-bit (2-byte) unsigned integer</td>
+<td id="_83634f19-c646-d476-db83-b9680c60430f" valign="middle" align="left">TIFF specification</td>
+</tr><tr id="_797ebeb1-2874-c1e0-9cf5-3c052efa6ccf"><td id="_da43d803-de7c-ebeb-1beb-52b4646d84e1" valign="middle" align="left">4</td>
+<td id="_542e5886-e076-7e14-0957-8b175c0f8ed2" valign="middle" align="left">LONG (uint32)</td>
+<td id="_8d141084-ec38-603a-3515-18a529bf385d" valign="middle" align="left">32-bit (4-byte) unsigned integer</td>
+<td id="_c6e1cf23-3221-2ec3-8cab-792e5fe7a857" valign="middle" align="left">TIFF specification</td>
+</tr><tr id="_965f42ba-d846-3d7f-f889-f1fa6b062c45"><td id="_790154a5-ab48-b0cd-24cc-5d828aac9804" valign="middle" align="left">5</td>
+<td id="_c9f75aab-04c9-8c65-5f91-9fc39e8b4f55" valign="middle" align="left">RATIONAL</td>
+<td id="_b3597d61-ddd0-6299-7be6-ea42e28fc506" valign="middle" align="left">Two LONGs: the first represents the numerator of a fraction; the second, the denominator</td>
+<td id="_b4b40f13-0ea1-387b-b8ec-e13f9a12b5ec" valign="middle" align="left">TIFF specification</td>
+</tr><tr id="_aeeecca7-4106-8cea-b5d3-801b840da387"><td id="_0241b757-c977-49b6-8cef-c19efcdca714" valign="middle" align="left">6</td>
+<td id="_630ab18a-e477-c3de-12a2-b4346fd3ed00" valign="middle" align="left">SBYTE</td>
+<td id="_8a356cfa-3e57-f1d2-0225-931a96a650a7" valign="middle" align="left">An 8-bit signed (twos-complement) integer</td>
+<td id="_3eefb0d7-adf2-6a71-af4b-48bfe9772958" valign="middle" align="left">TIFF version 6</td>
+</tr><tr id="_80171ad5-b058-4c09-5805-13bd15272b17"><td id="_c0cc63bc-7acd-a8ce-6596-40e9f268370b" valign="middle" align="left">7</td>
+<td id="_a6d13d57-5e32-afbb-063a-f2c7a5a5c220" valign="middle" align="left">UNDEFINED</td>
+<td id="_ba6b80bf-db4e-cb94-61d7-0c892779132f" valign="middle" align="left">An 8-bit byte that may contain anything, depending on the definition of the field <sup>a</sup></td>
+<td id="_2a2bcf79-1201-3349-ffde-186f776e323d" valign="middle" align="left">TIFF version 6</td>
+</tr><tr id="_c4276f70-6abf-ac0c-8597-bac0cb49b83a"><td id="_b3bf640c-a420-e4ce-5895-97cc4261e52c" valign="middle" align="left">8</td>
+<td id="_ab88c628-e62c-9413-603b-4b3c6e327a8d" valign="middle" align="left">SSHORT (int16)</td>
+<td id="_e7a4aaa2-fc62-a17b-3b88-ee46c6f88319" valign="middle" align="left">A 16-bit (2-byte) signed (twos-complement) integer</td>
+<td id="_a54d6feb-c583-46bc-7242-cf23016029a9" valign="middle" align="left">TIFF version 6</td>
+</tr><tr id="_04c8f4a6-6476-9cdf-9f47-867aab353c7a"><td id="_8f2057b3-2ebb-5786-fe4c-932b24a578bc" valign="middle" align="left">9</td>
+<td id="_d3c408d4-99bd-8030-0f42-c6bfc302c243" valign="middle" align="left">SLONG (int32)</td>
+<td id="_90053ef1-e6fa-02d8-a988-40323ba4f6d7" valign="middle" align="left">A 32-bit (4-byte) signed (twos-complement) integer.</td>
+<td id="_bc5df75f-ef81-7dc9-10a2-0d0c080c8394" valign="middle" align="left">TIFF version 6</td>
+</tr><tr id="_073179ff-15e1-4cb5-8ecd-b515cd54b30e"><td id="_fe91e978-07b6-7e23-b788-99cd21eb7397" valign="middle" align="left">10</td>
+<td id="_405d0dc3-14c1-afa8-1376-692b17442d6e" valign="middle" align="left">SRATIONAL</td>
+<td id="_263b49f3-8d91-b769-7dac-467f275af543" valign="middle" align="left">Two SLONGs:  the first represents the numerator of a fraction, the second the denominator</td>
+<td id="_747cda57-d7a1-df8c-9e93-e0352b9b929b" valign="middle" align="left">TIFF version 6</td>
+</tr><tr id="_47be7113-d508-669e-89b0-496ba62936a5"><td id="_06091264-c444-9d7b-7388-0e56185aa192" valign="middle" align="left">11</td>
+<td id="_a40bf503-6185-1591-7135-1f40990dcde8" valign="middle" align="left">FLOAT</td>
+<td id="_002cba32-b688-968e-68a3-1db0451cf44a" valign="middle" align="left">Single precision (4-byte) IEEE format</td>
+<td id="_e6e26266-56b0-525b-56f6-a16a5a5c7096" valign="middle" align="left">TIFF version 6</td>
+</tr><tr id="_7ab7b4e1-7edb-cb9e-b4d6-0f7cb824b7cc"><td id="_55435dc6-ce20-335c-b87d-2ba941d08868" valign="middle" align="left">12</td>
+<td id="_0c2504e3-89d6-00d7-7876-557e1f3baa4f" valign="middle" align="left">DOUBLE</td>
+<td id="_088b4da1-eb42-b868-6ead-98b536a27a67" valign="middle" align="left">Double precision (8-byte) IEEE format</td>
+<td id="_80cd1fc8-27f5-eef5-d308-c977e9617b2b" valign="middle" align="left">TIFF version 6</td>
+</tr><tr id="_5c31c7b0-0e39-bf0d-b082-58f2624bc13a"><td id="_07e75966-3fc7-c574-8762-d8404b4e20cd" valign="middle" align="left">13</td>
+<td id="_5aaa7420-7c62-6e38-5df1-d1bf20220845" valign="middle" align="left">IFD</td>
+<td id="_a2a228d0-910f-d8d1-0c88-3a1bf2806b00" valign="middle" align="left">A uint32 IFD offset</td>
+<td id="_2a3adf08-1d79-41a7-4a8a-bc3953c906a5" valign="middle" align="left">TIFF PageMaker version 6</td>
+</tr><tr id="_25928724-479c-6152-efdc-538765b0f43e"><td id="_ce9d74a2-3857-d6ec-9cb2-034af65b3f31" valign="middle" align="left">16<sup>b</sup></td>
+<td id="_dfa3e6a7-a9ab-b8e4-ae68-ff766bbe40f3" valign="middle" align="left">LONG8 (uint64)</td>
+<td id="_0ce50876-56c8-0fc2-3cd9-0a77f20cb2dd" valign="middle" align="left">64-bit (8-byte) unsigned integer</td>
+<td id="_bf66fc87-9dac-95d5-7436-aaad654f15a0" valign="middle" align="left">BigTIFF</td>
+</tr><tr id="_967c2e8c-1037-403a-d5f7-640ba39c875a"><td id="_fd60a8ac-653b-e121-f75f-8935c08081a6" valign="middle" align="left">17</td>
+<td id="_ce30ac9e-dddb-a905-dd87-a4259cc708a7" valign="middle" align="left">SLONG8 (int64)</td>
+<td id="_2a31b633-a0cc-38bd-4f68-5d3423a46478" valign="middle" align="left">64-bit (8-byte) signed integer</td>
+<td id="_5e45a45c-ed5a-7b58-5d0b-1c4198d68d5c" valign="middle" align="left">BigTIFF</td>
+</tr><tr id="_d6f08010-6290-4dc2-ef8a-f6891bd72797"><td id="_4335e91f-c39c-8eda-3a05-a0fc9566c803" valign="middle" align="left">18</td>
+<td id="_ad450841-f6a5-c3d5-274c-de00bccea0de" valign="middle" align="left">IFD8</td>
+<td id="_d9c19122-781f-828f-a103-8af396ba8a9b" valign="middle" align="left">A uint64 IFD offset</td>
+<td id="_d5d8dfb3-1db5-d560-f5a2-f4e21c562676" valign="middle" align="left">BigTIFF</td>
+</tr><tr id="_37a76359-9f74-588c-7aef-c497c7795474"><td id="_34f5a4a4-d656-96c1-91cf-edcf0f17fceb" colspan="4" valign="middle" align="left"><sup>a</sup> It can be used to store a complicated data structure in a single private field, The Count will be the number of bytes required to hold the data structure.  <sup>b</sup> numbers 14 and 15 have   no meaning.</td>
+</tr></tbody>
+</table>
+</clause>
+</annex><annex id="_86ce8e65-c445-b308-465c-eba6a1493662" obligation="informative">
+<title id="_ab272052-2676-a3fd-f7aa-88a12ecdd887">Revision History</title>
+<table id="_0faf00c7-cf79-9959-f614-3126c05f4ab8" width="90%"><thead><tr id="_e295cf8c-417f-e642-0ce4-352e31c0fd8b"><th id="_b397afae-a25e-891b-937d-99c586497283" valign="middle" align="left">Date</th>
+<th id="_a2be7e6d-6c81-6c99-49f8-9468a61cc83f" valign="middle" align="left">Release</th>
+<th id="_ed09d515-b1bd-9270-5101-c21a1efd1b63" valign="middle" align="left">Editor</th>
+<th id="_079fad58-5f9f-ec34-341e-de9728c62afb" valign="middle" align="left">Primary clauses modified</th>
+<th id="_5c52afcc-715d-b89f-e3d6-df82c28edaa5" valign="middle" align="left">Description</th>
+</tr></thead>
+<tbody><tr id="_f5cbe2d2-afa8-4481-baa8-e6430ebb6e5a"><td id="_3d9b9f52-9671-c122-a5ef-e82a5b36d060" valign="middle" align="left">2016-04-28</td>
+<td id="_53e2075a-1f0e-26f5-f236-ac0d16048b50" valign="middle" align="left">0.1</td>
+<td id="_d6845352-fb54-6071-09c3-fe73296d84eb" valign="middle" align="left">G. Editor</td>
+<td id="_c61bef3b-5365-bafa-6f6e-7c1fc49beab4" valign="middle" align="left">all</td>
+<td id="_7e3e1da4-010a-1b3f-4f7c-4ac453ad56a0" valign="middle" align="left">initial version</td>
+</tr></tbody>
+</table>
+</annex><bibliography><references id="_7e8bea28-c5d8-1bec-d342-70cbf0f2b142" normative="true" obligation="informative">
+<title id="_270c5ee6-077e-f285-ff95-287984a30140">Normative references</title><p id="_a6fdff30-00b4-3e56-d92a-a8d15322a761">There are no normative references in this document.</p>
+
+<p id="_018d84c1-f150-1ec3-5895-e3e290aec2dd">The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.</p>
+
+<p id="_05b8d8ea-b2f4-fd39-f814-37ead12d73ff">[<bookmark id="_9de47570-31bd-c5cc-bb2d-4009c72b1402" anchor="AdobeTIFF6"/>]
+Adobe Developers Association, TIFF Revision 6.0 Final, June 3, 1992, Adobe Systems Incorporated, <link target="https://www.adobe.io/open/standards/TIFF.html"/><note id="_4aabce60-89da-07f2-f4dd-705459836d13"><p id="_a0f0926b-cabb-bfdf-c3a8-b71bccd607a1">This Standard includes requirements that overwrite some basic data structures specified in Section 2 of the TIFF Revision 6.0. The rest of the TIFF Revision 6.0 is still a normative reference to this Standard.</p>
+</note></p>
+
+
+</references><references id="_a8e7fd12-16a4-d2e1-f33d-796e9be105df" anchor="bibliography" normative="false" obligation="informative">
+<title id="_50ceb1e1-516f-2673-d73d-4f0c58b4d023">Bibliography</title><bibitem anchor="BigTIFFFormat" id="_a491a267-7133-32dc-be48-888295c8a6e3">
+  <formattedref format="application/x-isodoc+xml">Joris Van Damme. The BigTIFF File Format. In Internet: <link target="https://web.archive.org/web/20240706160214/https://www.awaresystems.be/imaging/tiff/bigtiff.html"/></formattedref>
+  <docidentifier>BigTIFF Format</docidentifier>
+  
+</bibitem><bibitem anchor="BigTIFFWeb" id="_0c9e3020-a223-d827-03fd-b006bd944a08">
+  <formattedref format="application/x-isodoc+xml">Welcome to the BigTIFF version of the libtiff library. In Internet: <link target="http://bigtiff.org/"/></formattedref>
+  <docidentifier>Welcome to BigTIFF</docidentifier>
+  
+</bibitem><bibitem anchor="AdobeTIFF6" id="_4c060c96-ebd0-fc05-68b9-5eb6cb99185c">
+  <formattedref format="application/x-isodoc+xml">Adobe Developers Association, TIFF Revision 6.0 Final, June 3, 1992, Adobe Systems Incorporated, <link target="https://www.adobe.io/open/standards/TIFF.html"/></formattedref>
+  <docidentifier>TIFF Revision 6.0 Final</docidentifier>
+  <docnumber>6.0 Final</docnumber>
+</bibitem>
+
+
+
+</references></bibliography>
+</metanorma>

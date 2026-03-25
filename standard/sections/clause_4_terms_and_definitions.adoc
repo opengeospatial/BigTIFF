@@ -1,0 +1,52 @@
+== Terms and Definitions
+This document uses the terms defined in OGC Policy Directive 49, which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "`shall`" (not "`must`") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
+
+For the purposes of this document, the following additional terms and definitions apply.
+
+=== big image file directory
+
+a modified data structure containing the TIFF fields (identified by a tag) of a BigTIFF file.
+
+=== big image file header
+
+a modified data structure at the beginning of a BigTIFF file.
+
+=== classic TIFF
+
+a TIFF file that follows the TIFF specification version 6.0.
+
+=== field
+
+each entry on a image file directory or a big image file directory. A field is characterized by a tag numerical value and contains or points to the data (source: TIFF specification version 6.0)
+
+[.source]
+<<AdobeTIFF6>>
+
+=== image file directory
+
+a data structure containing a list of TIFF fields (identified by a tag) of a TIFF file. 
+
+[.source]
+<<AdobeTIFF6>>
+
+=== image file header
+
+a data structure at the beginning of a TIFF file.
+
+[.source]
+<<AdobeTIFF6>>
+
+=== tag
+the identifying number of a field type in the image file directory or the big image file directory. 
+
+[.source]
+<<AdobeTIFF6>>
+
+NOTE: In previous versions of the TIFF specification, the term “tag” referred both to the identifying number of a TIFF field and to the entire field.
+
+=== TIFF
+a tag-based file format for storing and interchanging raster images
+
+[.source]
+<<AdobeTIFF6>>
+

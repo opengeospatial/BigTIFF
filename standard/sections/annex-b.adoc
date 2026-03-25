@@ -1,6 +1,5 @@
-[appendix]
+[appendix,obligation="informative"]
 [[annex-classic-tiff-basic-struct-informative]]
-:appendix-caption: Annex
 == Classic TIFF v6 basic data structures and complete list of BigTIFF data types (Informative)
 
 === Image File Header

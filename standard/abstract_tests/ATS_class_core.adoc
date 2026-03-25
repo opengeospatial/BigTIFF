@@ -1,0 +1,23 @@
+[[ats_core,/conf/core]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/BigTIFF/1.0/conf/core
+target:: https://www.opengis.net/spec/BigTIFF/1.0/req/core
+classification:: Target Type:BigTIFF Encoder
+abstract-test:: /conf/core/big-offsets
+abstract-test:: /conf/core/bifh
+abstract-test:: /conf/core/bifd
+====
+==== big-offset
+
+include::core/ATS_test_big-offsets.adoc[]
+
+==== bifh
+
+include::core/ATS_test_bifh.adoc[]
+
+==== bifd
+
+include::core/ATS_test_bifd.adoc[]
+
