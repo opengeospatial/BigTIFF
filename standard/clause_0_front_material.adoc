@@ -17,9 +17,7 @@ The BigTIFF format was proposed in https://www.awaresystems.be/imaging/tiff/bigt
 
 Changes were made by Ole Eichhorn (ole.eichhorn@gmail.com) while at (www.aperio.com)[Aperio] (now only accessible in the web.archive.org) and were donated to the public domain, in gratitude to Sam Leffler, Silicon Graphics, Joris Van Damme, Aware Systems, Frank Warmerdam, Andrey Kisley, Mike Welles, and all who have worked on libtiff over the years to provide this tool. These changes were published on an "as is" basis and neither Ole Eichhorn nor Aperio made any warranty as to their fitness for any intended use.
 
-GeoTIFF 1.1 was brought to the OGC as a community standard but, in the process, was made dependent form the classical TIFF specification. This Standard brings BigTIFF to the OGC as another community standard. It is expected that Next version of GeoTIFF supports both Classical TIFF and  BigTIFF.
-
-This document is an adaptation of the https://www.awaresystems.be/imaging/tiff/bigtiff.html content to an OGC language to bring it to the OGC standards process as a community standard. It was done with the intention of creating a transcription with no practical modifications, so old BigTIFF implementations would be compatible with this document.
+GeoTIFF 1.1 was brought to the OGC as a community standard and This document is an adaptation of the https://www.awaresystems.be/imaging/tiff/bigtiff.html content to an OGC language to bring it to the OGC standards process as a community standard. It was done with the intention of creating a transcription with no practical modifications, so old BigTIFF implementations would be compatible with this document. In the process, the Standard was made dependent form the classical TIFF specification. It is expected that Next version of GeoTIFF supports both Classical TIFF and  BigTIFF.
 
 [NOTE]
 ====
