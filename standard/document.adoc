@@ -1,4 +1,4 @@
-= OGC BigTIFF community standard
+= OGC BigTIFF standard
 :doctype: standard
 :encoding: utf-8
 :lang: en

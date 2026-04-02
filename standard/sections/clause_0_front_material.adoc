@@ -1,18 +1,18 @@
 [abstract]
 == Abstract
 
-This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, can support BigTIFF in the near future.
+This document is OGC Standard that describes an extended internal structure for an image file that requires more than 4GBytes. The general structure is similar to the TIFF specification version 6 but it replaces two essential data structures called Image File Header and Image File Directory for new ones that support the necessary longer integer numbers that acts as internal offsets of the file. It also adds 3 new data types for very long integers. It is expected that other OGC standards, such as GeoTIFF, Will depend on this OGC Standard in the near future.
 
 == Preface
 
-When the TIFF format was defined back in 1986 the storage capacity of the computers made difficult (or even impossible) for an single file image to be bigger than 4GBytes long. But today capacities makes it viable and if the file can be random accessed in small pieces, could be even useful to have a big remote sensing product in a single file.
+When the TIFF format was defined back in 1986 the storage capacity of the computers made difficult (or even impossible) for an single file image to be bigger than 4GBytes long. But today capacities makes it viable and if the file can be random accessed in small pieces, could be useful for example in the case of a big remote sensing dataset that is delivered in a single TIFF file.
 
 The basic BigTIFF design was first proposed in 2004 and refined in (https://www.asmail.be/msg0055453930.html)[this discussion] (now only accessible in the web.archive.org) on the Aware Systems (https://www.awaresystems.be/)[Aware Systems] mailing list (now only available in the web.archive.org). Contributors to the design discussion included Lynn Quam, Frank Warmerdam, Chris Cox, Rob Tillaart, Dan Smith, Bob Freisenhahn, Andrey Kiselev, Phillip Crews, and Gerben Vos. The authors thank all those who came before them for creating libtiff and designing the BigTIFF enhancements.
-The BigTIFF format was proposed in https://www.awaresystems.be/imaging/tiff/bigtiff.html maintained by Joris Van Damme and has been stable in recent years (now only accessible in the web.archive.org).
+The BigTIFF format was proposed in https://www.awaresystems.be/imaging/tiff/bigtiff.html, maintained by Joris Van Damme, and has been stable in recent years (now only accessible in the web.archive.org).
 
-Changes were made by Ole Eichhorn (ole.eichhorn@gmail.com) while at (www.aperio.com)[Aperio] (now only accessible in the web.archive.org) and were donated to the public domain, in gratitude to Sam Leffler, Silicon Graphics, Joris Van Damme, Aware Systems, Frank Warmerdam, Andrey Kisley, Mike Welles, and all who have worked on libtiff over the years to provide this tool. These changes were published on an "as is" basis and neither Ole Eichhorn nor Aperio made any warranty as to their fitness for any intended use.
+Changes were made by Ole Eichhorn (ole.eichhorn@gmail.com) while at (www.aperio.com)[Aperio] (now only accessible in the web.archive.org) and the work was donated as public domain, in gratitude to Sam Leffler, Silicon Graphics, Joris Van Damme, Aware Systems, Frank Warmerdam, Andrey Kisley, Mike Welles, and all who have worked on libtiff over the years to provide support to files bigger than previous limitations. These changes were published on an "as is" basis and neither Ole Eichhorn nor Aperio made any warranty as to their fitness for any intended use. 
 
-GeoTIFF 1.1 was brought to the OGC as a community standard and This document is an adaptation of the https://www.awaresystems.be/imaging/tiff/bigtiff.html content to an OGC language to bring it to the OGC standards process as a community standard. It was done with the intention of creating a transcription with no practical modifications, so old BigTIFF implementations would be compatible with this document. In the process, the Standard was made dependent form the classical TIFF specification. It is expected that Next version of GeoTIFF supports both Classical TIFF and  BigTIFF.
+The intention of this Standard is to elevate the work done by all cited previous people to the category of International Standard recognizing and respecting their work. This document is an adaptation of the https://www.awaresystems.be/imaging/tiff/bigtiff.html specification to an OGC Standard format following the OGC Modular Specification. It was done with the intention of creating a transcription with no practical modifications, so old BigTIFF implementations would be immediately compatible with this Standard. In the process, the Standard was made partially dependent from the classical TIFF v6 specification. It is expected that next versions of GeoTIFF will support both classical TIFF v6 and BigTIFF overcoming file size limitations. 
 
 [NOTE]
 ====
@@ -45,7 +45,6 @@ All questions regarding this submission should be directed to the editor or the 
 | Gilles Cebelieu | IGN-F
 | Michel Leedahl | Michel Leedahl
 |===
-
 
 //== Contributors
 
