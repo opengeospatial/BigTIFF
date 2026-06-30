@@ -27,6 +27,14 @@ each entry on a _image file directory_ or a _big image file directory_. A field 
 [.source]
 <<AdobeTIFF6>>
 
+=== gibibyte
+
+2^30^ bytes (1 073 741 824 bytes) 
+
+NOTE: this number is similar but not equal to a gigabyte that is 10^9* bytes (1 000 000 000 or a billion bytes).
+
+ISO/IEC 80000-13
+
 === image file directory
 
 a data structure containing a list of TIFF fields (identified by a tag) of a _classic TIFF_ file. 
@@ -37,6 +45,13 @@ a data structure containing a list of TIFF fields (identified by a tag) of a _cl
 === image file header
 
 a data structure at the beginning of a _classic TIFF_ file.
+
+[.source]
+<<AdobeTIFF6>>
+
+=== offset
+
+location in bytes with respect to the beginning of the TIFF file. The first byte of the file has an offset of 0.
 
 [.source]
 <<AdobeTIFF6>>

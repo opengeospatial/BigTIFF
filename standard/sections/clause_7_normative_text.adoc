@@ -76,9 +76,16 @@ A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This lo
 3+|^1^ See a list of codes in the TIFF version 6 specification. The GeoTIFF standard adds some extra TIFF tag identifiers.
 |===
 
-Each _TIFF field_ has an associated _Number of values_ (n). This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.
+Each _TIFF field_ has an associated _Number of values_ (n). This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value. 
 
 The same rule for value 'inlining' the tag data applies to both classic TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by an offset and written elsewhere.
+
+
+Some good practices inherited from TIFF but not specified in <<AdobeTIFF6>> are:
+
+* _Number of values_ (n) cannot be zero.
+* Offset to tag data in multiple tags cannot be shared (e.g. Tag A and Tag B that not point to the same offset).
+* Offset to tag data cannot point to the same fragment of the file (e.g. Tag A points to an area of m bytes, Tag B cannot point to part of the same area).
 
 The following table contains the _Tag_ datatypes that are defined in BigTIFF, in addition to the ones defined in the <<AdobeTIFF6>>  (see the last part of <<datatype-values>>)
 
@@ -93,3 +100,5 @@ The following table contains the _Tag_ datatypes that are defined in BigTIFF, in
 |===
 
 include::../recommendations/core/PER_long8.adoc[]
+
+NOTE: For future versions it would be useful to add a new datatype "UTF8". This will allow for better metadata handling and internationalization.

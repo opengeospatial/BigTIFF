@@ -12,5 +12,6 @@ test-method:: Inspect that _big directory entries_ in a BIFD are sorted by _Tag 
 test-method:: Inspect that each _big directory entry_ follows the structure presented in <<bigtiff-de-structure>>. This can be done by examining the _Tag codes_ and the _data types_ and of the TIFF fields and recognize at least some of them (comparing with tables of accepted values).
 test-method:: Inspect that the tag _value_ is written inside the tag structure, in the _big directory entry_, if its size is smaller than or equal to 8 bytes. Otherwise, inspect that it's written elsewhere, and pointed to by an offset written as the _value_.
 test-method:: In case of multibyte values (e.g a SHORT, LONG, etc), Inspect that the byte order (II or MM) in the TIFF header governs the order of the bytes.
+test-method:: Inspect that the value of _Offset to next BIFD_ in a BIFD does not point to a previous BIFD.
 test-method:: Inspect that the `type` is compatible with the expected value. Since TIFF allows for more than one valid type for some fields, inspect that all types specified as unsigned integer, the `type` is set to BYTE, SHORT, LONG or LONG8.
 ====
