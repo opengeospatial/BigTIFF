@@ -5,8 +5,8 @@
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/BigTIFF/1.0/req/core
-subject:: BigTIFF Encoder
-inherit:: https://www.adobe.io/content/dam/udp/en/open/standards/tiff/TIFF6.pdf (except for the Section 2 that is replaced by the requirements of this Standard)
+subject:: BigTIFF file
+inherit:: <<AdobeTIFF6>> (except for the Section 2 that is replaced by the requirements of this Standard)
 requirement:: /req/core/big-offsets
 requirement:: /req/core/bifh
 requirement:: /req/core/bifd

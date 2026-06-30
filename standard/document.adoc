@@ -6,7 +6,7 @@
 :committee: technical
 :draft: 1.0
 :external-id: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
-:docnumber: 21-061
+:docnumber: 21-061r1
 :received-date: 2029-03-30
 :issued-date: 2029-03-30
 :published-date: 2029-03-30

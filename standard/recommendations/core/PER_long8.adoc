@@ -4,6 +4,6 @@
 ====
 [%metadata]
 identifier:: /per/core/per-core-long8
-part:: StripOffsets, StripByteCounts, TileOffsets, and TileByteCounts tags are allowed to have the datatype LONG8 in BigTIFF when necessary. LONG, and SHORT are still valid
-part:: Tags that point to other IFDs, such as the SubIFDs tag (see TIFF PageMaker version 6), are allowed to have the datatype IFD8. The datatypes IFD (and the not recommendable LONG) are still valid
+part:: StripOffsets, StripByteCounts, TileOffsets, and TileByteCounts tags MAY  have the datatype LONG8 in BigTIFF when necessary. LONG, and SHORT are still valid possibilitities.
+part:: Tags that point to other IFDs, such as the SubIFDs tag (see TIFF PageMaker version 6), MAY have the datatype IFD8. The datatypes IFD (and the not recommendable LONG) are still valid possibilities.
 ====
