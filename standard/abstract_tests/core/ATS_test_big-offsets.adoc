@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: /conf/core/big-offsets
 target:: /req/core/big-offsets
-test-purpose:: Verify that the section _big image file header_ uses 8 bit offsets
-test-method:: Inspect that aBigTIFF begins with a 16 byte _big image file header_ (that replaces the TIFF v6 8 byte _image file header_) 
-test-method:: Inspect that the _big image file header_ points to the first _big image file directory_ (BIFD)
+test-purpose:: Verify that the section _big image file header_ uses 8 byte offsets
+test-method:: Inspect that the BigTIFF begins with a 16 byte _big image file header_ (that replaces the TIFF v6 8 byte _image file header_). In particular verify that the 2 first bytes correspond to the byte order expected content (0x4949 or 0x4D4D) and the second 2 bytes represent a 42 or a 43. If it is a 42, consider the file as classic TIFF instead of a BigTIFF.
+test-method:: Inspect that the _big image file header_ offset points to an area the content corresponds with a _big image file directory_ (BIFD) structure.
 ====

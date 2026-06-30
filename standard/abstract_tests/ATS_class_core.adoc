@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: https://www.opengis.net/spec/BigTIFF/1.0/conf/core
 target:: https://www.opengis.net/spec/BigTIFF/1.0/req/core
-classification:: Target Type:BigTIFF Encoder
+classification:: Target Type:BigTIFF File
 abstract-test:: /conf/core/big-offsets
 abstract-test:: /conf/core/bifh
 abstract-test:: /conf/core/bifd

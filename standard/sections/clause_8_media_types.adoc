@@ -1,6 +1,6 @@
 == Media Types for any data encoding(s)
 IANA defines the image/tiff media type for TIFF (https://www.iana.org/assignments/media-types/image/tiff). 
-Clients do not need to negotiate with the servers between classic TIFF or BigTIFF. Allowing for negotiation will contradict the first recommendation in this Standards that states that servers and writers should only use BigTIFF for files bigger than 4 Gigabytes or when using the data types introduced in BigTIFF. Old clients not supporting BigTIFF will only receive BigTIFF when Classic TIFF will not work for them anyway.
+Clients do not need to negotiate with the servers between classic TIFF or BigTIFF. Allowing for negotiation will contradict the first recommendation in this Standards that states that servers and writers should only use BigTIFF for files bigger than 4 Gibibytes (2^32^) or when using the data types introduced in BigTIFF. Old clients not supporting BigTIFF will only receive BigTIFF when Classic TIFF will not work for them anyway.
 Since a modern software is able to programmatically differentiate between a Classic TIFF and a BigTIFF, they can share the same media time for the BigTIFF.
 
 It is also suggest that same file extension ('tif' or 'tiff') is used for both Classic TIF and BigTIFF, despite other suggestions such as 'tf8' and 'btf' (some time ago discussed in the LibTiff mailing list).

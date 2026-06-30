@@ -4,6 +4,7 @@
 ====
 [%metadata]
 identifier:: /req/core/big-offsets
+part:: A BigTIFF SHALL shall be a file with a size bigger than 4Gibibytes or a TIFF file using using the new data types defined in this Standard 
 part:: A BigTIFF SHALL begin with a 16 byte _big image file header_ (that replaces the <<AdobeTIFF6>> 8 byte _image file header_)
 part:: A _big image file header_ SHALL point to the first _big image file directory_ (BIFD). A _big image file directory_ contains information about the image, as
 well as pointers to the actual image data in a similar way as a _image file directory_ does in <<AdobeTIFF6>>

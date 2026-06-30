@@ -1,8 +1,6 @@
 [[BigTIFFRequirements]]
 == BigTIFF requirements
-The BigTIFF standard provides a solution for a TIFF file that requires a file size larger than 4 Gigabytes.
-
-A BigTIFF file (and a TIFF) is defined as a sequence of 8-bit bytes, where the bytes are numbered from 0 to N. In a BigTIFF file, the largest possible file is 2^64^ bytes in length.
+The BigTIFF standard provides a solution for a TIFF file that requires a file size larger than 4 Gibibytes (2^32^). In a BigTIFF file, the largest possible file is 2^64^ bytes in length. In this situation the classic TIFF internal 32 bit offsets are not long enough to point to the a byte beyond the 4 Gibibytes limit.
 
 === Requirement Class Core
 
@@ -22,6 +20,8 @@ NOTE: This is in order to ensure maximum backwards compatibility with old TIFF i
 
 include::../requirements/core/big-offsets.adoc[]
 
+NOTE: There is a paradox in the actual 4 Gibibytes limit. In a case that all _Image File Directories_ are at the beginning of the file, a 32 bit offset can be sufficient to point to an array of image strips offsets (Tag code 273) and 32 bit numbers may be sufficient for image strips offsets, but imagining that strips are in other and that the second to last strip is at the offset 4.1 10^9^ and that the last strip is 250 MegaByte long, the total size of the file will cross the 4 GiB boundary. In a case like this, even if BigTIFF it is not technically necessary, a BigTIFF is mandated by this Standard. This provides a clear criteria to discriminate the need for a BigTIFF file that is independent from order and size of the internal parts of the file.
+
 include::../requirements/core/bifh.adoc[]
 
 [#bigtiff-file-header,reftext='{table-caption} {counter:table-num}']
@@ -31,7 +31,7 @@ include::../requirements/core/bifh.adoc[]
 | Offset {set:cellbgcolor:#EEEEEE} | Datatype | Value
 | 0 {set:cellbgcolor:#FFFFFF} | uint16 | Byte order indication (use the values stated in the TIFF version 6 Image File Header Bytes 0-1)
 | 2 | uint16 | Version number (always 43)
-| 4 | uint16 | Size of offset in bytes Always 8 in BigTIFF (it could be 16 in a future version for superbig TIFFs)
+| 4 | uint16 | Size of offset in bytes. Always 8 in BigTIFF (it could be 16 in a future version for superbig TIFFs)
 | 6 | uint16 | Reserved. Populate with 0
 | 8 | uint64 | Offset (in bytes) to first BIFD
 |===
@@ -55,10 +55,10 @@ Every _Big Directory Entry_ takes up exactly 20 bytes in BigTIFF, and the comple
 |===
 | Offset {set:cellbgcolor:#EEEEEE} | Datatype | Value
 | 0 {set:cellbgcolor:#FFFFFF} | uint64 | Number of big directory entries in BIFD (B)
-| 8+0*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | First tag data
-| 8+1*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | Second tag data
+| 8+0*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | First tag data in a TIFF field
+| 8+1*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | Second tag data in a TIFF field
 3+| ...
-| 8+(B-1)*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | Last tag data
+| 8+(B-1)*20 | Big directory entry structure (see <<bigtiff-de-structure>>) | Last tag data in a TIFF field
 | 8+B*20 | uint64 | Offset to next BIFD, if there is a next BIFD or 0 otherwise
 |===
 
@@ -71,12 +71,12 @@ A _TIFF field_ is a logical entity consisting of TIFF tag and its value. This lo
 | Offset {set:cellbgcolor:#EEEEEE} | Datatype | Value
 | 0 {set:cellbgcolor:#FFFFFF} | uint16 | Tag identifying code ^1^
 | 2 | uint16 | Datatype of tag data. See <<datatype-values>>
-| 4 | uint64 | Number of values (it is not the total number of bytes but the number of values)
-| 12 | x * Tag data or uint64 offset | Tag data or offset to tag data
+| 4 | uint64 | Number of values (n) (it is not the total number of bytes but the number of values)
+| 12 | n * Tag data or uint64 offset | Tag data (if the size of n * Tag data is lower or equal to 64 bits) or offset to tag data (otherwise)
 3+|^1^ See a list of codes in the TIFF version 6 specification. The GeoTIFF standard adds some extra TIFF tag identifiers.
 |===
 
-Each _TIFF field_ has an associated Count. This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.
+Each _TIFF field_ has an associated _Number of values_ (n). This means that all fields are actually one-dimensional arrays, even though most fields contain only a single value.
 
 The same rule for value 'inlining' the tag data applies to both classic TIFF and BigTIFF, only the threshold size differs. Above the threshold values are pointed by an offset and written elsewhere.
 

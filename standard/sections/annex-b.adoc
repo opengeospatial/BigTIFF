@@ -40,8 +40,8 @@ Every tag takes up exactly 12 bytes in classic TIFF, and looks like this:
 | Offset | Datatype | Value
 | 0 | uint16 | Tag identifying code
 | 2 | uint16 | Datatype of tag data
-| 4 | uint32 | Number of values
-| 8 | x * Tag data datatype or uint32 offset | Tag data or offset to tag data
+| 4 | uint32 | Number of values (n)
+| 8 | n * Tag data or uint32 offset | Tag data (if the size of n * Tag data is lower or equal to 32 bits) or offset to tag data (otherwise)
 |===
 
 In classic TIFF, the tag data was written inside the tag structure, in the IFD, if its size was smaller than or equal to 4 bytes. Otherwise, it's written elsewhere, and pointed to.

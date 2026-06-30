@@ -9,7 +9,7 @@ part:: A BigTIFF file SHALL NOT contain any classic TIFF _image file directory_.
 part:: A _big image file directory_ SHALL follow the structure of _Big Directory Entries_ presented in <<bigtiff-ifd-structure>>
 part:: The _big directory entries_ in a BIFD SHALL be sorted by code (in the same way than classic TIFF requires)
 part:: Each _big directory entry_ SHALL follow the structure presented in <<bigtiff-de-structure>>
-part:: The tag _value_ SHALL be included inside the tag structure, in the _big directory entry_, if its size is smaller than or equal to 8 bytes. Otherwise, it SHALL be included elsewhere, and pointed to by the offset included as the value
+part:: The tag _value_ SHALL be included inside the tag structure, in the _big directory entry_, if its size is smaller than or equal to 8 bytes. Otherwise, it SHALL be included elsewhere, and the _value_ SHALL be an offset from the beginning of the file.
 part:: In case of multibyte values (e.g a SHORT, LONG, etc), the byte order (II or MM) in the TIFF header SHALL govern the order of these bytes.
 part:: The `type` in the BIFD SHALL take priority over the specified (in <<AdobeTIFF6>> or elsewhere) `type` of the expected value. In particular, the <<AdobeTIFF6>> allows for more than one valid type for some fields. For example, `ImageWidth`
 and `ImageLength` are usually specified as having `type` SHORT, but images with more than 64K rows or columns will use the LONG field `type`. The `type` of any specified unsigned integer SHALL be expressed as BYTE, SHORT, LONG or LONG8.
