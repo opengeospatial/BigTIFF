@@ -29,3 +29,12 @@ In the elaboration of this Standard a new naming for the data types have been ad
 | Signed 8Byte  | int64 | twos-complement signed long long integer (8 bytes)
 | Unsigned 8Byte	| uint64 | unsigned long long integer (8 bytes)
 |===
+
+=== Implications for EXIF
+EXIF is a metadata standard that uses a TIFF-compatible structure such as _image file header_ and _image file directory_ as a container. It adopts many of the accepted <<AdobeTIFF6>> tags and provides an extra list of EXIF tags and a pointer to a dedicated EXIF sub-IFD.
+
+EXIF extra tags define a photography-focused subset and extends it with standardized metadata fields for digital cameras. It captures information such as exposure, date/time, GPS, and thumbnail-related data. For TIFF files, EXIF information is integrated by adding new TIFF tags. For the JPEG format, EXIF is included in the Application Market Segment (APP1). APP1 is recorded immediately after the SOI marker indicating the beginning of the file.
+
+EXIF specification references Classic TIFF as a data structure and current cameras are not generating images with size bigger that 4Gib. However, nothing prevents a BigTIFF file to use EXIF following the same pattern specified in this Standard (by replacing IFH and IFDs with BIFH and BIFDs respectively). Implementations of EXIF readers should consider the possibility to find BigTIFF structures when reading EXIF, and the need to transform them to Classic TIFF structures when exporting data and metadata to JPEG or other formats.
+
+NOTE: In the future, the structure BigTIFF format could support both IFDs and BIFDs and by saving this EXIF part in the first part of the document this issue could be avoided. However introducing changes in the original BigTIFF specification is out of scope of this Standard.

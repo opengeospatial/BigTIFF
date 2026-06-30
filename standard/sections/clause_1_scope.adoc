@@ -1,5 +1,7 @@
 == Scope
-This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4 Gibibytes (2^32^). The general structure is similar to the TIFF specification version 6 but two essential data structures called Image File Header and Image File Directory are replaced by Big File Header and Big Image File Directory to support the necessary longer integer numbers that act as internal offsets of the file. It also adds 3 new extra data types: LONG8 (uint64) SLONG8 (int64) or IFD8 (uint64). 
+This document is OGC Standard that describes an extended internal structure for a image file that requires more than 4 Gibibytes (2^32^). The general structure is similar to the TIFF specification version 6 but two essential data structures called Image File Header and Image File Directory are replaced by Big File Header and Big Image File Directory to support the necessary longer integer numbers that act as internal offsets of the file. It also adds 3 new extra data types: LONG8 (uint64) SLONG8 (int64) or IFD8 (uint64).
+
+The intention of this Standard is to elevate the work done by the original creators of BigTIFF to the category of International Standard recognizing and respecting their work. Introducing changes in the original work is out of scope of this Standard version.
 
 NOTE: In this Standard Gibibytes (2^32^) is used instead of the most common Gigabytes (10^9^) because the limit in the file format size is related to internal offsets expressed using 32 bit long integer numbers.
 
