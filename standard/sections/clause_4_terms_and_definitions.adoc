@@ -12,7 +12,7 @@ a modified _image file directory_ data structure containing the TIFF fields (ide
 
 a modified _image file header_ data structure at the beginning of a BigTIFF file.
 
-=== big TIFF
+=== big TIFF or BigTIFF
 
 a TIFF file that follows this Standard.
 

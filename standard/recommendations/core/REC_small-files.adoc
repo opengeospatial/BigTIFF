@@ -4,5 +4,5 @@
 ====
 [%metadata]
 identifier:: /rec/core/rec-small-files
-part:: In principle, the BigTIFF standard could also support smaller than 4 Gigabytes files. However, files that do not require file size bigger than 4 Gigabytes or not using the new data types SHOULD use TIFF version 6 specification instead of this Standard. 
+part:: In principle, the BigTIFF standard could also support smaller than 4 Gigabytes files. However, files that do not require file size bigger than 4 Gigabytes or are not using the new data types defined in this Standard SHOULD use Classic TIFF (<<AdobeTIFF6>>) instead of the format defined in this Standard (BigTIFF). 
 ====
