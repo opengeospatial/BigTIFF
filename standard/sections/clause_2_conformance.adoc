@@ -7,8 +7,10 @@ This class defines the requirements of the BigTIFF format.
 
 Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
+It is expected that applications implementing the previous proposed BigTIFF specifications will be compatible with this OGC Standard. However, it is recommended that those implementations are also tested for conformance using the tests specified in Annex A (normative) of this OGC Standard in order to be able to declare OGC Compliance.
+
 In order to conform to this OGC® interface standard, a software implementation shall choose to implement:
 
-* Any one of the conformance levels specified in Annex A (normative).
+* The conformance levels specified in Annex A (normative).
 
-All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.
+The single requirements-class and conformance-class described in this Standard are owned by the standard(s) identified.

@@ -1,6 +1,7 @@
 [[per_class_core_big-offsets]]
 
 [permission]
+[type=ignore-log]
 ====
 [%metadata]
 identifier:: /per/core/per-big-offsets

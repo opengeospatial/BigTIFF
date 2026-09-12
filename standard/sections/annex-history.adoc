@@ -4,5 +4,10 @@
 [width="90%",options="header"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description
-|2016-04-28 |0.1 |G. Editor |all |initial version
+|2021-09-07 |21-061 0.1 |G. Editor |all |initial proposal from the OGC Testbed 17 work
+|2025-09-09 |21-061 0.7 |G. Editor |all |First full version 
+|2026-03-25 |21-061 0.8 |G. Editor |all |Transformation to metanorma 
+|2026-04-24 |21-061r1 0.9 |G. Editor |all |Version ready to be submitted to OGC for public comments. Reclassified as an OGC standard (instead of an OGC community standard)
+|2026-06-30 |21-061r1 0.9 |G. Editor |all |Version with all comments addressed ready for voting
+|2026-09-12 |21-061r2 1.0 |G. Editor |all |Final version submitted for its vote for approval by the OGC TC
 |===

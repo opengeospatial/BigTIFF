@@ -1,6 +1,7 @@
 [[rec_class_core_small-files]]
 
 [recommendation]
+[type=ignore-log]
 ====
 [%metadata]
 identifier:: /rec/core/rec-small-files

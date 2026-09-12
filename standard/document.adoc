@@ -6,14 +6,14 @@
 :committee: technical
 :draft: 1.0
 :external-id: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
-:docnumber: 21-061r1
+:docnumber: 21-061r2
 :received-date: 2029-03-30
 :issued-date: 2029-03-30
 :published-date: 2029-03-30
 :fullname: Joan Maso
 :docsubtype: implementation
-:keywords: ogcdoc, OGC document, TIFF, image format
-:submitting-organizations: UAB-CREAF
+:keywords: ogcdoc, OGC document, TIFF, image format, big file
+:submitting-organizations: UAB-CREAF, Geomatys, IGN-F and Michel Leedahl
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
 :local-cache-only:

@@ -1,6 +1,7 @@
 [[per_class_core_long8]]
 
 [permission]
+[type=ignore-log]
 ====
 [%metadata]
 identifier:: /per/core/per-core-long8

@@ -21,18 +21,15 @@ Recipients of this Standard are requested to submit, with their comments, notifi
 
 == Security considerations
 
-//If no security considerations have been made for this Standard, use the following text.
+While this Standard upgrades TIFF by accommodating capacity for massive datasets (such as satellite imagery, gigapixel medical pathology slides, and high-fidelity 3D maps) it introduces specific, security vulnerabilities. The following list is not exhaustive but highlights the most critical concerns:
 
-No security considerations have been made for this Standard.
+Memory Allocation Bombs (Severe DoS): With BigTIFF's 64-bit fields, a malicious actor can craft an Image File Directory (IFD) tag indicating that an array requires exabytes or petabytes of memory. If a parser software naively executes memory allocation (malloc) based on that 64-bit header value before validating the actual file payload size, it will cause an immediate application crash or severe system-wide memory exhaustion.
 
-////
-If security considerations have been made for this Standard, follow the examples found in IANA or IETF documents. Please see the following example.
-“VRRP is designed for a range of internetworking environments that may employ different security policies. The protocol includes several authentication methods ranging from no authentication, simple clear text passwords, and strong authentication using IP Authentication with MD5 HMAC. The details on each approach including possible attacks and recommended environments follows.
-Independent of any authentication type VRRP includes a mechanism (setting TTL=255, checking on receipt) that protects against VRRP packets being injected from another remote network. This limits most vulnerabilities to local attacks.
-NOTE: The security measures discussed in the following sections only provide various kinds of authentication. No confidentiality is provided at all. This should be explicitly described as outside the scope....”
-////
+64-bit to 32-bit Truncation Vulnerabilities: Legacy applications handle file pathways using 32-bit code. When a modern BigTIFF library passes a 64-bit offset or byte-count pointer to an older code, the upper bits can be truncated. This type mismatch creates scenarios leading to out-of-bounds memory reads or heap corruptions.
 
+Unchecked Malware Staging & Steganography: Because BigTIFF files easily scale into tens of gigabytes, they are perfect vehicles for data exfiltration or malware storage. Most enterprise antivirus software, firewalls, and email scanners bypass deep content scanning for files exceeding 50 MB to 100 MB to maintain performance. Attackers can embed entire encrypted payloads into obscure 64-bit tag blocks without altering the viewable image, completely avoiding detection. 
 
+Infinite Tiles: BigTIFF heavily relies on tiled structures to read giant images efficiently. A corrupted or malicious file can define millions of deeply nested that may lock up server CPU threads almost indefinitely.
 
 == Submitters
 

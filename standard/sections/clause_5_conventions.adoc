@@ -1,16 +1,18 @@
 == Conventions
-This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
+These sections provide details and examples for any conventions used in this Standard. Examples of conventions are symbols, abbreviations, or special notes regarding how to read the Standard.
 
 === Abbreviations
 
 [horizontal]
 BIFD:: BigTIFF Image File Directory
+BIFH:: BigTIFF Image File Header
 IFD:: Image File Directory
+IFH:: Image File Header
 TIFF:: Tag Image File Format
 
 === Identifiers
-The normative provisions in this standard are denoted by the URI
+The normative provisions in this Standard are denoted by the URI
 
 `https://www.opengis.net/spec/bigtiff/1.0`
 
-All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+All requirements and conformance tests that appear in this Standard are denoted by partial URIs which are relative to this base.
